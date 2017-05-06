@@ -3,8 +3,8 @@ layout: post
 title: "Powershell Tricks"
 date: 2017-05-07 21:31:05
 description: "Powershell Tricks"
-main-class: 'dev'
-color: '#637a91'
+main-class: 'powershell'
+color: '#000'
 tags:
 - "powershell"
 twitter_text: "Favicons, touch icons e tile icons..."
