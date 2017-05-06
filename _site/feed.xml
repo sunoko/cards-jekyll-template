@@ -5,8 +5,8 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/cards-jekyll-template/</link>
     <atom:link href="https://sunoko.github.io/cards-jekyll-template/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 06 May 2017 23:30:51 +0900</pubDate>
-    <lastBuildDate>Sat, 06 May 2017 23:30:51 +0900</lastBuildDate>
+    <pubDate>Sat, 06 May 2017 23:34:15 +0900</pubDate>
+    <lastBuildDate>Sat, 06 May 2017 23:34:15 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -101,16 +101,12 @@
     
       <item>
         <title>About me</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory - edit this post and re-build (or run with the &lt;code class=&quot;highlighter-rouge&quot;&gt;-w&lt;/code&gt; switch) to see your changes!
-To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention: YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
+        <description>
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;Profile&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt; 
-      &lt;span class=&quot;s2&quot;&gt;&quot;Name&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Kazuki Chinone&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-      &lt;span class=&quot;s2&quot;&gt;&quot;BirthDay&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;1990/8/16&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-      &lt;span class=&quot;s2&quot;&gt;&quot;City&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Tokyo&quot;&lt;/span&gt; 
+  &lt;span class=&quot;s2&quot;&gt;&quot;プロフィール&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt; 
+    &lt;span class=&quot;s2&quot;&gt;&quot;名前&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Kazuki Chinone&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;s2&quot;&gt;&quot;生年月日&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;1990/8/16&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;s2&quot;&gt;&quot;住まい&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Tokyo&quot;&lt;/span&gt; 
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
