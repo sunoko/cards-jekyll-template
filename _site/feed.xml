@@ -5,8 +5,8 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/cards-jekyll-template/</link>
     <atom:link href="https://sunoko.github.io/cards-jekyll-template/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 06 May 2017 23:41:50 +0900</pubDate>
-    <lastBuildDate>Sat, 06 May 2017 23:41:50 +0900</lastBuildDate>
+    <pubDate>Sat, 06 May 2017 23:46:05 +0900</pubDate>
+    <lastBuildDate>Sat, 06 May 2017 23:46:05 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -107,6 +107,12 @@
     &lt;span class=&quot;s2&quot;&gt;&quot;名前&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Kazuki Chinone&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
     &lt;span class=&quot;s2&quot;&gt;&quot;生年月日&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;1990/8/16&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
     &lt;span class=&quot;s2&quot;&gt;&quot;住まい&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Tokyo&quot;&lt;/span&gt; 
+    &lt;span class=&quot;s2&quot;&gt;&quot;スキル&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Javascript&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Ruby&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;3&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Powershell&quot;&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;4&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Docker&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
