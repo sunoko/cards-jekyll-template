@@ -6,7 +6,7 @@ description: "Detalhes fazem a diferença, vamos falar sobre Favicons, Touch Ico
 main-class: 'dev'
 color: '#637a91'
 tags:
-- "dicarapida"
+- "powershell"
 twitter_text: "Favicons, touch icons e tile icons..."
 introduction: "Qual a importância dos favicons, touch icons e tile icons. Como criá-los automáticamente e como usá-los em seu site."
 ---
