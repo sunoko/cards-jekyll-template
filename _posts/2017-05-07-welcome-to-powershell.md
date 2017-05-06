@@ -1,16 +1,14 @@
 ---
 layout: post
-title: "Welcome to Powershell"
-date: 2017-05-07 20:34:26
-image: '/assets/img/'
-description: 'Put your description here.'
-main-class: 'powershell'
-color: '#B31917'
+title: "Dica rápida #1"
+date: 2017-05-07 21:31:05
+description: "Detalhes fazem a diferença, vamos falar sobre Favicons, Touch Icons e Tile Icons e como eles fazem a diferença."
+main-class: 'dev'
+color: '#637a91'
 tags:
-- powershell
-categories:
-twitter_text: 'This is Powershell Tricks.'
-introduction: 'This is Powershell Tricks.'
+- "dicarapida"
+twitter_text: "Favicons, touch icons e tile icons..."
+introduction: "Qual a importância dos favicons, touch icons e tile icons. Como criá-los automáticamente e como usá-los em seu site."
 ---
 
 # Powershell Tricks
