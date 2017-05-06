@@ -38,6 +38,10 @@
         </url>
     
         <url>
+            <loc>https://sunoko.github.io/cards-jekyll-template/category/profile/</loc>
+        </url>
+    
+        <url>
             <loc>https://sunoko.github.io/cards-jekyll-template/search.json</loc>
         </url>
     
