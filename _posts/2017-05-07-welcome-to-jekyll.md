@@ -7,7 +7,7 @@ description: 'Put your description here.'
 main-class: 'powershell'
 color: '#B31917'
 tags:
-- powershell
+- "powershell"
 categories:
 twitter_text: 'This is Powershell Tricks.'
 introduction: 'This is Powershell Tricks.'
