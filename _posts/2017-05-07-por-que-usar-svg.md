@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "#1 - Por que usar SVG?"
-date: 2015-01-08 08:39:47
+date: 2017-05-07 08:39:47
 description: "O SVG finalmente começa dar o ar das graças e você vai saber aqui o porquê disso."
 main-class: 'svg'
 color: '#7D669E'
