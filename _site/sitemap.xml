@@ -34,6 +34,10 @@
         </url>
     
         <url>
+            <loc>https://sunoko.github.io/cards-jekyll-template/category/powershell/</loc>
+        </url>
+    
+        <url>
             <loc>https://sunoko.github.io/cards-jekyll-template/search.json</loc>
         </url>
     
