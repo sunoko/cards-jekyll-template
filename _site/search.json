@@ -15,6 +15,13 @@
     } ,
   
     {
+      "title"    : "About",
+      "tags"     : "",
+      "url"      : "/cards-jekyll-template/about/",
+      "date"     : "08 May 2016"
+    } ,
+  
+    {
       "title"    : "Analisando seu código JS com um linter",
       "tags"     : "js, linter, and tutorial",
       "url"      : "/cards-jekyll-template/analisando-seu-codigo-js-com-linter/",
