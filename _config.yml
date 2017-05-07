@@ -1,7 +1,8 @@
 # Site settings
 title: Who am I ?
 description: A blog about development
-url: "https://sunoko.github.io/cards-jekyll-template"
+baseurl: "/cards-jekyll-template"
+url: "https://sunoko.github.io"
 
 # User settings
 username: Kazuki Chinone
