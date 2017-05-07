@@ -1,6 +1,13 @@
 [
   
     {
+      "title"    : "Ruby Tricks",
+      "tags"     : "ruby",
+      "url"      : "/cards-jekyll-template/ruby-tricks/",
+      "date"     : "07 May 2017"
+    } ,
+  
+    {
       "title"    : "About me",
       "tags"     : "profile",
       "url"      : "/cards-jekyll-template/About-me/",
