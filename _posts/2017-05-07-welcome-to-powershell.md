@@ -3,12 +3,10 @@ layout: post
 title: "Powershell Tricks"
 date: 2017-05-07 21:31:05
 description: "Powershell Tricks"
-main-class: 'powershell'
+main-class: 'html'
 color: '#000'
 tags:
-- social
-- seo
-- tutorial
+- "powershell"
 twitter_text: "Favicons, touch icons e tile icons..."
 introduction: "Powershell Tricks"
 ---
