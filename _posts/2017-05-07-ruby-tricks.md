@@ -5,7 +5,6 @@ date: 2017-05-07 08:39:47
 description: "O SVG finalmente começa dar o ar das graças e você vai saber aqui o porquê disso."
 tags:
 - ruby
-- "dicarapida"
 image: "/assets/img/por-que-usar-svg/coloridos.jpg"
 categories:
 - "O mundo mágico do SVG"
