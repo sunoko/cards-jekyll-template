@@ -5,7 +5,7 @@ date: 2017-05-07 20:35:48
 image: '/assets/img/'
 description: 'How to use this template'
 tags:
-- js
+- javascript
 categories:
 twitter_text: 'How to use this template'
 introduction: 'How to use this template'
@@ -33,7 +33,7 @@ arr1.map((elem, index) => index);
 
 ## 空のパラメーターをメソッドに渡す
 
-```
+```js
 function Method(a,b,c){
 	console.log(a + b + c)
 }
@@ -52,7 +52,7 @@ Method(...['va1', , 'val3']);
 
 ## 配列に重複する値を入れない
 
-```
+```js
 var arr = [...new Set([1, 2, 3, 3])];
 // [1, 2, 3]
 Array.isArray(arr)
@@ -64,7 +64,7 @@ Array.isArray(arr)
 
 ## `!!`でbooleanに変換する
 
-```
+```js
 function Account(cash) {  
     this.cash = cash;
     this.hasMoney = !!cash;
@@ -84,7 +84,7 @@ console.log(emptyAccount.hasMoney);
 
 ## `+`でnumberに変換する
 
-```
+```js
 function toNumber(strNumber) {  
     return +strNumber;
 }
@@ -98,7 +98,7 @@ console.log(+new Date())
 
 ## `&&`でif文を省略する
 
-```
+```js
 if (conected) {  
     login();
 }
@@ -108,7 +108,7 @@ conected && login();
 
 ## `||`でDefault valueを設定する
 
-```
+```js
 function User(name, age) {  
     this.name = name || "Default User";
     this.age = age || "Default age 27";
@@ -128,7 +128,7 @@ console.log(user2.age);
 
 ## array.lengthをキャッシュする
 
-```
+```js
 var array = new Array(5000)
 var startTime = new Date()
 for (var i = 0, length = array.length; i < length; i++) {  
@@ -140,7 +140,7 @@ console.log(endTime - startTime + "ms");
 
 ## HTML要素を取得する
 
-```
+```js
 if ('querySelector' in document) {  
     document.querySelector("#id");
 } else {
@@ -151,7 +151,7 @@ querySelector(".className")は最初の要素の値を返す
 
 ## 配列の最後を取得する
 
-```
+```js
 var array = [1, 2, 3, 4, 5, 6];  
 console.log(array.slice(-1)); 
 // [6]  
@@ -163,7 +163,7 @@ console.log(array.slice(-3));
 
 ## 配列を切捨てる
 
-```
+```js
 var array = [1, 2, 3, 4, 5, 6];  
 console.log(array.length); 
 // 6  
@@ -184,7 +184,7 @@ console.log(string.replace(/hn/g, "Replaced"));
 
 ## 配列をマージする
 
-```
+```js
 var array1 = [1, 2, 3];  
 var array2 = [4, 5, 6];  
 console.log(array1.concat(array2)); 
@@ -195,7 +195,7 @@ console.log(array2.concat(array1));
 
 ## NodeListをArrayに変換する
 
-```
+```js
 var elements = document.querySelectorAll("p"); 
 Array.isArray(elements)
 // false
@@ -217,7 +217,7 @@ DOMノードの集合を表すオブジェクトであり、 Node.childNodes や
 
 ## 配列をシャッフルする
 
-```
+```js
 var list = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 function shuffle(array){
@@ -240,7 +240,7 @@ shuffle(list)
 
 ## 配列の中に値があるかどうか確かめる
 
-```
+```js
 var months = ['January', 'March', 'July'];  
 months.indexOf('March') !== -1; 
 // true  
@@ -250,7 +250,7 @@ months.includes('July');
 
 ## Defaul parameterを設定する
 
-```
+```js
 function myFunc1(opt){
 	opt = opt != undefined ? opt : 'Default Value'
 	console.log(opt)
