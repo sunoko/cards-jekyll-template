@@ -3,10 +3,10 @@
   <channel>
     <title>Who am I ?</title>
     <description>A blog about development</description>
-    <link>https://sunoko.github.io/cards-jekyll-template/</link>
-    <atom:link href="https://sunoko.github.io/cards-jekyll-template/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 07 May 2017 17:22:52 +0900</pubDate>
-    <lastBuildDate>Sun, 07 May 2017 17:22:52 +0900</lastBuildDate>
+    <link>https://sunoko.github.io/cards-jekyll-template//</link>
+    <atom:link href="https://sunoko.github.io/cards-jekyll-template//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 07 May 2017 17:25:28 +0900</pubDate>
+    <lastBuildDate>Sun, 07 May 2017 17:25:28 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -27,8 +27,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Sun, 07 May 2017 06:31:05 +0900</pubDate>
-        <link>https://sunoko.github.io/cards-jekyll-template/About-me/</link>
-        <guid isPermaLink="true">https://sunoko.github.io/cards-jekyll-template/About-me/</guid>
+        <link>https://sunoko.github.io/cards-jekyll-template//About-me/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/cards-jekyll-template//About-me/</guid>
         
         <category>profile</category>
         

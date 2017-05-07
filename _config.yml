@@ -1,8 +1,7 @@
 # Site settings
 title: Who am I ?
 description: A blog about development
-baseurl: "/cards-jekyll-template" # the subpath of your site, e.g. /blog
-url: "https://sunoko.github.io" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
+url: "https://sunoko.github.io/cards-jekyll-template/"
 
 # User settings
 username: Kazuki Chinone
