@@ -6,6 +6,7 @@ image: '/assets/img/series.png'
 description: "Take a look at my series about lorem ipsum..."
 ---
 
+{% for tag in site.categories %}
   <span class="tag-title" id="{{ tag[0] | slugify }}">{{ tag[0] | capitalize }}</span>
   <ul class="post-list">
     {% assign pages_list = tag[1] %}
@@ -20,10 +21,11 @@ description: "Take a look at my series about lorem ipsum..."
   </a></p>
   <p><a href="https://sunoko.github.io/cards-jekyll-template/" title="Are you lazy?" class="link-social block">
     Who am I ?
-  </a></p>      
+  </a></p>
       {% endif %}
       {% endif %}
     {% endfor %}
     {% assign pages_list = nil %}
     {% assign group = nil %}
   </ul>
+{% endfor %}
