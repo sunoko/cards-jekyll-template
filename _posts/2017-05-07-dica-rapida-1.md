@@ -3,8 +3,6 @@ layout: post
 title: "Dica rápida #1"
 date: 2017-05-07 21:31:05
 description: "Detalhes fazem a diferença, vamos falar sobre Favicons, Touch Icons e Tile Icons e como eles fazem a diferença."
-main-class: 'dev'
-color: '#637a91'
 tags:
 - "dicarapida"
 twitter_text: "Favicons, touch icons e tile icons..."

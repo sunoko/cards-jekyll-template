@@ -4,8 +4,6 @@ title: "Social Meta Tags"
 date: 2017-05-07 19:33:48
 image: '/assets/img/dica-rapida-2/main.png'
 description: 'Aprenda como ser mais social, ter maior relevância nas redes sociais e atrair mais usuários.'
-main-class: 'html'
-color: '#EB7728'
 tags:
 - social
 - seo
