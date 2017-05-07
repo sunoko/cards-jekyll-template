@@ -6,7 +6,9 @@ description: "Powershell Tricks"
 main-class: 'powershell'
 color: '#000'
 tags:
-- "powershell"
+- social
+- seo
+- tutorial
 twitter_text: "Favicons, touch icons e tile icons..."
 introduction: "Powershell Tricks"
 ---

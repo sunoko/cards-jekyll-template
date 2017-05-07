@@ -5,9 +5,35 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/cards-jekyll-template/</link>
     <atom:link href="https://sunoko.github.io/cards-jekyll-template/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 07 May 2017 00:40:19 +0900</pubDate>
-    <lastBuildDate>Sun, 07 May 2017 00:40:19 +0900</lastBuildDate>
+    <pubDate>Sun, 07 May 2017 15:39:54 +0900</pubDate>
+    <lastBuildDate>Sun, 07 May 2017 15:39:54 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>About me</title>
+        <description>
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;プロフィール&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt; 
+    &lt;span class=&quot;s2&quot;&gt;&quot;名前&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Kazuki Chinone&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;s2&quot;&gt;&quot;生年月日&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;1990/8/16&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+    &lt;span class=&quot;s2&quot;&gt;&quot;住まい&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Tokyo&quot;&lt;/span&gt; 
+    &lt;span class=&quot;s2&quot;&gt;&quot;スキル&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;1&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Javascript&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;2&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Ruby&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;3&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Powershell&quot;&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;4&quot;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:&quot;Docker&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+</description>
+        <pubDate>Sun, 07 May 2017 06:31:05 +0900</pubDate>
+        <link>https://sunoko.github.io/cards-jekyll-template/About-me/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/cards-jekyll-template/About-me/</guid>
+        
+        <category>profile</category>
+        
+        
+      </item>
     
   </channel>
 </rss>
