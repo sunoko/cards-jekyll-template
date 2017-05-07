@@ -1,6 +1,18 @@
 .tags a {
     background-color: #ffffff;
-    border: 2px ;
+    border-style: solid; 
+    border-width: 1px;
     border-radius: 8px;
-    box-shadow: 0 0 0 4px #8d1e47;
+}
+
+body {
+    /*background-color: #F5F5F5;*/
+}
+
+.bar-header {
+    /*background-color: #F5F5F5;*/
+}
+
+.box-item {
+    background-color: #F5F5F5;
 }
