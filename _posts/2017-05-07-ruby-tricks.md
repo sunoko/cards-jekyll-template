@@ -7,7 +7,6 @@ tags:
 - ruby
 image: "/assets/img/por-que-usar-svg/coloridos.jpg"
 categories:
-- "O mundo mágico do SVG"
 twitter_text: "Por que você deveria estar usando SVG?"
 introduction: "Alguns motivos para se usar SVG no seu workflow e alguns exemplos bem bacanas de como outros já utilizam."
 ---
