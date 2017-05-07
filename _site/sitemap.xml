@@ -2,60 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//category/css/</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/category/css/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//category/dev/</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/category/dev/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//feed.xml</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/feed.xml</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//category/html/</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/category/html/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//category/jekyll/</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/category/jekyll/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//category/js/</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/category/js/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//category/misc/</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/category/misc/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//search.json</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/search.json</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//series/index.html</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/series/index.html</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//sitemap.xml</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/sitemap.xml</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//category/svg/</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/category/svg/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//tags/index.html</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/tags/index.html</loc>
         </url>
     
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template//About-me/</loc>
+            <loc>https://sunoko.github.io/cards-jekyll-template/About-me/</loc>
         </url>
   
 </urlset>
