@@ -5,7 +5,7 @@ date: 2017-05-07 20:35:48
 image: '/assets/img/'
 description: 'How to use this template'
 tags:
-- javascript
+- js
 categories:
 twitter_text: 'How to use this template'
 introduction: 'How to use this template'
