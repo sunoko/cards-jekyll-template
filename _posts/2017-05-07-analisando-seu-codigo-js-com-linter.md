@@ -1,168 +1,205 @@
 ---
 layout: post
-title: "Analisando seu código JS com um linter"
+title: "Docker Tricks"
 date: 2017-05-07 22:43:23
 image: '/assets/img/linter/errors-list.png'
 description: 'Valide seu código em JS/ES6 em busca de erros, warnings, códigos esquecidos e melhore a sua qualidade. Seu amiguinho agradece um código mais limpo.'
 tags:
-- js
-- linter
-- tutorial
+- docker
 categories:
 twitter_text: 'Valide seu código em JS/ES6 em busca de erros e melhore a sua qualidade.'
 introduction: 'Valide seu código em JS/ES6 em busca de erros, warnings, códigos esquecidos e melhore a sua qualidade. Seu amiguinho agradece um código mais limpo.'
 ---
 
-## Introdução
+# Docker
+![](http://applech2.com/wp-content/uploads/2016/07/Docker-logo-icon.jpg)
 
-Faaaala pessoal, fazia muito tempo que eu não escrevia e confesso que isso já estava me agoniando. Então resolvi voltar a <s>falar besteiras</s> escrever!! 
+## docker commands
 
-Como não poderia deixar de ser, estou escrevendo ouvindo música. A playlist de hoje é [Brains](https://open.spotify.com/user/spotifybrazilian/playlist/0nUucSaL2BGl2VZlbY5TwR), uma playlist que está sendo montada lá na [CCXP](http://www.ccxp.com.br/), muita música maneira! Bota para tocar e vai lendo =D
+```rb
+# イメージ取得
+docker pull ruby:2.4.1-alpine
 
-## Qualidade de Código
+# イメージ確認
+~/ $ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+ruby                2.4.1-alpine        5eadd5d1419a        12 days ago         56.3 MB
 
-Provavelmente você já passou horas escrevendo seu código lindo e aí, do nada, ele parou de funcionar. Então você ficou mais perdido que o John Travolta no Discurso da Dilma.
+# コンテナ確認
+docker ps
 
-![John Travolta Meme](https://media.giphy.com/media/FWXpxEbWcOapq/giphy.gif)
+# コンテナ削除
+docker rm container_id
 
- Você, então, em toda sua humildade, chegou para um amigo e pediu para ele dar uma olhada e ele falou frases assim:
+# イメージ削除
+docker rmi image_id
+```
 
-> Você esqueceu de colocar o ponto e vírgula no final da linha. <br/>
-> Essa variável tá escrita errada, faltou um 'a' ali. <br/>
-> Cara, esse método não existe nessa linguagem...
+## docker-compose commands
+### Start
 
-Se você já ficou puto com isso, sinta-se abraçado, porque eu também já cansei de cometer esses erros bobos que dava vontade de bater com a cara na parede depois de descobrir. Mas não fui só eu, nem só você, isso é normal do ser humano, não somos máquinas e as vezes uns detalhes passam sem percerbermos.
+```rb
+# Runs a one-time command
+docker-compose run
+# Remove container after run
+--rm
+# DB周りの初期設定
+#rails:db:create, rails db:schema:load, rails db:seed
+rails db:setup
 
-No momento você está igual o John Travolta de novo.
+# app, rails db:setup実行、
+docker-compose run --rm app rails db:setup
 
-![John Question](https://media.giphy.com/media/FxufOs6bQwxO0/giphy.gif) 
+# Builds, (re)creates, starts
+docker-compose up
 
-## Entendi seu ponto, mas como evitar isso?
+# Stops and removes containers
+docker-compose down
 
-Pensando nisso, foram criadas várias ferramentas para fazer análise por você. Seguem as principais e mais famosas:
+# Starts existing containers 
+docker-compose start
 
-- [JSlint](http://www.jslint.com/)
-- [JSHint](http://jshint.com/)
-- [Eslint](http://eslint.org/)
+# Stops running containers without removing them
+docker-compose stop
 
-Cada uma dessas ferramentas possui um módulo no npm e podem ser fácilmente instaladas.
+# コンテナの確認
+docker-compose ls
 
-{% highlight  bash %}
+#コンテナの削除
+docker-compose rm
+```
 
-npm install -g jslint
+### Gemsを更新した場合
 
-npm install -g jshint
+```ruby
+docker run --rm -v ${PWD}:/home -w /home ruby:2.4 bundle lock (Append --update to also update gems.)
 
-## para poder fazer lint de ES6 e JSX
-npm install -g eslint
-npm install -g babel-eslint
+# コンテナを開始前にイメージを構築(--build)
+docker-compose up -d --build
+```
 
-{% endhighlight %}
+```ruby
+# Get a shell in container
+docker-compose exec app bash
 
-E todas elas também possuem integrações com vários editores de código como Sublime, Atom, Brackets, etc...
-
-## Mas como elas funcionam?
-
-Cada uma dessas ferramentas lê seus arquivos desejados e percorre pelos mesmos buscando por erros ou definições que as próprias consideram como má prática e para cada um dos erros, elas reportam ao final.
-
-Para os próximos passos, vou ensinar utilizando o `eslint`, que julgo o melhor dos Linters na atualidade, visto que ele dá um ótimo suporte a `ES6` e `JSX`, além do padrão do JS.
-
-Após instalado o `eslint`, vá até o diretório do seu projeto, digite `eslint --init` e responda as perguntas de acordo com sua necessidade, segue abaixo o print de um uso meu.
-
-![Print do eslint sendo usado](/assets/img/linter/eslint.png)
-
-Após isso, será criado um arquivo chamado `.eslintrc` dentro da pasta raiz do seu projeto, contendo informações parecidas com:
-
-{% highlight js %}
-module.exports = {
-    "rules": {
-        "indent": [
-            2,
-            4
-        ],
-        "quotes": [
-            2,
-            "single"
-        ],
-        "linebreak-style": [
-            2,
-            "unix"
-        ],
-        "semi": [
-            2,
-            "always"
-        ]
-    },
-    "env": {
-        "es6": true,
-        "browser": true
-    },
-    "extends": "eslint:recommended",
-    "ecmaFeatures": {
-        "jsx": true,
-        "experimentalObjectRestSpread": true
-    },
-    "plugins": [
-        "react"
-    ]
-};
-{% endhighlight %}
-
-Se você quiser entender tudo que ele escreveu ali, dá uma olhadinha na [documentação](http://eslint.org/docs/user-guide/configuring) é super detalhada e bem explicada.
-
-Tendo já o arquivo, basta você rodar no terminal em cima do arquivo desejado e ele fará o report se algum erro acontecer, como, por exemplo, tendo um arquivo js:
-
-{% highlight js %}
-(function () {
-    'use strict';
+# Logging can be configured→default outputs everything on stdout/stderr
+docker-compose logs
     
-    const a = 'will';
+# Run the rails minitest.
+docker-compose run --rm app rails test
+```
 
-    function() {
-        console.log('Hello!')
-    }
+## [Dockerfile](http://docs.docker.jp/engine/reference/builder.html#from)
+イメージを作り上げる命令を記述する
+`docker build`でイメージを構築
 
-})()
-{% endhighlight %}
+1. FROM: ベース・イメージ を指定  
+	`FROM <イメージ>`
+2. RUN: イメージ上でコマンドを実行  
+	`RUN /bin/bash -c 'source $HOME/.bashrc ; echo $HOME'
+`
+3. CMD: 構築時には何もしませんが、イメージで実行するコマンドを指定  
+		コンテナ実行時のデフォルトを提供  
+		`CMD echo "This is a test." | wc -`
+4. EXPOSE: portをコンテナが実行時にリッスンすることをDockerに伝える  
+	`EXPOSE <port> [<port>...]`
+5. COPY: sourceのfileやdirectoryをコンテナ内のファイルシステム上にコピー  
+	`COPY ソース 送信先(絶対パスor WORKDIRからの相対パス)` 
+6. WORKDIR: RUN,CMD,ENTRYPOINT,COPY,ADD実行時の作業ディレクトリ
+	`WORKDIR /a`
 
-Se eu rodar o `eslint` no terminal analisando esse código, ele vai me retornar os seguintes erros:
+### sample
 
-![imagem mostrando os erros como variável não utilizada e falta de ponto e vírgula](/assets/img/linter/erro-1.png)
+`Dockerfile`
 
-Eu criei uma variável `a`, mas nunca utilizei no meu código, eu usei console.log num código que vai para produção e ainda esqueci de colocar o ponto e vírgula no final do código!
+```
+FROM nginx:1.11
+COPY . /home/config/
+```
 
-Para um código pequeno desses, talvez não fizesse diferença, mas pense num código beeeem maior, ele pode ser uma mão na roda =D
+`Dockerfile`
 
-Mas rodar isso o tempo todo no terminal é ruim, até mesmo se colocarmos num gulp/grunt da vida, o legal é mostrar no nosso editor. Se você usa Sublime Text, continua lendo aí, que vou mostrar a cereja do bolo!
+```
+FROM ruby:2.4
 
-## Usando o eslint no Sublime
+RUN apt-get update \
+  && apt-get install -y --no-install-recommends \
+    nodejs \
+  && rm -rf /var/lib/apt/lists/*
 
-Primeiro de tudo, espero que você tenha instalado o [Package Control](https://packagecontrol.io/installation) no seu Sublime. Depois disso, mande instalar o [SublimeLinter](http://sublimelinter.readthedocs.org/en/latest/installation.html#installing-via-pc) e o [SublimeLinter-contrib-eslint](https://github.com/roadhump/SublimeLinter-eslint#plugin-installation), que vão fazer toda a integração e mágica.
+WORKDIR /usr/src/
+COPY Gemfile Gemfile.lock ./
+RUN bundle install
+COPY . .
 
-Feito isso, reinicie o seu Sublime e comece a escrever seu código JS! Quando tiver algum erro, ele irá te notificar com marcadores ao lado do erro e na parte inferior irá te avisar o erro. Como na imagem abaixo:
+EXPOSE 3000
+CMD ["rails", "server", "-b", "0.0.0.0"]
+```
 
-![Sublime indicando os erros](/assets/img/linter/sublime.png)
+`.dockerignore`
 
-Se você for como eu e quiser ver todos os erros numa lista e poder navegar entre eles, aperte `cmd + shift + p` ou `ctrl + shift + p` e digite `linter show` e você verá uma opção igual da tela abaixo:
+```
+tmp/
+log/
+config/nginx/
+```
 
-![Opção](/assets/img/linter/show.png)
+## docker-compose.yml
+[networks](http://docs.docker.jp/compose/compose-file.html#network-configuration-reference)、[volumes](http://docs.docker.jp/compose/compose-file.html#volume-configuration-reference)、[services](http://docs.docker.jp/compose/compose-file.html#id14)を定義する
 
-Com essa opção selecionada, cada vez que você salvar o código, irá ver uma lista da seguinte forma:
+#### build: 構築時に適用するオプション
 
-![Lista de erros](/assets/img/linter/errors-list.png)
+```
+build: ./dir
+```
 
-## Habilitando o Sublime para entender código ES6 + Eslint
+#### enviroment
 
-Caso o seu Sublime não identifique ES6 junto com o Eslint e não faça o lint correto, basta que você instale o plugin do [Babel](https://github.com/babel/babel-sublime) no seu Sublime. Com esse plugin instalado, defina que todos os arquivos JS e JSX serão interpretados como Babel, seguindo os seguintes passos:
+```
+environment:
+  RACK_ENV: development
+  SHOW: 'true'
+  SESSION_SECRET:
+```
 
-1) Abra um arquivo com a extensão JS ou JSX
-2) Vá na opção View do Menu
-3) Escolha Syntax -> Open all with current extension as... -> Babel -> JavaScript (Babel).
+#### volumes: マウント・パス指定
 
-Feito isso, seu Sublime já vai entender aquele código em ES6 e o lint passará a funcionar! Agora vai lá e comece a programar com qualidade!
+```
+volumes:
+    - ./cache:/tmp/cache
+```
 
-![John Kissing](https://media.giphy.com/media/D4QLJVmdHB44g/giphy.gif)
+#### depends_on: docker-compose up を実行したら、依存関係のある順番に従ってサービスを起動
+    
+```
+depends_on:
+      - db
+      - redis
+```
+#### commnad: デフォルトのコマンドを上書き
+    
+```
+    command: [bundle, exec, thin, -p, 3000]
+```
+#### ports: 公開用のポート
 
-## Conclusão
+```
+ports:
+ - "3000"
+ - "8000:8000"
+```
+#### image: コンテナを実行時に元となるイメージを指定
 
-Bom, é basicamente isso, se preocupe com seu código e evite demorar horas procurando o erro se uma ferramenta pode fazer por você.
+```
+image: redis
+image: ubuntu:14.04
+```
+
+### sample
+
+`docker-compose.yml`
+
+```
+
+```
+
