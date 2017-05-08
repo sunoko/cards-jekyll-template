@@ -2,64 +2,84 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/category/css/</loc>
+            <loc>https://sunoko.github.io/whoami/category/css/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/category/dev/</loc>
+            <loc>https://sunoko.github.io/whoami/category/dev/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/feed.xml</loc>
+            <loc>https://sunoko.github.io/whoami/feed.xml</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/category/html/</loc>
+            <loc>https://sunoko.github.io/whoami/category/html/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/</loc>
+            <loc>https://sunoko.github.io/whoami/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/category/jekyll/</loc>
+            <loc>https://sunoko.github.io/whoami/category/jekyll/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/category/js/</loc>
+            <loc>https://sunoko.github.io/whoami/category/js/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/category/misc/</loc>
+            <loc>https://sunoko.github.io/whoami/category/misc/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/search.json</loc>
+            <loc>https://sunoko.github.io/whoami/search.json</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/series/index.html</loc>
+            <loc>https://sunoko.github.io/whoami/series/index.html</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/sitemap.xml</loc>
+            <loc>https://sunoko.github.io/whoami/sitemap.xml</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/category/svg/</loc>
+            <loc>https://sunoko.github.io/whoami/category/svg/</loc>
         </url>
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/tags/index.html</loc>
+            <loc>https://sunoko.github.io/whoami/tags/index.html</loc>
         </url>
     
     
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/ruby-tricks/</loc>
+            <loc>https://sunoko.github.io/whoami/docker-tricks/</loc>
         </url>
   
         <url>
-            <loc>https://sunoko.github.io/cards-jekyll-template/About-me/</loc>
+            <loc>https://sunoko.github.io/whoami/powershell-tricks/</loc>
+        </url>
+  
+        <url>
+            <loc>https://sunoko.github.io/whoami/javascript-tricks-2/</loc>
+        </url>
+  
+        <url>
+            <loc>https://sunoko.github.io/whoami/javascript-tricks-1/</loc>
+        </url>
+  
+        <url>
+            <loc>https://sunoko.github.io/whoami/bash-tricks/</loc>
+        </url>
+  
+        <url>
+            <loc>https://sunoko.github.io/whoami/ruby-tricks/</loc>
+        </url>
+  
+        <url>
+            <loc>https://sunoko.github.io/whoami/About-me/</loc>
         </url>
   
 </urlset>

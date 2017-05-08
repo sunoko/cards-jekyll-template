@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>About me</title>
-    <meta name="description" content="This is profile">
+    <title>Bash Tricks</title>
+    <meta name="description" content="Aprenda como ser mais social, ter maior relevância nas redes sociais e atrair mais usuários.">
 
     <!-- Google Authorship Markup -->
     <link rel="author" href="https://plus.google.com/+lorem_ipsum?rel=author">
@@ -14,24 +14,24 @@
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@lorem_ipsum">
-    <meta name="twitter:title" content="About me">
-    <meta name="twitter:description" content="This is profile">
+    <meta name="twitter:title" content="Bash Tricks">
+    <meta name="twitter:description" content="Aprenda como ser mais social, ter maior relevância nas redes sociais e atrair mais usuários.">
     
-    <meta property="twitter:image:src" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
+    <meta property="twitter:image:src" content="https://sunoko.github.io/whoami/assets/img/dica-rapida-2/main.png">
     
 
     <!-- Social: Facebook / Open Graph -->
-    <meta property="og:url" content="https://sunoko.github.io/whoami/About-me/">
-    <meta property="og:title" content="About me">
+    <meta property="og:url" content="https://sunoko.github.io/whoami/bash-tricks/">
+    <meta property="og:title" content="Bash Tricks">
     
-    <meta property="og:image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
+    <meta property="og:image" content="https://sunoko.github.io/assets/img/dica-rapida-2/main.png">
     
-    <meta property="og:description" content="This is profile">
+    <meta property="og:description" content="Aprenda como ser mais social, ter maior relevância nas redes sociais e atrair mais usuários.">
     <meta property="og:site_name" content="Who am I ?">
 
     <!-- Social: Google+ / Schema.org  -->
-    <meta itemprop="name" content="About me"/>
-    <meta itemprop="description" content="This is profile">
+    <meta itemprop="name" content="Bash Tricks"/>
+    <meta itemprop="description" content="Aprenda como ser mais social, ter maior relevância nas redes sociais e atrair mais usuários.">
     <meta itemprop="image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png"/>
 
     <!-- Favicon -->
@@ -58,7 +58,7 @@
 
     <link rel="stylesheet" href="/whoami/assets/css/main.css">
     <link rel="stylesheet" href="/whoami/assets/css/custom.css">
-    <link rel="canonical" href="https://sunoko.github.io/whoami/About-me/">
+    <link rel="canonical" href="https://sunoko.github.io/whoami/bash-tricks/">
     <link rel="alternate" type="application/rss+xml" title="Who am I ?" href="https://sunoko.github.io/whoami/feed.xml" />
 </head>
 
@@ -107,43 +107,89 @@
 <header class="header-post" role="banner">
      <div class="content">
         
-            <time itemprop="datePublished" datetime="2017-05-07T06:31:05+09:00" class="date">07 May 2017</time>
+            <time itemprop="datePublished" datetime="2017-05-08T04:33:48+09:00" class="date">08 May 2017</time>
         
-        <h1 class="post-title" itemprop="name">About me</h1>
-        <p itemprop="description" class="subtitle">This is profile</p>
+        <h1 class="post-title" itemprop="name">Bash Tricks</h1>
+        <p itemprop="description" class="subtitle">Aprenda como ser mais social, ter maior relevância nas redes sociais e atrair mais usuários.</p>
     </div>
 </header>
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span>
-  <span class="s2">"プロフィール"</span><span class="p">:{</span> 
-    <span class="s2">"名前"</span><span class="ss">:"Kazuki Chinone"</span><span class="p">,</span> 
-    <span class="s2">"生年月日"</span><span class="ss">:"1990/8/16"</span><span class="p">,</span> 
-    <span class="s2">"住まい"</span><span class="ss">:"Tokyo"</span> 
-    <span class="s2">"スキル"</span><span class="p">:{</span>
-      <span class="s2">"1"</span><span class="ss">:"Javascript"</span><span class="p">,</span>
-      <span class="s2">"2"</span><span class="ss">:"Ruby"</span><span class="p">,</span>
-      <span class="s2">"3"</span><span class="ss">:"Powershell"</span>
-      <span class="s2">"4"</span><span class="ss">:"Docker"</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+                <h1 id="bash-tricks">Bash Tricks</h1>
+<p><img src="http://cdn-img.easyicon.net/png/10971/1097179.gif" alt="" /></p>
+
+<h2 id="テンプレートが書かれたファイルを複数作成する">テンプレートが書かれたファイルを複数作成する</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">initial</span><span class="o">=</span><span class="s2">"
+require 'test/unit'</span><span class="se">\n\n</span><span class="s2">
+def methodName</span><span class="se">\n\n</span><span class="s2">
+end</span><span class="se">\n\n</span><span class="s2">
+class TestClassName &lt; Test::Unit::TestCase</span><span class="se">\n\n</span><span class="s2">
+</span><span class="se">\t</span><span class="s2">def TestMethodName</span><span class="se">\n\n</span><span class="s2">
+</span><span class="se">\t</span><span class="s2">end</span><span class="se">\n\n</span><span class="s2">
+end
+"</span>
+
+<span class="k">for</span> <span class="o">((</span><span class="nv">i</span><span class="o">=</span>1; i &lt; 31; i++<span class="o">))</span>; <span class="k">do
+    </span><span class="nb">echo</span> -e <span class="nv">$initial</span> &gt; test_<span class="nv">$i</span>.rb
+<span class="k">done</span>
+</code></pre>
+</div>
+
+<p>このようなファイルが30個作成される</p>
+
+<pre><code class="language-rb:test_1.rb">require 'test/unit'
+
+def methodName
+
+end
+
+class TestClassName &lt; Test::Unit::TestCase
+
+	def TestMethodName
+	
+	end
+	
+end
+</code></pre>
+
+<h2 id="bash-commandエイリアス作成">bash commandエイリアス作成</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">dcm</span><span class="o">=</span><span class="s1">'docker-compose'</span>
+</code></pre>
+</div>
+
+<h2 id="bashrc再読み込み">.bashrc再読み込み</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>bash -l
+</code></pre>
+</div>
+
+<h2 id="bashプロンプト変更">bashプロンプト変更</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># 一時的変更</span>
+<span class="nb">export </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">"</span><span class="se">\[\e</span><span class="s2">[3;34m</span><span class="se">\]\w</span><span class="s2">/ </span><span class="se">\[\e</span><span class="s2">[0m</span><span class="se">\]</span><span class="nv">$ </span><span class="s2">"</span>
+
+<span class="c"># bash起動時に反映させる</span>
+<span class="nb">echo</span> <span class="s2">"export PS1='</span><span class="se">\[\e</span><span class="s2">[3;34m</span><span class="se">\]\w</span><span class="s2">/ </span><span class="se">\[\e</span><span class="s2">[0m</span><span class="se">\]</span><span class="nv">$ </span><span class="s2">'"</span> &gt; ~/.bash_rc
+<span class="nb">echo</span> <span class="s2">"export PS1='</span><span class="se">\[\e</span><span class="s2">[3;34m</span><span class="se">\]\w</span><span class="s2">/ </span><span class="se">\[\e</span><span class="s2">[0m</span><span class="se">\]</span><span class="nv">$ </span><span class="s2">'"</span> &gt; ~/.bash_profile
+</code></pre>
+</div>
 
             </article>
 
             <section class="share">
     <h3>Share</h3>
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;Favicons, touch icons e tile icons...&quot;%20https://sunoko.github.io/About-me/%20via%20&#64;lorem_ipsum&hashtags=profile,"
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;Aprenda a usar as meta tags sociais.&quot;%20https://sunoko.github.io/bash-tricks/%20via%20&#64;lorem_ipsum&hashtags=bash,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://sunoko.github.io/About-me/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://sunoko.github.io/bash-tricks/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://sunoko.github.io/About-me/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://sunoko.github.io/bash-tricks/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>

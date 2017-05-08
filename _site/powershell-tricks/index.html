@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>About me</title>
-    <meta name="description" content="This is profile">
+    <title>Powershell Tricks</title>
+    <meta name="description" content="Powershell Tricks">
 
     <!-- Google Authorship Markup -->
     <link rel="author" href="https://plus.google.com/+lorem_ipsum?rel=author">
@@ -14,24 +14,24 @@
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@lorem_ipsum">
-    <meta name="twitter:title" content="About me">
-    <meta name="twitter:description" content="This is profile">
+    <meta name="twitter:title" content="Powershell Tricks">
+    <meta name="twitter:description" content="Powershell Tricks">
     
     <meta property="twitter:image:src" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
 
     <!-- Social: Facebook / Open Graph -->
-    <meta property="og:url" content="https://sunoko.github.io/whoami/About-me/">
-    <meta property="og:title" content="About me">
+    <meta property="og:url" content="https://sunoko.github.io/whoami/powershell-tricks/">
+    <meta property="og:title" content="Powershell Tricks">
     
     <meta property="og:image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
-    <meta property="og:description" content="This is profile">
+    <meta property="og:description" content="Powershell Tricks">
     <meta property="og:site_name" content="Who am I ?">
 
     <!-- Social: Google+ / Schema.org  -->
-    <meta itemprop="name" content="About me"/>
-    <meta itemprop="description" content="This is profile">
+    <meta itemprop="name" content="Powershell Tricks"/>
+    <meta itemprop="description" content="Powershell Tricks">
     <meta itemprop="image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png"/>
 
     <!-- Favicon -->
@@ -58,7 +58,7 @@
 
     <link rel="stylesheet" href="/whoami/assets/css/main.css">
     <link rel="stylesheet" href="/whoami/assets/css/custom.css">
-    <link rel="canonical" href="https://sunoko.github.io/whoami/About-me/">
+    <link rel="canonical" href="https://sunoko.github.io/whoami/powershell-tricks/">
     <link rel="alternate" type="application/rss+xml" title="Who am I ?" href="https://sunoko.github.io/whoami/feed.xml" />
 </head>
 
@@ -107,43 +107,251 @@
 <header class="header-post" role="banner">
      <div class="content">
         
-            <time itemprop="datePublished" datetime="2017-05-07T06:31:05+09:00" class="date">07 May 2017</time>
+            <time itemprop="datePublished" datetime="2017-05-08T06:31:05+09:00" class="date">08 May 2017</time>
         
-        <h1 class="post-title" itemprop="name">About me</h1>
-        <p itemprop="description" class="subtitle">This is profile</p>
+        <h1 class="post-title" itemprop="name">Powershell Tricks</h1>
+        <p itemprop="description" class="subtitle">Powershell Tricks</p>
     </div>
 </header>
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span>
-  <span class="s2">"プロフィール"</span><span class="p">:{</span> 
-    <span class="s2">"名前"</span><span class="ss">:"Kazuki Chinone"</span><span class="p">,</span> 
-    <span class="s2">"生年月日"</span><span class="ss">:"1990/8/16"</span><span class="p">,</span> 
-    <span class="s2">"住まい"</span><span class="ss">:"Tokyo"</span> 
-    <span class="s2">"スキル"</span><span class="p">:{</span>
-      <span class="s2">"1"</span><span class="ss">:"Javascript"</span><span class="p">,</span>
-      <span class="s2">"2"</span><span class="ss">:"Ruby"</span><span class="p">,</span>
-      <span class="s2">"3"</span><span class="ss">:"Powershell"</span>
-      <span class="s2">"4"</span><span class="ss">:"Docker"</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+                <h1 id="powershell-tricks">Powershell Tricks</h1>
+<p><img src="https://www.powershellgallery.com/Content/Images/packageDefaultIcon.png" alt="" /></p>
+
+<h2 id="クロージャー">クロージャー</h2>
+
+<pre><code class="language-ps1">function Closure {
+  $n = 1
+  {
+    $script:n = $n + 1
+    $n
+  }.GetNewClosure() 
+}
+
+$obj1 = Closure
+$obj2 = Closure
+&amp; $obj1
+# 2
+&amp; $obj1
+# 3
+&amp; $obj2
+# 2
+&amp; $obj2
+# 3
+</code></pre>
+
+<h2 id="filter">filter</h2>
+
+<pre><code class="language-ps1"># 偶数のみ取り出す
+1..10 | ? { $_ % 2 -eq 0 }
+</code></pre>
+
+<h2 id="map">map</h2>
+
+<pre><code class="language-ps1"># 全てに2をかける
+1..10 | % { $_ * 2 }
+</code></pre>
+
+<h2 id="portを使ってるプロセス">portを使ってるプロセス</h2>
+
+<pre><code class="language-ps1">netstat -aon | Select-String ".0.0:4000"
+netstat -aon | Select-String -Pattern ".0.0:4000$"
+</code></pre>
+
+<h2 id="との違い">&amp;{}と.{}の違い</h2>
+
+<pre><code class="language-ps1">$hoge = $null
+&amp; {$hoge = 4}
+# [String]::IsNullOrEmpty($hoge)
+# True
+# &amp;{}はスクリプト内部で処理を留める
+
+$hoge = $null
+. {$hoge = 4}
+# [String]::IsNullOrEmpty($hoge)
+# False
+# .{}は元のスコープに影響する
+$hoge
+# 4
+</code></pre>
+
+<h2 id="firewall設定確認">Firewall設定確認</h2>
+
+<pre><code class="language-ps1">Get-NetFirewallRule | where {$_.DisplayName -eq "Something"}
+</code></pre>
+
+<h2 id="test-computersecurechannel-コマンドレットの使い方">Test-ComputerSecureChannel コマンドレットの使い方</h2>
+
+<p>概要
+<code class="highlighter-rouge">Test-ComputerSecureChannel</code> コマンドレットは、信頼関係の状態をチェックして、ローカルコンピューターとドメインの間のセキュリティで保護されたチャネルが正しく機能しているかどうかを検証します。</p>
+
+<pre><code class="language-ps1"># ローカルコンピューター上のAdministratorsグループのメンバーで実行する
+# 確認
+Test-ComputerSecureChannel
+
+# 修復
+Test-ComputerSecureChannel -credential administrator -repair
+</code></pre>
+
+<h2 id="gulp的なファイルの変更監視スクリプト">Gulp的なファイルの変更監視スクリプト</h2>
+<p>下記の場合、<code class="highlighter-rouge">Register-TaskRunner.ps1</code>と同じフォルダーに置いた拡張子が<code class="highlighter-rouge">ps1</code>のファイルを監視する。
+また、変更したファイルのユニットテストが同じフォルダにある場合は変更の度に実行される。</p>
+
+<pre><code class="language-ps1:Register-TaskRunner.ps1">function Register-TaskRunner {
+&lt;#
+.SYNOPSIS
+Watch changing file and run any tasks.
+
+.DESCRIPTION
+Powershell task runner
+
+.EXAMPLE
+$parent = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
+Register-Watcher -Folder $parent
+
+.NOTES
+https://msdn.microsoft.com/ja-jp/library/system.io.filesystemwatcher(v=vs.110).aspx  
+https://mcpmag.com/articles/2015/09/24/changes-to-a-folder-using-powershell.aspx?m=1
+
+#&gt;
+    [CmdletBinding()]
+    Param
+    (
+      [Parameter(Mandatory=$true)]
+      [string]$Folder,
+      
+      [Parameter(Mandatory=$false)]
+      [string]$Filter = "*.ps1"
+    )    
+
+    $VerbosePreference = "Continue"
+    $events = Get-EventSubscriber
+    foreach ($event in $events) {
+        if ($event.EventName -eq "Changed" -and $Folder -eq $event.SourceObject.Path) { 
+            Write-Verbose "already exist the event."
+            return
+        }
+    }
+    
+    $Watcher = New-Object IO.FileSystemWatcher -Property @{ 
+        Path = $Folder
+        Filter = $Filter
+        IncludeSubdirectories = $false
+        EnableRaisingEvents = $true
+    }
+
+    $changeAction = [scriptblock]::Create('
+        $path = $Event.SourceEventArgs.FullPath
+        $changedFileName = $Event.SourceEventArgs.Name
+        $changeType = $Event.SourceEventArgs.ChangeType
+        $timeStamp = $Event.TimeGenerated  
+        $testScript = $changedFileName -replace ".ps1", ".Tests.ps1"  
+        $testFullPath = "$($Event.MessageData)\$testScript"
+        Write-Host "The file $changedFileName was $changeType at $timeStamp"
+        if (Test-Path $testFullPath) { 
+            Write-Host "Running $testScript" -BackgroundColor DarkGray       
+            . $testFullPath
+        } else {
+            Write-Host "not exist $testScript" -BackgroundColor DarkGray       
+        }
+    ')
+
+    Register-ObjectEvent -InputObject $Watcher `
+                         -EventName "Changed" `
+                         -Action $changeAction `
+                         -MessageData $Folder
+}
+$here = Split-Path -Parent $MyInvocation.MyCommand.Path
+Register-TaskRunner -Folder $here
+</code></pre>
+
+<pre><code class="language-ps1:Unregister-TaskRunner.ps1">function Unregister-TaskRunner {
+    Get-EventSubscriber | Unregister-Event
+}
+</code></pre>
+
+<h2 id="githubのトレンドを取得する">Githubのトレンドを取得する</h2>
+<p>このように使用する
+<code class="highlighter-rouge">Get-GitHubTrend</code>
+<code class="highlighter-rouge">Get-GitHubTrend -target javascript</code>
+<code class="highlighter-rouge">Get-GitHubTrend -target ruby -length 10</code></p>
+
+<pre><code class="language-ps1:Get-GitHubTrend.ps1">function Get-GitHubTrend {
+    Param
+    (
+       [Parameter(Mandatory=$false)]
+       [string]$target = "powershell",
+
+       [Parameter(Mandatory=$false)]
+       [string]$baseUrl = "https://github.com",
+
+       [Parameter(Mandatory=$false)]
+       [string]$regex = '\"(.*)\"',
+
+       [Parameter(Mandatory=$false)]
+       [int]$length = 5,
+
+       [Parameter(Mandatory=$false)]
+       [switch]$week,
+
+       [Parameter(Mandatory=$false)]
+       [switch]$month
+    )
+    if ($week) {
+        $url = "$baseUrl/trending/$($target)?since=weekly"
+    } elseif ($month) {
+        $url = "$baseUrl/trending/$($target)?since=monthly"
+    } else {
+        $url = "$baseUrl/trending/$target"
+    }
+    
+    $geturl = Invoke-WebRequest -Uri $url
+    $comment = $geturl.ParsedHtml.body.getElementsByTagName('div') | 
+        Where {$_.getAttributeNode('class').Value -eq 'py-1'}
+    $hrefs = $geturl.ParsedHtml.body.getElementsByTagName('div') | 
+        Where {$_.getAttributeNode('class').Value -eq 'd-inline-block col-9 mb-1'}
+
+
+    foreach ($html in $hrefs.innerHTML) {
+        $result = (([regex]::Matches($html, $regex)).Groups[1].Value)
+        $href += @("$baseUrl$result")
+    }
+
+    for ($i = 0; $i -lt $length; $i++) {
+        if ($href[$i] -eq $null) { return }
+        Write-Host $hrefs[$i].innerText  -BackgroundColor DarkGreen
+        Write-Host $comment[$i].innerText
+        Write-Host $href[$i] `n
+    }
+}
+</code></pre>
+
+<h2 id="hashを配列のように扱う">Hashを配列のように扱う</h2>
+
+<pre><code class="language-ps1">$myHash = @{}
+$myHash["a"] = 1
+$myHash["b"] = 2
+$myHash["c"] = 3
+
+foreach($key in $($myHash.keys)){
+    $myHash[$key] = 5
+}
+</code></pre>
 
             </article>
 
             <section class="share">
     <h3>Share</h3>
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;Favicons, touch icons e tile icons...&quot;%20https://sunoko.github.io/About-me/%20via%20&#64;lorem_ipsum&hashtags=profile,"
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;Favicons, touch icons e tile icons...&quot;%20https://sunoko.github.io/powershell-tricks/%20via%20&#64;lorem_ipsum&hashtags=powershell,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://sunoko.github.io/About-me/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://sunoko.github.io/powershell-tricks/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://sunoko.github.io/About-me/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://sunoko.github.io/powershell-tricks/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>

@@ -3,18 +3,78 @@
   <channel>
     <title>Who am I ?</title>
     <description>A blog about development</description>
-    <link>https://sunoko.github.io/cards-jekyll-template/</link>
-    <atom:link href="https://sunoko.github.io/cards-jekyll-template/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 07 May 2017 17:47:21 +0900</pubDate>
-    <lastBuildDate>Sun, 07 May 2017 17:47:21 +0900</lastBuildDate>
+    <link>https://sunoko.github.io/whoami/</link>
+    <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 08 May 2017 19:43:06 +0900</pubDate>
+    <lastBuildDate>Mon, 08 May 2017 19:43:06 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Docker Tricks</title>
+        <description>&lt;h1 id=&quot;docker&quot;&gt;Docker&lt;/h1&gt; &lt;p&gt;&lt;img src=&quot;http://applech2.com/wp-content/uploads/2016/07/Docker-logo-icon.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;docker-commands&quot;&gt;docker commands&lt;/h2&gt; &lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# イメージ取得&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;docker&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pull&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;alpine&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# イメージ確認&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ $ docker images REPOSITORY TAG IMAGE ID CREATED SIZE ruby 2.4.1-alpine 5eadd5d1419a 12 days ago 56.3 MB # コンテナ確認 docker ps # コンテナ削除 docker rm container_id # イメージ削除 docker rmi image_id &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt; &lt;/div&gt; &lt;h2 id=&quot;docker-compose-commands&quot;&gt;docker-compose commands&lt;/h2&gt; &lt;h3 id=&quot;start&quot;&gt;Start&lt;/h3&gt; &lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Runs a one-time command&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;docker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compose&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Remove container after run&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# DB周りの初期設定&lt;/span&gt;...</description>
+        <pubDate>Mon, 08 May 2017 07:43:23 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/docker-tricks/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/docker-tricks/</guid>
+        
+        <category>docker</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Powershell Tricks</title>
+        <description>&lt;h1 id=&quot;powershell-tricks&quot;&gt;Powershell Tricks&lt;/h1&gt; &lt;p&gt;&lt;img src=&quot;https://www.powershellgallery.com/Content/Images/packageDefaultIcon.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;クロージャー&quot;&gt;クロージャー&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;function Closure { $n = 1 { $script:n = $n + 1 $n }.GetNewClosure() } $obj1 = Closure $obj2 = Closure &amp;amp; $obj1 # 2 &amp;amp; $obj1 # 3 &amp;amp; $obj2 # 2 &amp;amp; $obj2 # 3 &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;filter&quot;&gt;filter&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;# 偶数のみ取り出す 1..10 | ? { $_ % 2 -eq 0 } &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;map&quot;&gt;map&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;# 全てに2をかける 1..10 | % { $_ * 2 } &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;portを使ってるプロセス&quot;&gt;portを使ってるプロセス&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;netstat -aon | Select-String &quot;.0.0:4000&quot; netstat -aon | Select-String -Pattern &quot;.0.0:4000$&quot; &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;との違い&quot;&gt;&amp;amp;{}と.{}の違い&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;$hoge = $null &amp;amp;...</description>
+        <pubDate>Mon, 08 May 2017 06:31:05 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/powershell-tricks/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/powershell-tricks/</guid>
+        
+        <category>powershell</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Javascript Tricks - Part2</title>
+        <description>&lt;h1 id=&quot;javascript-tricks---part2&quot;&gt;Javascript Tricks - Part2&lt;/h1&gt; &lt;p&gt;&lt;img src=&quot;http://compedio.ro/fConsole/images/javascript-logo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;functionprototypeapply&quot;&gt;Function.prototype.apply()&lt;/h2&gt; &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/apply&quot;&gt;Function.prototype.apply()&lt;/a&gt;&lt;/p&gt; &lt;h3 id=&quot;概要&quot;&gt;概要&lt;/h3&gt; &lt;p&gt;指定したthisと引数(配列風のオブジェクト)で関数を呼び出す 新たなオブジェクトのためにそのメソッドを書き直すこと無く継承できる&lt;/p&gt; &lt;h3 id=&quot;配列風のオブジェクト&quot;&gt;配列風のオブジェクト&lt;/h3&gt; &lt;p&gt;lengthプロパティを持つ 0以上length未満の範囲の整数を名称としたプロパティを持つ&lt;/p&gt; &lt;h3 id=&quot;呼び出し方&quot;&gt;呼び出し方&lt;/h3&gt; &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'eat'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bananas'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fun&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'eat'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bananas'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/div&gt; &lt;h3 id=&quot;例&quot;&gt;例&lt;/h3&gt; &lt;h4 id=&quot;applyを利用したコンストラクタチェーン&quot;&gt;applyを利用したコンストラクタチェーン&lt;/h4&gt; &lt;p&gt;引数のリストの代わりに配列風オブジェクトをコンストラクタと共に利用できる&lt;/p&gt; &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 例1&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Parent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span...</description>
+        <pubDate>Mon, 08 May 2017 06:31:05 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/javascript-tricks-2/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/javascript-tricks-2/</guid>
+        
+        <category>javascript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Javascript Tricks - Part1</title>
+        <description>&lt;h1 id=&quot;javascript-tricks---part1&quot;&gt;Javascript Tricks - Part1&lt;/h1&gt; &lt;p&gt;&lt;img src=&quot;http://compedio.ro/fConsole/images/javascript-logo.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;空の配列を反復処理する&quot;&gt;空の配列を反復処理する&lt;/h2&gt; &lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [undefined, undefined, undefined, undefined]&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [undefined, undefined, undefined, undefined]&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [undefined, undefined, undefined, undefined]&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// [0, 1, 2,...</description>
+        <pubDate>Mon, 08 May 2017 05:35:48 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/javascript-tricks-1/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/javascript-tricks-1/</guid>
+        
+        <category>javascript</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Bash Tricks</title>
+        <description>&lt;h1 id=&quot;bash-tricks&quot;&gt;Bash Tricks&lt;/h1&gt; &lt;p&gt;&lt;img src=&quot;http://cdn-img.easyicon.net/png/10971/1097179.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;テンプレートが書かれたファイルを複数作成する&quot;&gt;テンプレートが書かれたファイルを複数作成する&lt;/h2&gt; &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;initial&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; require 'test/unit'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; def methodName&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; end&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; class TestClassName &amp;lt; Test::Unit::TestCase&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;def TestMethodName&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; end &quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1; i &amp;lt; 31; i++&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;do &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; -e &lt;span class=&quot;nv&quot;&gt;$initial&lt;/span&gt; &amp;gt; test_&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;.rb &lt;span class=&quot;k&quot;&gt;done&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/div&gt; &lt;p&gt;このようなファイルが30個作成される&lt;/p&gt; &lt;pre&gt;&lt;code class=&quot;language-rb:test_1.rb&quot;&gt;require 'test/unit' def methodName end class TestClassName &amp;lt; Test::Unit::TestCase def TestMethodName end end &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;bash-commandエイリアス作成&quot;&gt;bash commandエイリアス作成&lt;/h2&gt; &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;dcm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'docker-compose'&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;...</description>
+        <pubDate>Mon, 08 May 2017 04:33:48 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/bash-tricks/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/bash-tricks/</guid>
+        
+        <category>bash</category>
+        
+        
+      </item>
     
       <item>
         <title>Ruby Tricks</title>
         <description>&lt;h1 id=&quot;ruby-tricks&quot;&gt;Ruby Tricks&lt;/h1&gt; &lt;p&gt;&lt;img src=&quot;https://ruby.tw/logo.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;で引数でhashを受け取る&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;**&lt;/code&gt;で引数でHashを受け取る&lt;/h2&gt; &lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [1, [], {}]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [1, [2, 3, 4], {}]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;a: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;b: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt;...</description>
         <pubDate>Sun, 07 May 2017 17:39:47 +0900</pubDate>
-        <link>https://sunoko.github.io/cards-jekyll-template/ruby-tricks/</link>
-        <guid isPermaLink="true">https://sunoko.github.io/cards-jekyll-template/ruby-tricks/</guid>
+        <link>https://sunoko.github.io/whoami/ruby-tricks/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/ruby-tricks/</guid>
         
         <category>ruby</category>
         
@@ -41,8 +101,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Sun, 07 May 2017 06:31:05 +0900</pubDate>
-        <link>https://sunoko.github.io/cards-jekyll-template/About-me/</link>
-        <guid isPermaLink="true">https://sunoko.github.io/cards-jekyll-template/About-me/</guid>
+        <link>https://sunoko.github.io/whoami/About-me/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/About-me/</guid>
         
         <category>profile</category>
         

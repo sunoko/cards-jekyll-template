@@ -1,16 +1,51 @@
 [
   
     {
+      "title"    : "Docker Tricks",
+      "tags"     : "docker",
+      "url"      : "/whoami/docker-tricks/",
+      "date"     : "08 May 2017"
+    } ,
+  
+    {
+      "title"    : "Powershell Tricks",
+      "tags"     : "powershell",
+      "url"      : "/whoami/powershell-tricks/",
+      "date"     : "08 May 2017"
+    } ,
+  
+    {
+      "title"    : "Javascript Tricks - Part2",
+      "tags"     : "javascript",
+      "url"      : "/whoami/javascript-tricks-2/",
+      "date"     : "08 May 2017"
+    } ,
+  
+    {
+      "title"    : "Javascript Tricks - Part1",
+      "tags"     : "javascript",
+      "url"      : "/whoami/javascript-tricks-1/",
+      "date"     : "08 May 2017"
+    } ,
+  
+    {
+      "title"    : "Bash Tricks",
+      "tags"     : "bash",
+      "url"      : "/whoami/bash-tricks/",
+      "date"     : "08 May 2017"
+    } ,
+  
+    {
       "title"    : "Ruby Tricks",
       "tags"     : "ruby",
-      "url"      : "/cards-jekyll-template/ruby-tricks/",
+      "url"      : "/whoami/ruby-tricks/",
       "date"     : "07 May 2017"
     } ,
   
     {
       "title"    : "About me",
       "tags"     : "profile",
-      "url"      : "/cards-jekyll-template/About-me/",
+      "url"      : "/whoami/About-me/",
       "date"     : "07 May 2017"
     } 
   
