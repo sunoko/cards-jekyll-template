@@ -7,3 +7,9 @@ tags: フリーランス
 twitter_text:
 introduction:
 ---
+
+# Ruby Tricks
+
+![](https://ruby.tw/logo.gif)
+
+## `**`で引数でHashを受け取る
