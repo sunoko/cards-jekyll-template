@@ -3,7 +3,7 @@ layout: post
 title: "Bash Tricks"
 date: 2017-05-07 19:33:48
 image: '/assets/img/dica-rapida-2/main.png'
-description: 'Aprenda como ser mais social, ter maior relevância nas redes sociais e atrair mais usuários.'
+description: 'description'
 tags:
 - bash
 categories:
