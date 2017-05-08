@@ -3,7 +3,7 @@ layout: post
 title: "Docker Tricks"
 date: 2017-05-07 22:43:23
 image: '/assets/img/linter/errors-list.png'
-description: 'Valide seu código em JS/ES6 em busca de erros, warnings, códigos esquecidos e melhore a sua qualidade. Seu amiguinho agradece um código mais limpo.'
+description: 'description'
 tags:
 - docker
 categories:
