@@ -3,7 +3,7 @@ title: Who am I ?
 description: A blog about development
 baseurl: "/whoami"
 url: "https://sunoko.github.io"
-locale: en_US
+locale: ja_JP
 
 # User settings
 username: Kazuki Chinone
