@@ -17,7 +17,7 @@
     {% if page.image %}
     <meta property="twitter:image:src" content="{{ site.url }}{{ site.baseurl }}{{page.image }}">
     {% else %}
-    <meta property="twitter:image:src" content="{{ "/assets/img/blog-image.png" | prepend: site.baseurl | prepend: site.url }}">
+    <meta property="twitter:image:src" content="{{ "/assets/img/blog-image.png" | prepend: site.baseurl }}">
     {% endif %}
 
     <!-- Social: Facebook / Open Graph -->
