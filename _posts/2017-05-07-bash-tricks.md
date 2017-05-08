@@ -3,12 +3,12 @@ layout: post
 title: "Bash Tricks"
 date: 2017-05-07 19:33:48
 image: '/assets/img/dica-rapida-2/main.png'
-description: 'description'
+description: '忘れがちで便利なBashまとめ'
 tags:
 - bash
 categories:
 twitter_text: 'Aprenda a usar as meta tags sociais.'
-introduction: "Aprenda como ser mais social, ter maior relevância nas redes sociais e atrair mais usuários. Para isso, basta criar as meta tags corretas."
+introduction: "忘れがちで便利なBashまとめ"
 ---
 
 # Bash Tricks

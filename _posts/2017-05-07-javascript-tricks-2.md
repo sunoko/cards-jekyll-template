@@ -2,11 +2,11 @@
 layout: post
 title: "Javascript Tricks - Part2"
 date: 2017-05-07 21:31:05
-description: "Detalhes fazem a diferença, vamos falar sobre Favicons, Touch Icons e Tile Icons e como eles fazem a diferença."
+description: "忘れがちで便利なJavascriptまとめ"
 tags:
 - javascript
 twitter_text: "Favicons, touch icons e tile icons..."
-introduction: "Qual a importância dos favicons, touch icons e tile icons. Como criá-los automáticamente e como usá-los em seu site."
+introduction: "忘れがちで便利なJavascriptまとめ"
 ---
 
 # Javascript Tricks - Part2

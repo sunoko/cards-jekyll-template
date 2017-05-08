@@ -3,12 +3,12 @@ layout: post
 title: "Javascript Tricks - Part1"
 date: 2017-05-07 20:35:48
 image: '/assets/img/'
-description: 'How to use this template'
+description: '忘れがちで便利なJavascriptまとめ'
 tags:
 - javascript
 categories:
 twitter_text: 'How to use this template'
-introduction: 'How to use this template'
+introduction: '忘れがちで便利なJavascriptまとめ'
 ---
 
 # Javascript Tricks - Part1

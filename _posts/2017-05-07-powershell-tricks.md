@@ -2,11 +2,11 @@
 layout: post
 title: "Powershell Tricks"
 date: 2017-05-07 21:31:05
-description: "Powershell Tricks"
+description: "忘れがちで便利なPowershellまとめ"
 tags:
 - powershell
 twitter_text: "Favicons, touch icons e tile icons..."
-introduction: "Powershell Tricks"
+introduction: "忘れがちで便利なPowershellまとめ"
 ---
 
 # Powershell Tricks

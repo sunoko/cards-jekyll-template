@@ -2,14 +2,14 @@
 layout: post
 title: "Ruby Tricks"
 date: 2017-05-07 08:39:47
-description: "O SVG finalmente começa dar o ar das graças e você vai saber aqui o porquê disso."
+description: "忘れがちで便利なRubyまとめ"
 tags:
 - ruby
 image: "/assets/img/por-que-usar-svg/coloridos.jpg"
 categories:
 - "Some series !"
 twitter_text: "Por que você deveria estar usando SVG?"
-introduction: "Alguns motivos para se usar SVG no seu workflow e alguns exemplos bem bacanas de como outros já utilizam."
+introduction: "忘れがちで便利なRubyまとめ"
 ---
 
 # Ruby Tricks
