@@ -31,9 +31,9 @@ for ((i=1; i < 31; i++)); do
     echo -e $initial > test_$i.rb
 done
 ```
-ファイルのあるディレクトリで実行すると同じ階層に下記のようなファイルが30個作成されます。
+上記スクリプトファイルのあるディレクトリで実行すると同じ階層に下記のようなファイルが30個作成されます。
 
-```rb:test_1.rb
+```rb
 require 'test/unit'
 
 def methodName
