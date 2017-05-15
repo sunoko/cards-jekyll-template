@@ -5,8 +5,8 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 15 May 2017 21:55:01 +0900</pubDate>
-    <lastBuildDate>Mon, 15 May 2017 21:55:01 +0900</lastBuildDate>
+    <pubDate>Mon, 15 May 2017 21:58:58 +0900</pubDate>
+    <lastBuildDate>Mon, 15 May 2017 21:58:58 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -67,8 +67,8 @@
       </item>
     
       <item>
-        <title>Powershell Tricks</title>
-        <description>&lt;h1 id=&quot;powershell-tricks&quot;&gt;Powershell Tricks&lt;/h1&gt; &lt;p&gt;&lt;img src=&quot;https://www.powershellgallery.com/Content/Images/packageDefaultIcon.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt; &lt;h2 id=&quot;クロージャー&quot;&gt;クロージャー&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;function Closure { $n = 1 { $script:n = $n + 1 $n }.GetNewClosure() } $obj1 = Closure $obj2 = Closure &amp;amp; $obj1 # 2 &amp;amp; $obj1 # 3 &amp;amp; $obj2 # 2 &amp;amp; $obj2 # 3 &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;filter&quot;&gt;filter&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;# 偶数のみ取り出す 1..10 | ? { $_ % 2 -eq 0 } &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;map&quot;&gt;map&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;# 全てに2をかける 1..10 | % { $_ * 2 } &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;portを使ってるプロセス&quot;&gt;portを使ってるプロセス&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;netstat -aon | Select-String &quot;.0.0:4000&quot; netstat -aon | Select-String -Pattern &quot;.0.0:4000$&quot; &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;との違い&quot;&gt;&amp;amp;{}と.{}の違い&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;$hoge = $null &amp;amp;...</description>
+        <title>忘れがちで便利なPowershellまとめ</title>
+        <description>&lt;h2 id=&quot;クロージャー&quot;&gt;クロージャー&lt;/h2&gt; &lt;p&gt;クロージャーってなんかカッコいい。コードレビューで、なんでクロージャー使ってんの？の質問に答えられないならオススメしません。 理にかなったクロージャーはカッコいい。&lt;/p&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;function Closure { $n = 1 { $script:n = $n + 1 $n }.GetNewClosure() } $obj1 = Closure $obj2 = Closure &amp;amp; $obj1 # 2 &amp;amp; $obj1 # 3 &amp;amp; $obj2 # 2 &amp;amp; $obj2 # 3 &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;filter&quot;&gt;filter&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;# 偶数のみ取り出す 1..10 | ? { $_ % 2 -eq 0 } &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;map&quot;&gt;map&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;# 全てに2をかける 1..10 | % { $_ * 2 } &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;portを使ってるプロセス&quot;&gt;portを使ってるプロセス&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;netstat -aon | Select-String &quot;.0.0:4000&quot; netstat -aon | Select-String -Pattern &quot;.0.0:4000$&quot; &lt;/code&gt;&lt;/pre&gt; &lt;h2 id=&quot;との違い&quot;&gt;&amp;amp;{}と.{}の違い&lt;/h2&gt; &lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;$hoge = $null &amp;amp; {$hoge = 4} # [String]::IsNullOrEmpty($hoge)...</description>
         <pubDate>Mon, 08 May 2017 06:31:05 +0900</pubDate>
         <link>https://sunoko.github.io/whoami/powershell-tricks/</link>
         <guid isPermaLink="true">https://sunoko.github.io/whoami/powershell-tricks/</guid>

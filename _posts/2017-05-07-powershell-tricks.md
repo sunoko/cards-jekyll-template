@@ -1,18 +1,17 @@
 ---
 layout: post
-title: "Powershell Tricks"
+title: "忘れがちで便利なPowershellまとめ"
 date: 2017-05-07 21:31:05
 description: "忘れがちで便利なPowershellまとめ"
 tags:
 - powershell
 twitter_text: "Favicons, touch icons e tile icons..."
-introduction: "忘れがちで便利なPowershellまとめ"
+introduction: ""
 ---
 
-# Powershell Tricks
-![](https://www.powershellgallery.com/Content/Images/packageDefaultIcon.png)
-
 ## クロージャー
+クロージャーってなんかカッコいい。コードレビューで、なんでクロージャー使ってんの？の質問に答えられないならオススメしません。
+理にかなったクロージャーはカッコいい。
 
 ```ps1
 function Closure {
@@ -36,6 +35,7 @@ $obj2 = Closure
 ```
 
 ## filter
+
 
 ```ps1
 # 偶数のみ取り出す
