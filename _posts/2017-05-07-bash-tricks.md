@@ -1,20 +1,20 @@
 ---
 layout: post
-title: "Bash Tricks"
+title: "忘れがちで便利なBashまとめ"
 date: 2017-05-07 19:33:48
 image: '/assets/img/dica-rapida-2/main.png'
 description: '忘れがちで便利なBashまとめ'
 tags:
 - bash
 categories:
-twitter_text: 'Aprenda a usar as meta tags sociais.'
-introduction: "忘れがちで便利なBashまとめ"
+twitter_text: '忘れがちで便利なBashまとめ'
+introduction: ""
 ---
 
-# Bash Tricks
-![](http://cdn-img.easyicon.net/png/10971/1097179.gif)
-
 ## テンプレートが書かれたファイルを複数作成する
+下記サンプルではRubyのユニットテスト（Railsではなく）するためのファイルを複数作成します。
+test_1.rbというファイル名のファイルが30個作成されます。ファイルの中身はユニットテストをするために必要な基本的なものが書かれています。
+ファイルの中身は別としてファイルを複数作成したい時には早速使えるかと思います。
 
 ```bash
 initial="
@@ -31,8 +31,7 @@ for ((i=1; i < 31; i++)); do
     echo -e $initial > test_$i.rb
 done
 ```
-
-このようなファイルが30個作成される
+ファイルのあるディレクトリで`. fileName.sh`このように実行すると同じ階層にファイルが30個作成されます。
 
 ```rb:test_1.rb
 require 'test/unit'
