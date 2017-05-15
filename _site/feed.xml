@@ -5,9 +5,39 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 08 May 2017 21:46:32 +0900</pubDate>
-    <lastBuildDate>Mon, 08 May 2017 21:46:32 +0900</lastBuildDate>
+    <pubDate>Mon, 15 May 2017 20:38:45 +0900</pubDate>
+    <lastBuildDate>Mon, 15 May 2017 20:38:45 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>2017年8月からフリーランスエンジニアになります</title>
+        <description>&lt;h1 id=&quot;title&quot;&gt;Title&lt;/h1&gt;
+
+&lt;p&gt;派遣エンジニアになって5年目経ちます。派遣といっても正社員として採用されて、お客様先に派遣される形態のいわゆる特定派遣というものです。
+正社員なのでメリットは仕事がなくなって社内待機期間になっても給料は変わらないことくらいかなぁ。
+新卒として入った会社なので同期がいたり、社内研修やら資格取得のための費用を負担してくれるのはありがたいと思います。
+が、5年目ともなるとそのような恩恵はほぼ皆無になります。&lt;/p&gt;
+
+&lt;p&gt;年収ってどのくらい。案件参画できんの。何かお金周りの手続き多そう。
+ってイメージがありました。&lt;/p&gt;
+
+&lt;h2 id=&quot;で引数でhashを受け取る&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;**&lt;/code&gt;で引数でHashを受け取る&lt;/h2&gt;
+&lt;p&gt;フリーの印象
+調べた結果
+エージェントの存在意義
+エージェントの流れ
+おすすめエージェント
+調べた結果と感想
+フリーに対する意見&lt;/p&gt;
+</description>
+        <pubDate>Tue, 09 May 2017 06:43:47 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/free-rancer/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/free-rancer/</guid>
+        
+        <category>フリーランス</category>
+        
+        
+      </item>
     
       <item>
         <title>Docker Tricks</title>

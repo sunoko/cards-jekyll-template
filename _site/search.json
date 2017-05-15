@@ -1,6 +1,13 @@
 [
   
     {
+      "title"    : "2017年8月からフリーランスエンジニアになります",
+      "tags"     : "フリーランス",
+      "url"      : "/whoami/free-rancer/",
+      "date"     : "09 May 2017"
+    } ,
+  
+    {
       "title"    : "Docker Tricks",
       "tags"     : "docker",
       "url"      : "/whoami/docker-tricks/",
