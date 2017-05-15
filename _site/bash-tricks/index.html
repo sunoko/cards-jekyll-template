@@ -128,7 +128,7 @@
                 <h2 id="テンプレートが書かれたファイルを複数作成する">テンプレートが書かれたファイルを複数作成する</h2>
 <p>下記サンプルではRubyのユニットテスト（Railsではなく）するためのファイルを複数作成します。
 test_1.rbというファイル名のファイルが30個作成されます。ファイルの中身はユニットテストをするために必要な基本的なものが書かれています。
-ファイルの中身は別としてファイルを複数作成したい時には早速使えるかと思います。</p>
+ファイルの中身は別として、ファイルを複数作成したい時には早速使えるかと思います。</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">initial</span><span class="o">=</span><span class="s2">"
 require 'test/unit'</span><span class="se">\n\n</span><span class="s2">
@@ -145,7 +145,7 @@ end
 <span class="k">done</span>
 </code></pre>
 </div>
-<p>ファイルのあるディレクトリで<code class="highlighter-rouge">. fileName.sh</code>このように実行すると同じ階層にファイルが30個作成されます。</p>
+<p>ファイルのあるディレクトリで実行すると同じ階層に下記のようなファイルが30個作成されます。</p>
 
 <pre><code class="language-rb:test_1.rb">require 'test/unit'
 
@@ -163,18 +163,23 @@ end
 </code></pre>
 
 <h2 id="bash-commandエイリアス作成">bash commandエイリアス作成</h2>
+<p>Docker使ってると想像以上に<code class="highlighter-rouge">docker-compose</code>をタイプしている気がするので省略してしまいましょう。
+なんなら<code class="highlighter-rouge">d</code>だけでもいいかもしれませんね。</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">dcm</span><span class="o">=</span><span class="s1">'docker-compose'</span>
 </code></pre>
 </div>
 
-<h2 id="bashrc再読み込み">.bashrc再読み込み</h2>
+<h2 id="bash_profile再読み込み">.bash_profile再読み込み</h2>
+<p>普段使いすぎてる感のあるコマンドや流れ作業のようなコマンド群を、エイリアスやら関数にして.bash_profileに記載した際に
+すぐ動作確認できます。</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>bash -l
 </code></pre>
 </div>
 
 <h2 id="bashプロンプト変更">bashプロンプト変更</h2>
+<p>自己満足しか存在しません。でも僕たちはコンピュータではないのでビジュアルは大事にしたいです。</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># 一時的変更</span>
 <span class="nb">export </span><span class="nv">PS1</span><span class="o">=</span><span class="s2">"</span><span class="se">\[\e</span><span class="s2">[3;34m</span><span class="se">\]\w</span><span class="s2">/ </span><span class="se">\[\e</span><span class="s2">[0m</span><span class="se">\]</span><span class="nv">$ </span><span class="s2">"</span>
