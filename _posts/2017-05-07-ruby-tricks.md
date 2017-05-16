@@ -75,6 +75,7 @@ puts "2: #{result.round(2)}s"
 ```
 
 ## Tap
+Tapを使用した方が可読性が増すかと。
 
 ```rb
 class User
