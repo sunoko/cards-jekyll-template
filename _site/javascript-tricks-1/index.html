@@ -125,27 +125,27 @@
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <h1 id="javascript-tricks---part1">Javascript Tricks - Part1</h1>
+                <h2 id="空の配列を反復処理する">空の配列を反復処理する</h2>
+<p><code class="highlighter-rouge">var array</code>は長さが3の空の配列であり、Arrayメソッドで反復処理ができない。
+<code class="highlighter-rouge">var array1</code>はundefinedに設定された値を3つ持つ配列。値を持つので反復処理可能。
+書き方を変えるならば<code class="highlighter-rouge">Array(undefined, undefined, undefined)</code>これと同じ。</p>
 
-<p><img src="http://compedio.ro/fConsole/images/javascript-logo.png" alt="" /></p>
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="c1">// [undefined, undefined, undefined]</span>
 
-<h2 id="空の配列を反復処理する">空の配列を反復処理する</h2>
+<span class="nx">array</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">index</span><span class="p">);</span>
+<span class="c1">// [undefined, undefined, undefined]</span>
 
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
-<span class="c1">// [undefined, undefined, undefined, undefined]</span>
+<span class="kd">var</span> <span class="nx">array1</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">));</span>
+<span class="c1">// [undefined, undefined, undefined]</span>
 
-<span class="nx">arr</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">index</span><span class="p">);</span>
-<span class="c1">// [undefined, undefined, undefined, undefined]</span>
-
-<span class="kd">var</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
-<span class="c1">// [undefined, undefined, undefined, undefined]</span>
-
-<span class="nx">arr1</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">index</span><span class="p">);</span>
-<span class="c1">// [0, 1, 2, 3, 4]</span>
+<span class="nx">array1</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">elem</span><span class="p">,</span> <span class="nx">index</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">index</span><span class="p">);</span>
+<span class="c1">// [0, 1, 2]</span>
 </code></pre>
 </div>
 
-<h2 id="空のパラメーターをメソッドに渡す">空のパラメーターをメソッドに渡す</h2>
+<h2 id="空のパラメーターをメソッドに渡す方法3つ">空のパラメーターをメソッドに渡す方法3つ</h2>
+<p><code class="highlighter-rouge">null</code>, <code class="highlighter-rouge">undefined</code>, Restパラメータを使用する。</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Method</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span><span class="p">){</span>
 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="nx">c</span><span class="p">)</span>
@@ -164,7 +164,8 @@
 </code></pre>
 </div>
 
-<h2 id="配列に重複する値を入れない">配列に重複する値を入れない</h2>
+<h2 id="値が重複しない配列を作る方法">値が重複しない配列を作る方法</h2>
+<p>Setオブジェクトを使う。Setオブジェクトは各値が一意でなければならない。</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[...</span><span class="k">new</span> <span class="nx">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])];</span>
 <span class="c1">// [1, 2, 3]</span>
@@ -173,10 +174,9 @@
 </code></pre>
 </div>
 
-<h4 id="setオブジェクト">Setオブジェクト</h4>
-<p>各値は一意でなければならない</p>
-
 <h2 id="でbooleanに変換する"><code class="highlighter-rouge">!!</code>でbooleanに変換する</h2>
+<p><code class="highlighter-rouge">!!(変数名)</code>で変数に値が入っている時は<code class="highlighter-rouge">true</code>を返す。
+値が入っていない時は<code class="highlighter-rouge">false</code>を返す。</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Account</span><span class="p">(</span><span class="nx">cash</span><span class="p">)</span> <span class="p">{</span>  
     <span class="k">this</span><span class="p">.</span><span class="nx">cash</span> <span class="o">=</span> <span class="nx">cash</span><span class="p">;</span>
@@ -221,6 +221,7 @@
 </div>
 
 <h2 id="でdefault-valueを設定する"><code class="highlighter-rouge">||</code>でDefault valueを設定する</h2>
+<p>変数の値の指定がない場合のみ、Default valueが設定されるようになる。</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">User</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>  
     <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span> <span class="o">||</span> <span class="s2">"Default User"</span><span class="p">;</span>
@@ -241,6 +242,7 @@
 </div>
 
 <h2 id="arraylengthをキャッシュする">array.lengthをキャッシュする</h2>
+<p><code class="highlighter-rouge">for</code>で繰り返し処理を行う度に<code class="highlighter-rouge">array.length</code>をしないようにする。</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
 <span class="kd">var</span> <span class="nx">startTime</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span>
@@ -261,7 +263,8 @@
 <span class="p">}</span>
 </code></pre>
 </div>
-<p>querySelector(“.className”)は最初の要素の値を返す</p>
+<p>ちなみに<code class="highlighter-rouge">querySelector(".className")</code>は最初の要素の値を返すので、
+複数の要素を取得したい場合は<code class="highlighter-rouge">getElementsByClassName</code>を使用する。</p>
 
 <h2 id="配列の最後を取得する">配列の最後を取得する</h2>
 
@@ -276,13 +279,12 @@
 </div>
 
 <h2 id="配列を切捨てる">配列を切捨てる</h2>
+<p><code class="highlighter-rouge">array.length</code>の値を必要な長さに調整する。</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>  
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> 
 <span class="c1">// 6  </span>
 <span class="nx">array</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>  
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span> 
-<span class="c1">// 3  </span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array</span><span class="p">);</span> 
 <span class="c1">// [1,2,3]  </span>
 </code></pre>
@@ -290,9 +292,9 @@
 
 <h2 id="ヒットしたものを全て入れ替える">ヒットしたものを全て入れ替える</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>var string = "john john";  
-console.log(string.replace(/hn/g, "Replaced")); 
-// "joReplaced joReplaced"  
+<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">"john john"</span><span class="p">;</span>  
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/hn/g</span><span class="p">,</span> <span class="s2">"Replaced"</span><span class="p">));</span> 
+<span class="c1">// "joReplaced joReplaced"  </span>
 </code></pre>
 </div>
 
@@ -301,13 +303,20 @@ console.log(string.replace(/hn/g, "Replaced"));
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>  
 <span class="kd">var</span> <span class="nx">array2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">];</span>  
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">array2</span><span class="p">));</span> 
-<span class="c1">// [1,2,3,4,5,6]; </span>
+<span class="c1">// [1, 2, 3, 4, 5, 6]; </span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array2</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">array1</span><span class="p">));</span> 
 <span class="c1">// [4, 5, 6, 1, 2, 3]</span>
 </code></pre>
 </div>
 
 <h2 id="nodelistをarrayに変換する">NodeListをArrayに変換する</h2>
+<p>変換するとArrayのメソッドを使えるようになる。</p>
+
+<h4 id="nodelist-object">NodeList Object</h4>
+<p>DOMノードの集合を表すオブジェクトであり、<code class="highlighter-rouge">Node.childNodes</code>や<code class="highlighter-rouge">document.querySelectorAll</code>の戻り値として用いられる。</p>
+
+<h4 id="arrayfrom">Array.from()</h4>
+<p>配列型オブジェクトや反復可能(iterable)オブジェクトから新しいArrayインスタンスを生成</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">elements</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"p"</span><span class="p">);</span> 
 <span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">elements</span><span class="p">)</span>
@@ -323,13 +332,16 @@ console.log(string.replace(/hn/g, "Replaced"));
 </code></pre>
 </div>
 
-<h4 id="nodelist-object">NodeList Object</h4>
-<p>DOMノードの集合を表すオブジェクトであり、 Node.childNodes や document.querySelectorAll メソッドの戻り値として用いられる</p>
-
-<h4 id="arrayfrom">Array.from()</h4>
-<p>配列型オブジェクトや反復可能 (iterable) オブジェクトから新しい Array インスタンスを生成</p>
-
 <h2 id="配列をシャッフルする">配列をシャッフルする</h2>
+<h3 id="arraysort">Array.sort()</h3>
+<ol>
+  <li>0未満の場合、a を b より小さい添字にソート</li>
+  <li>0を返す場合、a と b は互いに関して変えることなく、他のすべての要素に関してソート</li>
+  <li>0より大きい場合、b を a より小さい添字にソートMath.random()は0~1の値を返す。</li>
+</ol>
+
+<p>Math.random()が0.5より小さい場合、returnされる値が0未満になるため配列の前に来る。
+Math.random()が0.5より大きい場合、returnされる値が0以上になるため配列の後ろに来る。</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="s2">"ABCDEFGHIJKLMNOPQRSTUVWXYZ"</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s2">""</span><span class="p">);</span>
 
@@ -340,64 +352,15 @@ console.log(string.replace(/hn/g, "Replaced"));
 <span class="p">}</span>
 
 <span class="nx">shuffle</span><span class="p">(</span><span class="nx">list</span><span class="p">)</span>
-
-<span class="c1">// 0 &lt;= Math.random() &lt; 1</span>
-<span class="c1">// Math.random()が0.5より小さい場合配列の前に来る</span>
-<span class="c1">// Math.random()が0.5より大きい場合配列の後ろに来る</span>
 </code></pre>
 </div>
 
-<h3 id="arraysort">Array.sort()</h3>
-<ol>
-  <li>0未満の場合、a を b より小さい添字にソート</li>
-  <li>0を返す場合、a と b は互いに関して変えることなく、他のすべての要素に関してソート</li>
-  <li>0より大きい場合、b を a より小さい添字にソート</li>
-</ol>
-
-<h2 id="配列の中に値があるかどうか確かめる">配列の中に値があるかどうか確かめる</h2>
+<h2 id="配列の中に特定の値があるかどうか確かめる">配列の中に特定の値があるかどうか確かめる</h2>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">months</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'January'</span><span class="p">,</span> <span class="s1">'March'</span><span class="p">,</span> <span class="s1">'July'</span><span class="p">];</span>  
 <span class="nx">months</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">'March'</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> 
 <span class="c1">// true  </span>
 <span class="nx">months</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">'July'</span><span class="p">);</span>
-<span class="c1">// true</span>
-</code></pre>
-</div>
-
-<h2 id="defaul-parameterを設定する">Defaul parameterを設定する</h2>
-
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">myFunc1</span><span class="p">(</span><span class="nx">opt</span><span class="p">){</span>
-	<span class="nx">opt</span> <span class="o">=</span> <span class="nx">opt</span> <span class="o">!=</span> <span class="kc">undefined</span> <span class="p">?</span> <span class="nx">opt</span> <span class="p">:</span> <span class="s1">'Default Value'</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">opt</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">myFunc2</span><span class="p">(</span><span class="nx">opt</span> <span class="o">=</span> <span class="s1">'default value'</span><span class="p">){</span>
-	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">opt</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="nx">myFunc1</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="c1">// 100</span>
-<span class="nx">myFunc1</span><span class="p">()</span>
-<span class="c1">// Default Value</span>
-<span class="nx">myFunc2</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="c1">// 100</span>
-<span class="nx">myFunc2</span><span class="p">()</span>
-<span class="c1">// default value</span>
-</code></pre>
-</div>
-
-<h2 id="objectprototypeconstructor">Object.prototype.constructor</h2>
-
-<div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="s2">"test"</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">string</span><span class="p">.</span><span class="nx">constructor</span><span class="p">)</span> 
-<span class="c1">// [Function: String]</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">string</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">String</span><span class="p">)</span> 
-<span class="c1">// true</span>
-
-<span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span> <span class="mi">12345</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">.</span><span class="nx">constructor</span><span class="p">)</span>
-<span class="c1">// [Function: Number]</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">===</span> <span class="nb">Number</span><span class="p">)</span>
 <span class="c1">// true</span>
 </code></pre>
 </div>
