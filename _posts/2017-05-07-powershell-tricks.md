@@ -85,7 +85,7 @@ Get-NetFirewallRule | where {$_.DisplayName -eq "Something"}
 
 ## Test-ComputerSecureChannel コマンドレットの使い方
 `Test-ComputerSecureChannel` コマンドレットは、信頼関係の状態をチェックして、ローカルコンピューターとドメインの間のセキュリティで保護されたチャネルが正しく機能しているかどうかを検証します。  
-会社でOutlookが更新されないなぁって時に確認するといいかもしれません。
+会社でOutlookが更新されないなぁって時に確認するといいかもしれません。  
 コンパネでネットワークアダプターを無効にして、再度有効にすると調子がようくなる場合もありました。
 
 ```powershell
@@ -181,7 +181,7 @@ function Unregister-TaskRunner {
 ```
 
 ## Githubのトレンドを取得する
-このように使用する
+このように使用する  
 `Get-GitHubTrend`  
 `Get-GitHubTrend -target javascript`  
 `Get-GitHubTrend -target ruby -length 10`  

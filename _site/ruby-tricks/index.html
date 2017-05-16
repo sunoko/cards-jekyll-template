@@ -234,8 +234,7 @@
 </div>
 
 <h2 id="def-xxxyyyブロック引数"><code class="highlighter-rouge">def xxx(&amp;yyy)</code>ブロック引数</h2>
-<h4 id="yield">yield</h4>
-<p>ブロックを呼び出すもの</p>
+<p><code class="highlighter-rouge">yield</code>はブロックを呼び出すもの</p>
 
 <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">block</span>
   <span class="k">yield</span>
@@ -247,22 +246,21 @@
 <span class="c1"># "This is block!"</span>
 </code></pre>
 </div>
-<h4 id="proc">Proc</h4>
-<p>ブロックをオブジェクト化したもの、callで呼び出すことが出来る
+<p><code class="highlighter-rouge">Proc</code>はブロックをオブジェクト化したもの、callで呼び出すことが出来る<br />
 Proc.newとlambdaはほぼ同義</p>
 
-<ul>
+<ol>
   <li>
-    <p>引数の取り扱い(数があっていない場合)
-Proc: 実行される
+    <p>引数の取り扱い(数があっていない場合)<br />
+Proc: 実行される<br />
 lambda: ArgumentError</p>
   </li>
   <li>
-    <p>return, break したときの挙動
-Proc: callしたコンテキストでreturn(トップレベルで call した場合、LocalJumpError)
+    <p>return, break したときの挙動<br />
+Proc: callしたコンテキストでreturn(トップレベルで call した場合、LocalJumpError)<br />
 lambda: ブロック内の処理を抜ける</p>
   </li>
-</ul>
+</ol>
 
 <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">proc</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span>
   <span class="nb">p</span> <span class="s2">"This is proc!"</span>

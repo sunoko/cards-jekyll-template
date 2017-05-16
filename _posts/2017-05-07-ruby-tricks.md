@@ -121,8 +121,7 @@ p copy.equal?(base)
 ```
 
 ## `def xxx(&yyy)`ブロック引数
-#### yield
-ブロックを呼び出すもの
+`yield`はブロックを呼び出すもの
 
 ```ruby
 def block
@@ -134,16 +133,15 @@ block do
 end
 # "This is block!"
 ```
-#### Proc
-ブロックをオブジェクト化したもの、callで呼び出すことが出来る
+`Proc`はブロックをオブジェクト化したもの、callで呼び出すことが出来る  
 Proc.newとlambdaはほぼ同義
 
-* 引数の取り扱い(数があっていない場合)
-Proc: 実行される
+1. 引数の取り扱い(数があっていない場合)  
+Proc: 実行される  
 lambda: ArgumentError
 
-* return, break したときの挙動
-Proc: callしたコンテキストでreturn(トップレベルで call した場合、LocalJumpError)
+2. return, break したときの挙動  
+Proc: callしたコンテキストでreturn(トップレベルで call した場合、LocalJumpError)  
 lambda: ブロック内の処理を抜ける
 
 ```ruby
