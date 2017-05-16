@@ -2,10 +2,10 @@
 layout: post
 title: "忘れがちで便利なPowershellまとめ"
 date: 2017-05-07 21:31:05
-description: "忘れがちで便利なPowershellまとめ"
+description: ""
 tags:
 - powershell
-twitter_text: "Favicons, touch icons e tile icons..."
+twitter_text: ""
 introduction: ""
 ---
 
@@ -13,7 +13,7 @@ introduction: ""
 クロージャーってなんかカッコいい。コードレビューで、なんでクロージャー使ってんの？の質問に答えられないならオススメしません。
 理にかなったクロージャーはカッコいい。
 
-```ps1
+```c#
 function Closure {
   $n = 1
   {
@@ -36,29 +36,28 @@ $obj2 = Closure
 
 ## filter
 
-
-```ps1
+```c#
 # 偶数のみ取り出す
 1..10 | ? { $_ % 2 -eq 0 }
 ```
 
 ## map
 
-```ps1
+```c#
 # 全てに2をかける
 1..10 | % { $_ * 2 }
 ```
 
 ## portを使ってるプロセス
 
-```ps1
+```c#
 netstat -aon | Select-String ".0.0:4000"
 netstat -aon | Select-String -Pattern ".0.0:4000$"
 ```
 
 ## &{}と.{}の違い
 
-```ps1
+```c#
 $hoge = $null
 & {$hoge = 4}
 # [String]::IsNullOrEmpty($hoge)
@@ -76,7 +75,7 @@ $hoge
 
 ## Firewall設定確認
 
-```ps1
+```c#
 Get-NetFirewallRule | where {$_.DisplayName -eq "Something"}
 ```
 
@@ -85,7 +84,7 @@ Get-NetFirewallRule | where {$_.DisplayName -eq "Something"}
 概要
 `Test-ComputerSecureChannel` コマンドレットは、信頼関係の状態をチェックして、ローカルコンピューターとドメインの間のセキュリティで保護されたチャネルが正しく機能しているかどうかを検証します。
 
-```ps1
+```c#
 # ローカルコンピューター上のAdministratorsグループのメンバーで実行する
 # 確認
 Test-ComputerSecureChannel
@@ -98,7 +97,7 @@ Test-ComputerSecureChannel -credential administrator -repair
 下記の場合、`Register-TaskRunner.ps1`と同じフォルダーに置いた拡張子が`ps1`のファイルを監視する。
 また、変更したファイルのユニットテストが同じフォルダにある場合は変更の度に実行される。
 
-```ps1:Register-TaskRunner.ps1
+```c#
 function Register-TaskRunner {
 <#
 .SYNOPSIS
@@ -167,7 +166,7 @@ $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 Register-TaskRunner -Folder $here
 ```
 
-```ps1:Unregister-TaskRunner.ps1
+```c#
 function Unregister-TaskRunner {
     Get-EventSubscriber | Unregister-Event
 }
@@ -179,7 +178,7 @@ function Unregister-TaskRunner {
 `Get-GitHubTrend -target javascript`
 `Get-GitHubTrend -target ruby -length 10`
 
-```ps1:Get-GitHubTrend.ps1
+```c#
 function Get-GitHubTrend {
     Param
     (
@@ -232,7 +231,7 @@ function Get-GitHubTrend {
 
 ## Hashを配列のように扱う
 
-```ps1
+```c#
 $myHash = @{}
 $myHash["a"] = 1
 $myHash["b"] = 2

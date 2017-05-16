@@ -8,13 +8,9 @@ tags:
 image: "/assets/img/por-que-usar-svg/coloridos.jpg"
 categories:
 - "Some series !"
-twitter_text: "Por que você deveria estar usando SVG?"
+twitter_text: ""
 introduction: ""
 ---
-
-# Ruby Tricks
-
-![](https://ruby.tw/logo.gif)
 
 ## `**`で引数でHashを受け取る
 

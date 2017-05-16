@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>忘れがちで便利なPowershellまとめ</title>
-    <meta name="description" content="忘れがちで便利なPowershellまとめ">
+    <meta name="description" content="">
 
     <!-- Google Authorship Markup -->
     <link rel="author" href="https://plus.google.com/+lorem_ipsum?rel=author">
@@ -15,7 +15,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@lorem_ipsum">
     <meta name="twitter:title" content="忘れがちで便利なPowershellまとめ">
-    <meta name="twitter:description" content="忘れがちで便利なPowershellまとめ">
+    <meta name="twitter:description" content="">
     
     <meta property="twitter:image:src" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
@@ -26,12 +26,12 @@
     
     <meta property="og:image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
-    <meta property="og:description" content="忘れがちで便利なPowershellまとめ">
+    <meta property="og:description" content="">
     <meta property="og:site_name" content="Who am I ?">
 
     <!-- Social: Google+ / Schema.org  -->
     <meta itemprop="name" content="忘れがちで便利なPowershellまとめ"/>
-    <meta itemprop="description" content="忘れがちで便利なPowershellまとめ">
+    <meta itemprop="description" content="">
     <meta itemprop="image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png"/>
 
     <!-- Favicon -->
@@ -119,7 +119,7 @@
             <time itemprop="datePublished" datetime="2017-05-08T06:31:05+09:00" class="date">08 May 2017</time>
         
         <h1 class="post-title" itemprop="name">忘れがちで便利なPowershellまとめ</h1>
-        <p itemprop="description" class="subtitle">忘れがちで便利なPowershellまとめ</p>
+        <p itemprop="description" class="subtitle"></p>
     </div>
 </header>
         <section class="post">
@@ -129,155 +129,164 @@
 <p>クロージャーってなんかカッコいい。コードレビューで、なんでクロージャー使ってんの？の質問に答えられないならオススメしません。
 理にかなったクロージャーはカッコいい。</p>
 
-<pre><code class="language-ps1">function Closure {
-  $n = 1
-  {
-    $script:n = $n + 1
-    $n
-  }.GetNewClosure() 
-}
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">function</span> <span class="n">Closure</span> <span class="p">{</span>
+  <span class="err">$</span><span class="n">n</span> <span class="p">=</span> <span class="m">1</span>
+  <span class="p">{</span>
+    <span class="err">$</span><span class="n">script</span><span class="p">:</span><span class="n">n</span> <span class="p">=</span> <span class="err">$</span><span class="n">n</span> <span class="p">+</span> <span class="m">1</span>
+    <span class="err">$</span><span class="n">n</span>
+  <span class="p">}.</span><span class="nf">GetNewClosure</span><span class="p">()</span> 
+<span class="p">}</span>
 
-$obj1 = Closure
-$obj2 = Closure
-&amp; $obj1
-# 2
-&amp; $obj1
-# 3
-&amp; $obj2
-# 2
-&amp; $obj2
-# 3
+<span class="err">$</span><span class="n">obj1</span> <span class="p">=</span> <span class="n">Closure</span>
+<span class="err">$</span><span class="n">obj2</span> <span class="p">=</span> <span class="n">Closure</span>
+<span class="p">&amp;</span> <span class="err">$</span><span class="n">obj1</span>
+<span class="err">#</span> <span class="m">2</span>
+<span class="p">&amp;</span> <span class="err">$</span><span class="n">obj1</span>
+<span class="err">#</span> <span class="m">3</span>
+<span class="p">&amp;</span> <span class="err">$</span><span class="n">obj2</span>
+<span class="err">#</span> <span class="m">2</span>
+<span class="p">&amp;</span> <span class="err">$</span><span class="n">obj2</span>
+<span class="err">#</span> <span class="m">3</span>
 </code></pre>
+</div>
 
 <h2 id="filter">filter</h2>
 
-<pre><code class="language-ps1"># 偶数のみ取り出す
-1..10 | ? { $_ % 2 -eq 0 }
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="err">#</span> <span class="err">偶数のみ取り出す</span>
+<span class="m">1.</span><span class="p">.</span><span class="m">10</span> <span class="p">|</span> <span class="p">?</span> <span class="p">{</span> <span class="err">$</span><span class="n">_</span> <span class="p">%</span> <span class="m">2</span> <span class="p">-</span><span class="n">eq</span> <span class="m">0</span> <span class="p">}</span>
 </code></pre>
+</div>
 
 <h2 id="map">map</h2>
 
-<pre><code class="language-ps1"># 全てに2をかける
-1..10 | % { $_ * 2 }
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="err">#</span> <span class="err">全てに</span><span class="m">2</span><span class="err">をかける</span>
+<span class="m">1.</span><span class="p">.</span><span class="m">10</span> <span class="p">|</span> <span class="p">%</span> <span class="p">{</span> <span class="err">$</span><span class="n">_</span> <span class="p">*</span> <span class="m">2</span> <span class="p">}</span>
 </code></pre>
+</div>
 
 <h2 id="portを使ってるプロセス">portを使ってるプロセス</h2>
 
-<pre><code class="language-ps1">netstat -aon | Select-String ".0.0:4000"
-netstat -aon | Select-String -Pattern ".0.0:4000$"
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">netstat</span> <span class="p">-</span><span class="n">aon</span> <span class="p">|</span> <span class="n">Select</span><span class="p">-</span><span class="n">String</span> <span class="s">".0.0:4000"</span>
+<span class="n">netstat</span> <span class="p">-</span><span class="n">aon</span> <span class="p">|</span> <span class="n">Select</span><span class="p">-</span><span class="n">String</span> <span class="p">-</span><span class="n">Pattern</span> <span class="s">".0.0:4000$"</span>
 </code></pre>
+</div>
 
 <h2 id="との違い">&amp;{}と.{}の違い</h2>
 
-<pre><code class="language-ps1">$hoge = $null
-&amp; {$hoge = 4}
-# [String]::IsNullOrEmpty($hoge)
-# True
-# &amp;{}はスクリプト内部で処理を留める
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="err">$</span><span class="n">hoge</span> <span class="p">=</span> <span class="err">$</span><span class="k">null</span>
+<span class="p">&amp;</span> <span class="p">{</span><span class="err">$</span><span class="n">hoge</span> <span class="p">=</span> <span class="m">4</span><span class="p">}</span>
+<span class="err">#</span> <span class="p">[</span><span class="n">String</span><span class="p">]::</span><span class="nf">IsNullOrEmpty</span><span class="p">(</span><span class="err">$</span><span class="n">hoge</span><span class="p">)</span>
+<span class="err">#</span> <span class="n">True</span>
+<span class="err">#</span> <span class="p">&amp;{}</span><span class="err">はスクリプト内部で処理を留める</span>
 
-$hoge = $null
-. {$hoge = 4}
-# [String]::IsNullOrEmpty($hoge)
-# False
-# .{}は元のスコープに影響する
-$hoge
-# 4
+<span class="err">$</span><span class="n">hoge</span> <span class="p">=</span> <span class="err">$</span><span class="k">null</span>
+<span class="p">.</span> <span class="p">{</span><span class="err">$</span><span class="n">hoge</span> <span class="p">=</span> <span class="m">4</span><span class="p">}</span>
+<span class="err">#</span> <span class="p">[</span><span class="n">String</span><span class="p">]::</span><span class="nf">IsNullOrEmpty</span><span class="p">(</span><span class="err">$</span><span class="n">hoge</span><span class="p">)</span>
+<span class="err">#</span> <span class="n">False</span>
+<span class="err">#</span> <span class="p">.{}</span><span class="err">は元のスコープに影響する</span>
+<span class="err">$</span><span class="n">hoge</span>
+<span class="err">#</span> <span class="m">4</span>
 </code></pre>
+</div>
 
 <h2 id="firewall設定確認">Firewall設定確認</h2>
 
-<pre><code class="language-ps1">Get-NetFirewallRule | where {$_.DisplayName -eq "Something"}
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">Get</span><span class="p">-</span><span class="n">NetFirewallRule</span> <span class="p">|</span> <span class="k">where</span> <span class="p">{</span><span class="err">$</span><span class="n">_</span><span class="p">.</span><span class="n">DisplayName</span> <span class="p">-</span><span class="n">eq</span> <span class="s">"Something"</span><span class="p">}</span>
 </code></pre>
+</div>
 
 <h2 id="test-computersecurechannel-コマンドレットの使い方">Test-ComputerSecureChannel コマンドレットの使い方</h2>
 
 <p>概要
 <code class="highlighter-rouge">Test-ComputerSecureChannel</code> コマンドレットは、信頼関係の状態をチェックして、ローカルコンピューターとドメインの間のセキュリティで保護されたチャネルが正しく機能しているかどうかを検証します。</p>
 
-<pre><code class="language-ps1"># ローカルコンピューター上のAdministratorsグループのメンバーで実行する
-# 確認
-Test-ComputerSecureChannel
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="err">#</span> <span class="err">ローカルコンピューター上の</span><span class="n">Administrators</span><span class="err">グループのメンバーで実行する</span>
+<span class="err">#</span> <span class="err">確認</span>
+<span class="n">Test</span><span class="p">-</span><span class="n">ComputerSecureChannel</span>
 
-# 修復
-Test-ComputerSecureChannel -credential administrator -repair
+<span class="err">#</span> <span class="err">修復</span>
+<span class="n">Test</span><span class="p">-</span><span class="n">ComputerSecureChannel</span> <span class="p">-</span><span class="n">credential</span> <span class="n">administrator</span> <span class="p">-</span><span class="n">repair</span>
 </code></pre>
+</div>
 
 <h2 id="gulp的なファイルの変更監視スクリプト">Gulp的なファイルの変更監視スクリプト</h2>
 <p>下記の場合、<code class="highlighter-rouge">Register-TaskRunner.ps1</code>と同じフォルダーに置いた拡張子が<code class="highlighter-rouge">ps1</code>のファイルを監視する。
 また、変更したファイルのユニットテストが同じフォルダにある場合は変更の度に実行される。</p>
 
-<pre><code class="language-ps1:Register-TaskRunner.ps1">function Register-TaskRunner {
-&lt;#
-.SYNOPSIS
-Watch changing file and run any tasks.
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">function</span> <span class="n">Register</span><span class="p">-</span><span class="n">TaskRunner</span> <span class="p">{</span>
+<span class="p">&lt;</span><span class="err">#</span>
+<span class="p">.</span><span class="n">SYNOPSIS</span>
+<span class="n">Watch</span> <span class="n">changing</span> <span class="n">file</span> <span class="n">and</span> <span class="n">run</span> <span class="n">any</span> <span class="n">tasks</span><span class="p">.</span>
 
-.DESCRIPTION
-Powershell task runner
+<span class="p">.</span><span class="n">DESCRIPTION</span>
+<span class="n">Powershell</span> <span class="n">task</span> <span class="n">runner</span>
 
-.EXAMPLE
-$parent = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-Register-Watcher -Folder $parent
+<span class="p">.</span><span class="n">EXAMPLE</span>
+<span class="err">$</span><span class="n">parent</span> <span class="p">=</span> <span class="n">Split</span><span class="p">-</span><span class="n">Path</span> <span class="p">-</span><span class="nf">Parent</span> <span class="p">(</span><span class="n">Split</span><span class="p">-</span><span class="n">Path</span> <span class="p">-</span><span class="n">Parent</span> <span class="err">$</span><span class="n">MyInvocation</span><span class="p">.</span><span class="n">MyCommand</span><span class="p">.</span><span class="n">Path</span><span class="p">)</span>
+<span class="n">Register</span><span class="p">-</span><span class="n">Watcher</span> <span class="p">-</span><span class="n">Folder</span> <span class="err">$</span><span class="n">parent</span>
 
-.NOTES
-https://msdn.microsoft.com/ja-jp/library/system.io.filesystemwatcher(v=vs.110).aspx  
-https://mcpmag.com/articles/2015/09/24/changes-to-a-folder-using-powershell.aspx?m=1
-
-#&gt;
-    [CmdletBinding()]
-    Param
-    (
-      [Parameter(Mandatory=$true)]
-      [string]$Folder,
+<span class="p">.</span><span class="n">NOTES</span>
+<span class="n">https</span><span class="p">:</span><span class="c1">//msdn.microsoft.com/ja-jp/library/system.io.filesystemwatcher(v=vs.110).aspx  
+</span><span class="n">https</span><span class="p">:</span><span class="c1">//mcpmag.com/articles/2015/09/24/changes-to-a-folder-using-powershell.aspx?m=1
+</span>
+<span class="err">#</span><span class="p">&gt;</span>
+    <span class="p">[</span><span class="nf">CmdletBinding</span><span class="p">()]</span>
+    <span class="nf">Param</span>
+    <span class="p">(</span>
+      <span class="p">[</span><span class="nf">Parameter</span><span class="p">(</span><span class="n">Mandatory</span><span class="p">=</span><span class="err">$</span><span class="k">true</span><span class="p">)]</span>
+      <span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="err">$</span><span class="n">Folder</span><span class="p">,</span>
       
-      [Parameter(Mandatory=$false)]
-      [string]$Filter = "*.ps1"
-    )    
+      <span class="p">[</span><span class="nf">Parameter</span><span class="p">(</span><span class="n">Mandatory</span><span class="p">=</span><span class="err">$</span><span class="k">false</span><span class="p">)]</span>
+      <span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="err">$</span><span class="n">Filter</span> <span class="p">=</span> <span class="s">"*.ps1"</span>
+    <span class="p">)</span>    
 
-    $VerbosePreference = "Continue"
-    $events = Get-EventSubscriber
-    foreach ($event in $events) {
-        if ($event.EventName -eq "Changed" -and $Folder -eq $event.SourceObject.Path) { 
-            Write-Verbose "already exist the event."
-            return
-        }
-    }
+    <span class="err">$</span><span class="n">VerbosePreference</span> <span class="p">=</span> <span class="s">"Continue"</span>
+    <span class="err">$</span><span class="n">events</span> <span class="p">=</span> <span class="n">Get</span><span class="p">-</span><span class="n">EventSubscriber</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="err">$</span><span class="k">event</span> <span class="k">in</span> <span class="err">$</span><span class="n">events</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="err">$</span><span class="k">event</span><span class="p">.</span><span class="n">EventName</span> <span class="p">-</span><span class="n">eq</span> <span class="s">"Changed"</span> <span class="p">-</span><span class="n">and</span> <span class="err">$</span><span class="n">Folder</span> <span class="p">-</span><span class="n">eq</span> <span class="err">$</span><span class="k">event</span><span class="p">.</span><span class="n">SourceObject</span><span class="p">.</span><span class="n">Path</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="n">Write</span><span class="p">-</span><span class="n">Verbose</span> <span class="s">"already exist the event."</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    $Watcher = New-Object IO.FileSystemWatcher -Property @{ 
-        Path = $Folder
-        Filter = $Filter
-        IncludeSubdirectories = $false
-        EnableRaisingEvents = $true
-    }
+    <span class="err">$</span><span class="n">Watcher</span> <span class="p">=</span> <span class="n">New</span><span class="p">-</span><span class="n">Object</span> <span class="n">IO</span><span class="p">.</span><span class="n">FileSystemWatcher</span> <span class="p">-</span><span class="n">Property</span> <span class="err">@</span><span class="p">{</span> 
+        <span class="n">Path</span> <span class="p">=</span> <span class="err">$</span><span class="n">Folder</span>
+        <span class="n">Filter</span> <span class="p">=</span> <span class="err">$</span><span class="n">Filter</span>
+        <span class="n">IncludeSubdirectories</span> <span class="p">=</span> <span class="err">$</span><span class="k">false</span>
+        <span class="n">EnableRaisingEvents</span> <span class="p">=</span> <span class="err">$</span><span class="k">true</span>
+    <span class="p">}</span>
 
-    $changeAction = [scriptblock]::Create('
-        $path = $Event.SourceEventArgs.FullPath
-        $changedFileName = $Event.SourceEventArgs.Name
-        $changeType = $Event.SourceEventArgs.ChangeType
-        $timeStamp = $Event.TimeGenerated  
-        $testScript = $changedFileName -replace ".ps1", ".Tests.ps1"  
-        $testFullPath = "$($Event.MessageData)\$testScript"
-        Write-Host "The file $changedFileName was $changeType at $timeStamp"
-        if (Test-Path $testFullPath) { 
-            Write-Host "Running $testScript" -BackgroundColor DarkGray       
-            . $testFullPath
-        } else {
-            Write-Host "not exist $testScript" -BackgroundColor DarkGray       
-        }
-    ')
+    <span class="err">$</span><span class="n">changeAction</span> <span class="p">=</span> <span class="p">[</span><span class="n">scriptblock</span><span class="p">]::</span><span class="nf">Create</span><span class="p">(</span><span class="err">'</span>
+        <span class="err">$</span><span class="n">path</span> <span class="p">=</span> <span class="err">$</span><span class="n">Event</span><span class="p">.</span><span class="n">SourceEventArgs</span><span class="p">.</span><span class="n">FullPath</span>
+        <span class="err">$</span><span class="n">changedFileName</span> <span class="p">=</span> <span class="err">$</span><span class="n">Event</span><span class="p">.</span><span class="n">SourceEventArgs</span><span class="p">.</span><span class="n">Name</span>
+        <span class="err">$</span><span class="n">changeType</span> <span class="p">=</span> <span class="err">$</span><span class="n">Event</span><span class="p">.</span><span class="n">SourceEventArgs</span><span class="p">.</span><span class="n">ChangeType</span>
+        <span class="err">$</span><span class="n">timeStamp</span> <span class="p">=</span> <span class="err">$</span><span class="n">Event</span><span class="p">.</span><span class="n">TimeGenerated</span>  
+        <span class="err">$</span><span class="n">testScript</span> <span class="p">=</span> <span class="err">$</span><span class="n">changedFileName</span> <span class="p">-</span><span class="n">replace</span> <span class="s">".ps1"</span><span class="p">,</span> <span class="s">".Tests.ps1"</span>  
+        <span class="err">$</span><span class="n">testFullPath</span> <span class="p">=</span> <span class="s">"$($Event.MessageData)\$testScript"</span>
+        <span class="n">Write</span><span class="p">-</span><span class="n">Host</span> <span class="s">"The file $changedFileName was $changeType at $timeStamp"</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Test</span><span class="p">-</span><span class="n">Path</span> <span class="err">$</span><span class="n">testFullPath</span><span class="p">)</span> <span class="p">{</span> 
+            <span class="n">Write</span><span class="p">-</span><span class="n">Host</span> <span class="s">"Running $testScript"</span> <span class="p">-</span><span class="n">BackgroundColor</span> <span class="n">DarkGray</span>       
+            <span class="p">.</span> <span class="err">$</span><span class="n">testFullPath</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">Write</span><span class="p">-</span><span class="n">Host</span> <span class="s">"not exist $testScript"</span> <span class="p">-</span><span class="n">BackgroundColor</span> <span class="n">DarkGray</span>       
+        <span class="p">}</span>
+    <span class="err">'</span><span class="p">)</span>
 
-    Register-ObjectEvent -InputObject $Watcher `
-                         -EventName "Changed" `
-                         -Action $changeAction `
-                         -MessageData $Folder
-}
-$here = Split-Path -Parent $MyInvocation.MyCommand.Path
-Register-TaskRunner -Folder $here
+    <span class="n">Register</span><span class="p">-</span><span class="n">ObjectEvent</span> <span class="p">-</span><span class="n">InputObject</span> <span class="err">$</span><span class="n">Watcher</span> <span class="err">`</span>
+                         <span class="p">-</span><span class="n">EventName</span> <span class="s">"Changed"</span> <span class="err">`</span>
+                         <span class="p">-</span><span class="n">Action</span> <span class="err">$</span><span class="n">changeAction</span> <span class="err">`</span>
+                         <span class="p">-</span><span class="n">MessageData</span> <span class="err">$</span><span class="n">Folder</span>
+<span class="p">}</span>
+<span class="err">$</span><span class="n">here</span> <span class="p">=</span> <span class="n">Split</span><span class="p">-</span><span class="n">Path</span> <span class="p">-</span><span class="n">Parent</span> <span class="err">$</span><span class="n">MyInvocation</span><span class="p">.</span><span class="n">MyCommand</span><span class="p">.</span><span class="n">Path</span>
+<span class="n">Register</span><span class="p">-</span><span class="n">TaskRunner</span> <span class="p">-</span><span class="n">Folder</span> <span class="err">$</span><span class="n">here</span>
 </code></pre>
+</div>
 
-<pre><code class="language-ps1:Unregister-TaskRunner.ps1">function Unregister-TaskRunner {
-    Get-EventSubscriber | Unregister-Event
-}
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">function</span> <span class="n">Unregister</span><span class="p">-</span><span class="n">TaskRunner</span> <span class="p">{</span>
+    <span class="n">Get</span><span class="p">-</span><span class="n">EventSubscriber</span> <span class="p">|</span> <span class="n">Unregister</span><span class="p">-</span><span class="n">Event</span>
+<span class="p">}</span>
 </code></pre>
+</div>
 
 <h2 id="githubのトレンドを取得する">Githubのトレンドを取得する</h2>
 <p>このように使用する
@@ -285,73 +294,75 @@ Register-TaskRunner -Folder $here
 <code class="highlighter-rouge">Get-GitHubTrend -target javascript</code>
 <code class="highlighter-rouge">Get-GitHubTrend -target ruby -length 10</code></p>
 
-<pre><code class="language-ps1:Get-GitHubTrend.ps1">function Get-GitHubTrend {
-    Param
-    (
-       [Parameter(Mandatory=$false)]
-       [string]$target = "powershell",
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">function</span> <span class="n">Get</span><span class="p">-</span><span class="n">GitHubTrend</span> <span class="p">{</span>
+    <span class="nf">Param</span>
+    <span class="p">(</span>
+       <span class="p">[</span><span class="nf">Parameter</span><span class="p">(</span><span class="n">Mandatory</span><span class="p">=</span><span class="err">$</span><span class="k">false</span><span class="p">)]</span>
+       <span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="err">$</span><span class="n">target</span> <span class="p">=</span> <span class="s">"powershell"</span><span class="p">,</span>
 
-       [Parameter(Mandatory=$false)]
-       [string]$baseUrl = "https://github.com",
+       <span class="p">[</span><span class="nf">Parameter</span><span class="p">(</span><span class="n">Mandatory</span><span class="p">=</span><span class="err">$</span><span class="k">false</span><span class="p">)]</span>
+       <span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="err">$</span><span class="n">baseUrl</span> <span class="p">=</span> <span class="s">"https://github.com"</span><span class="p">,</span>
 
-       [Parameter(Mandatory=$false)]
-       [string]$regex = '\"(.*)\"',
+       <span class="p">[</span><span class="nf">Parameter</span><span class="p">(</span><span class="n">Mandatory</span><span class="p">=</span><span class="err">$</span><span class="k">false</span><span class="p">)]</span>
+       <span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="err">$</span><span class="n">regex</span> <span class="p">=</span> <span class="err">'\</span><span class="s">"(.*)\"',
+</span>
+       <span class="p">[</span><span class="nf">Parameter</span><span class="p">(</span><span class="n">Mandatory</span><span class="p">=</span><span class="err">$</span><span class="k">false</span><span class="p">)]</span>
+       <span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="err">$</span><span class="n">length</span> <span class="p">=</span> <span class="m">5</span><span class="p">,</span>
 
-       [Parameter(Mandatory=$false)]
-       [int]$length = 5,
+       <span class="p">[</span><span class="nf">Parameter</span><span class="p">(</span><span class="n">Mandatory</span><span class="p">=</span><span class="err">$</span><span class="k">false</span><span class="p">)]</span>
+       <span class="p">[</span><span class="k">switch</span><span class="p">]</span><span class="err">$</span><span class="n">week</span><span class="p">,</span>
 
-       [Parameter(Mandatory=$false)]
-       [switch]$week,
-
-       [Parameter(Mandatory=$false)]
-       [switch]$month
-    )
-    if ($week) {
-        $url = "$baseUrl/trending/$($target)?since=weekly"
-    } elseif ($month) {
-        $url = "$baseUrl/trending/$($target)?since=monthly"
-    } else {
-        $url = "$baseUrl/trending/$target"
-    }
+       <span class="p">[</span><span class="nf">Parameter</span><span class="p">(</span><span class="n">Mandatory</span><span class="p">=</span><span class="err">$</span><span class="k">false</span><span class="p">)]</span>
+       <span class="p">[</span><span class="k">switch</span><span class="p">]</span><span class="err">$</span><span class="n">month</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="err">$</span><span class="n">week</span><span class="p">)</span> <span class="p">{</span>
+        <span class="err">$</span><span class="n">url</span> <span class="p">=</span> <span class="s">"$baseUrl/trending/$($target)?since=weekly"</span>
+    <span class="p">}</span> <span class="nf">elseif</span> <span class="p">(</span><span class="err">$</span><span class="n">month</span><span class="p">)</span> <span class="p">{</span>
+        <span class="err">$</span><span class="n">url</span> <span class="p">=</span> <span class="s">"$baseUrl/trending/$($target)?since=monthly"</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="err">$</span><span class="n">url</span> <span class="p">=</span> <span class="s">"$baseUrl/trending/$target"</span>
+    <span class="p">}</span>
     
-    $geturl = Invoke-WebRequest -Uri $url
-    $comment = $geturl.ParsedHtml.body.getElementsByTagName('div') | 
-        Where {$_.getAttributeNode('class').Value -eq 'py-1'}
-    $hrefs = $geturl.ParsedHtml.body.getElementsByTagName('div') | 
-        Where {$_.getAttributeNode('class').Value -eq 'd-inline-block col-9 mb-1'}
+    <span class="err">$</span><span class="n">geturl</span> <span class="p">=</span> <span class="n">Invoke</span><span class="p">-</span><span class="n">WebRequest</span> <span class="p">-</span><span class="n">Uri</span> <span class="err">$</span><span class="n">url</span>
+    <span class="err">$</span><span class="n">comment</span> <span class="p">=</span> <span class="err">$</span><span class="n">geturl</span><span class="p">.</span><span class="n">ParsedHtml</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="nf">getElementsByTagName</span><span class="p">(</span><span class="err">'</span><span class="n">div</span><span class="err">'</span><span class="p">)</span> <span class="p">|</span> 
+        <span class="n">Where</span> <span class="p">{</span><span class="err">$</span><span class="n">_</span><span class="p">.</span><span class="nf">getAttributeNode</span><span class="p">(</span><span class="err">'</span><span class="k">class</span><span class="err">').</span><span class="nc">Value</span> <span class="p">-</span><span class="n">eq</span> <span class="err">'</span><span class="n">py</span><span class="p">-</span><span class="m">1</span><span class="err">'</span><span class="p">}</span>
+    <span class="err">$</span><span class="n">hrefs</span> <span class="p">=</span> <span class="err">$</span><span class="n">geturl</span><span class="p">.</span><span class="n">ParsedHtml</span><span class="p">.</span><span class="n">body</span><span class="p">.</span><span class="nf">getElementsByTagName</span><span class="p">(</span><span class="err">'</span><span class="n">div</span><span class="err">'</span><span class="p">)</span> <span class="p">|</span> 
+        <span class="n">Where</span> <span class="p">{</span><span class="err">$</span><span class="n">_</span><span class="p">.</span><span class="nf">getAttributeNode</span><span class="p">(</span><span class="err">'</span><span class="k">class</span><span class="err">').</span><span class="nc">Value</span> <span class="p">-</span><span class="n">eq</span> <span class="err">'</span><span class="n">d</span><span class="p">-</span><span class="n">inline</span><span class="p">-</span><span class="n">block</span> <span class="n">col</span><span class="p">-</span><span class="m">9</span> <span class="n">mb</span><span class="p">-</span><span class="m">1</span><span class="err">'</span><span class="p">}</span>
 
 
-    foreach ($html in $hrefs.innerHTML) {
-        $result = (([regex]::Matches($html, $regex)).Groups[1].Value)
-        $href += @("$baseUrl$result")
-    }
+    <span class="k">foreach</span> <span class="p">(</span><span class="err">$</span><span class="n">html</span> <span class="k">in</span> <span class="err">$</span><span class="n">hrefs</span><span class="p">.</span><span class="n">innerHTML</span><span class="p">)</span> <span class="p">{</span>
+        <span class="err">$</span><span class="n">result</span> <span class="p">=</span> <span class="p">(([</span><span class="n">regex</span><span class="p">]::</span><span class="nf">Matches</span><span class="p">(</span><span class="err">$</span><span class="n">html</span><span class="p">,</span> <span class="err">$</span><span class="n">regex</span><span class="p">)).</span><span class="n">Groups</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">Value</span><span class="p">)</span>
+        <span class="err">$</span><span class="n">href</span> <span class="p">+=</span> <span class="err">@</span><span class="p">(</span><span class="s">"$baseUrl$result"</span><span class="p">)</span>
+    <span class="p">}</span>
 
-    for ($i = 0; $i -lt $length; $i++) {
-        if ($href[$i] -eq $null) { return }
-        Write-Host $hrefs[$i].innerText  -BackgroundColor DarkGreen
-        Write-Host $comment[$i].innerText
-        Write-Host $href[$i] `n
-    }
-}
+    <span class="k">for</span> <span class="p">(</span><span class="err">$</span><span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="err">$</span><span class="n">i</span> <span class="p">-</span><span class="n">lt</span> <span class="err">$</span><span class="n">length</span><span class="p">;</span> <span class="err">$</span><span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="err">$</span><span class="n">href</span><span class="p">[</span><span class="err">$</span><span class="n">i</span><span class="p">]</span> <span class="p">-</span><span class="n">eq</span> <span class="err">$</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+        <span class="n">Write</span><span class="p">-</span><span class="n">Host</span> <span class="err">$</span><span class="n">hrefs</span><span class="p">[</span><span class="err">$</span><span class="n">i</span><span class="p">].</span><span class="n">innerText</span>  <span class="p">-</span><span class="n">BackgroundColor</span> <span class="n">DarkGreen</span>
+        <span class="n">Write</span><span class="p">-</span><span class="n">Host</span> <span class="err">$</span><span class="n">comment</span><span class="p">[</span><span class="err">$</span><span class="n">i</span><span class="p">].</span><span class="n">innerText</span>
+        <span class="n">Write</span><span class="p">-</span><span class="n">Host</span> <span class="err">$</span><span class="n">href</span><span class="p">[</span><span class="err">$</span><span class="n">i</span><span class="p">]</span> <span class="err">`</span><span class="n">n</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
+</div>
 
 <h2 id="hashを配列のように扱う">Hashを配列のように扱う</h2>
 
-<pre><code class="language-ps1">$myHash = @{}
-$myHash["a"] = 1
-$myHash["b"] = 2
-$myHash["c"] = 3
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="err">$</span><span class="n">myHash</span> <span class="p">=</span> <span class="err">@</span><span class="p">{}</span>
+<span class="err">$</span><span class="n">myHash</span><span class="p">[</span><span class="s">"a"</span><span class="p">]</span> <span class="p">=</span> <span class="m">1</span>
+<span class="err">$</span><span class="n">myHash</span><span class="p">[</span><span class="s">"b"</span><span class="p">]</span> <span class="p">=</span> <span class="m">2</span>
+<span class="err">$</span><span class="n">myHash</span><span class="p">[</span><span class="s">"c"</span><span class="p">]</span> <span class="p">=</span> <span class="m">3</span>
 
-foreach($key in $($myHash.keys)){
-    $myHash[$key] = 5
-}
+<span class="k">foreach</span><span class="p">(</span><span class="err">$</span><span class="n">key</span> <span class="k">in</span> <span class="err">$</span><span class="p">(</span><span class="err">$</span><span class="n">myHash</span><span class="p">.</span><span class="n">keys</span><span class="p">)){</span>
+    <span class="err">$</span><span class="n">myHash</span><span class="p">[</span><span class="err">$</span><span class="n">key</span><span class="p">]</span> <span class="p">=</span> <span class="m">5</span>
+<span class="p">}</span>
 </code></pre>
+</div>
 
             </article>
 
             <section class="share">
     <h3>Share</h3>
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;Favicons, touch icons e tile icons...&quot;%20https://sunoko.github.io/powershell-tricks/%20via%20&#64;lorem_ipsum&hashtags=powershell,"
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20https://sunoko.github.io/powershell-tricks/%20via%20&#64;lorem_ipsum&hashtags=powershell,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
