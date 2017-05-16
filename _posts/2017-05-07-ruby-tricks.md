@@ -2,7 +2,7 @@
 layout: post
 title: "忘れがちで便利なRubyまとめ"
 date: 2017-05-07 08:39:47
-description: "忘れがちで便利なRubyまとめ"
+description: ""
 tags:
 - ruby
 image: "/assets/img/por-que-usar-svg/coloridos.jpg"

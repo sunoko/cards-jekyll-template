@@ -3,7 +3,7 @@ layout: post
 title: "docker-compose.ymlとDockerfileの設定まとめ"
 date: 2017-05-07 22:43:23
 image: '/assets/img/linter/errors-list.png'
-description: 'docker-compose.ymlとDockerfileの設定まとめ'
+description: ''
 tags:
 - docker
 categories:
