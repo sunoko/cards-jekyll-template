@@ -22,14 +22,7 @@
     } ,
   
     {
-      "title"    : "忘れがちで便利なJavascriptまとめ - Part2",
-      "tags"     : "javascript",
-      "url"      : "/whoami/javascript-tricks-2/",
-      "date"     : "08 May 2017"
-    } ,
-  
-    {
-      "title"    : "忘れがちで便利なJavascriptまとめ - Part1",
+      "title"    : "忘れがちで便利なJavascriptまとめ",
       "tags"     : "javascript",
       "url"      : "/whoami/javascript-tricks-1/",
       "date"     : "08 May 2017"

@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "忘れがちで便利なJavascriptまとめ - Part1"
+title: "忘れがちで便利なJavascriptまとめ"
 date: 2017-05-07 20:35:48
 image: '/assets/img/'
 description: ''
 tags:
 - javascript
 categories:
-twitter_text: 'How to use this template'
+twitter_text: ''
 introduction: ''
 ---
 

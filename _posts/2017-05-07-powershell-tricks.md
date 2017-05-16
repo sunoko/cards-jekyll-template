@@ -10,7 +10,7 @@ introduction: ""
 ---
 
 ## クロージャー
-クロージャーってなんかカッコいい。コードレビューで、なんでクロージャー使ってんの？の質問に答えられないならオススメしません。
+クロージャーってなんかカッコいい。コードレビューで、なんでクロージャー使ってんの？の質問に答えられないならオススメしません。  
 理にかなったクロージャーはカッコいい。
 
 ```powershell
@@ -35,6 +35,7 @@ $obj2 = Closure
 ```
 
 ## filter
+`?`は`Where-Object`コマンドと同じですね。
 
 ```powershell
 # 偶数のみ取り出す
@@ -42,6 +43,7 @@ $obj2 = Closure
 ```
 
 ## map
+`%`は`Foreach-Object`コマンドと同じですね。
 
 ```powershell
 # 全てに2をかける
@@ -49,6 +51,7 @@ $obj2 = Closure
 ```
 
 ## portを使ってるプロセス
+`Select-String`は正規表現も使用できるので柔軟性が増しますね。
 
 ```powershell
 netstat -aon | Select-String ".0.0:4000"
@@ -56,19 +59,20 @@ netstat -aon | Select-String -Pattern ".0.0:4000$"
 ```
 
 ## &{}と.{}の違い
+`&{}`はスクリプト内部で処理を留める  
+`.{}`は元のスコープに影響する
 
 ```powershell
 $hoge = $null
 & {$hoge = 4}
 # [String]::IsNullOrEmpty($hoge)
 # True
-# &{}はスクリプト内部で処理を留める
 
 $hoge = $null
 . {$hoge = 4}
 # [String]::IsNullOrEmpty($hoge)
 # False
-# .{}は元のスコープに影響する
+
 $hoge
 # 4
 ```
@@ -80,9 +84,9 @@ Get-NetFirewallRule | where {$_.DisplayName -eq "Something"}
 ```
 
 ## Test-ComputerSecureChannel コマンドレットの使い方
-
-概要
-`Test-ComputerSecureChannel` コマンドレットは、信頼関係の状態をチェックして、ローカルコンピューターとドメインの間のセキュリティで保護されたチャネルが正しく機能しているかどうかを検証します。
+`Test-ComputerSecureChannel` コマンドレットは、信頼関係の状態をチェックして、ローカルコンピューターとドメインの間のセキュリティで保護されたチャネルが正しく機能しているかどうかを検証します。  
+会社でOutlookが更新されないなぁって時に確認するといいかもしれません。
+コンパネでネットワークアダプターを無効にして、再度有効にすると調子がようくなる場合もありました。
 
 ```powershell
 # ローカルコンピューター上のAdministratorsグループのメンバーで実行する
@@ -95,7 +99,9 @@ Test-ComputerSecureChannel -credential administrator -repair
 
 ## Gulp的なファイルの変更監視スクリプト
 下記の場合、`Register-TaskRunner.ps1`と同じフォルダーに置いた拡張子が`ps1`のファイルを監視する。
-また、変更したファイルのユニットテストが同じフォルダにある場合は変更の度に実行される。
+また、変更したファイルのユニットテストが同じフォルダにある場合は変更の度に実行される。  
+どこのファイルを監視するかやユニットテストを実行するかは調整できます。  
+また、変更を検知した際に実行されるコマンドも調整可能です。
 
 ```powershell
 function Register-TaskRunner {
@@ -166,6 +172,8 @@ $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 Register-TaskRunner -Folder $here
 ```
 
+変更監視をやめたい時には`Unregister-TaskRunner`で。
+
 ```powershell
 function Unregister-TaskRunner {
     Get-EventSubscriber | Unregister-Event
@@ -174,9 +182,9 @@ function Unregister-TaskRunner {
 
 ## Githubのトレンドを取得する
 このように使用する
-`Get-GitHubTrend`
-`Get-GitHubTrend -target javascript`
-`Get-GitHubTrend -target ruby -length 10`
+`Get-GitHubTrend`  
+`Get-GitHubTrend -target javascript`  
+`Get-GitHubTrend -target ruby -length 10`  
 
 ```powershell
 function Get-GitHubTrend {
@@ -230,6 +238,7 @@ function Get-GitHubTrend {
 ```
 
 ## Hashを配列のように扱う
+Hashをループで回したい時に使えるかと。
 
 ```powershell
 $myHash = @{}

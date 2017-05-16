@@ -126,7 +126,7 @@
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
                 <h2 id="クロージャー">クロージャー</h2>
-<p>クロージャーってなんかカッコいい。コードレビューで、なんでクロージャー使ってんの？の質問に答えられないならオススメしません。
+<p>クロージャーってなんかカッコいい。コードレビューで、なんでクロージャー使ってんの？の質問に答えられないならオススメしません。<br />
 理にかなったクロージャーはカッコいい。</p>
 
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Closure <span class="o">{</span>
@@ -151,6 +151,7 @@
 </div>
 
 <h2 id="filter">filter</h2>
+<p><code class="highlighter-rouge">?</code>は<code class="highlighter-rouge">Where-Object</code>コマンドと同じですね。</p>
 
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="c1"># 偶数のみ取り出す</span>
 1..10 | ? <span class="o">{</span> <span class="nv">$_</span> % 2 -eq 0 <span class="o">}</span>
@@ -158,6 +159,7 @@
 </div>
 
 <h2 id="map">map</h2>
+<p><code class="highlighter-rouge">%</code>は<code class="highlighter-rouge">Foreach-Object</code>コマンドと同じですね。</p>
 
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="c1"># 全てに2をかける</span>
 1..10 | % <span class="o">{</span> <span class="nv">$_</span> <span class="k">*</span> 2 <span class="o">}</span>
@@ -165,6 +167,7 @@
 </div>
 
 <h2 id="portを使ってるプロセス">portを使ってるプロセス</h2>
+<p><code class="highlighter-rouge">Select-String</code>は正規表現も使用できるので柔軟性が増しますね。</p>
 
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code>netstat -aon | <span class="nb">Select-String</span> <span class="s2">".0.0:4000"</span>
 netstat -aon | <span class="nb">Select-String</span> -Pattern <span class="s2">".0.0:4000$"</span>
@@ -172,18 +175,19 @@ netstat -aon | <span class="nb">Select-String</span> -Pattern <span class="s2">"
 </div>
 
 <h2 id="との違い">&amp;{}と.{}の違い</h2>
+<p><code class="highlighter-rouge">&amp;{}</code>はスクリプト内部で処理を留める<br />
+<code class="highlighter-rouge">.{}</code>は元のスコープに影響する</p>
 
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="nv">$hoge</span> <span class="o">=</span> <span class="nv">$null</span>
 &amp; <span class="o">{</span><span class="nv">$hoge</span> <span class="o">=</span> 4<span class="o">}</span>
 <span class="c1"># [String]::IsNullOrEmpty($hoge)</span>
 <span class="c1"># True</span>
-<span class="c1"># &amp;{}はスクリプト内部で処理を留める</span>
 
 <span class="nv">$hoge</span> <span class="o">=</span> <span class="nv">$null</span>
 . <span class="o">{</span><span class="nv">$hoge</span> <span class="o">=</span> 4<span class="o">}</span>
 <span class="c1"># [String]::IsNullOrEmpty($hoge)</span>
 <span class="c1"># False</span>
-<span class="c1"># .{}は元のスコープに影響する</span>
+
 <span class="nv">$hoge</span>
 <span class="c1"># 4</span>
 </code></pre>
@@ -196,9 +200,9 @@ netstat -aon | <span class="nb">Select-String</span> -Pattern <span class="s2">"
 </div>
 
 <h2 id="test-computersecurechannel-コマンドレットの使い方">Test-ComputerSecureChannel コマンドレットの使い方</h2>
-
-<p>概要
-<code class="highlighter-rouge">Test-ComputerSecureChannel</code> コマンドレットは、信頼関係の状態をチェックして、ローカルコンピューターとドメインの間のセキュリティで保護されたチャネルが正しく機能しているかどうかを検証します。</p>
+<p><code class="highlighter-rouge">Test-ComputerSecureChannel</code> コマンドレットは、信頼関係の状態をチェックして、ローカルコンピューターとドメインの間のセキュリティで保護されたチャネルが正しく機能しているかどうかを検証します。<br />
+会社でOutlookが更新されないなぁって時に確認するといいかもしれません。
+コンパネでネットワークアダプターを無効にして、再度有効にすると調子がようくなる場合もありました。</p>
 
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="c1"># ローカルコンピューター上のAdministratorsグループのメンバーで実行する</span>
 <span class="c1"># 確認</span>
@@ -211,7 +215,9 @@ Test-ComputerSecureChannel -credential administrator -repair
 
 <h2 id="gulp的なファイルの変更監視スクリプト">Gulp的なファイルの変更監視スクリプト</h2>
 <p>下記の場合、<code class="highlighter-rouge">Register-TaskRunner.ps1</code>と同じフォルダーに置いた拡張子が<code class="highlighter-rouge">ps1</code>のファイルを監視する。
-また、変更したファイルのユニットテストが同じフォルダにある場合は変更の度に実行される。</p>
+また、変更したファイルのユニットテストが同じフォルダにある場合は変更の度に実行される。<br />
+どこのファイルを監視するかやユニットテストを実行するかは調整できます。<br />
+また、変更を検知した際に実行されるコマンドも調整可能です。</p>
 
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Register-TaskRunner <span class="o">{</span>
 <span class="cm">&lt;#
@@ -282,6 +288,8 @@ Register-TaskRunner -Folder <span class="nv">$here</span>
 </code></pre>
 </div>
 
+<p>変更監視をやめたい時には<code class="highlighter-rouge">Unregister-TaskRunner</code>で。</p>
+
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Unregister-TaskRunner <span class="o">{</span>
     Get-EventSubscriber | Unregister-Event
 <span class="o">}</span>
@@ -290,8 +298,8 @@ Register-TaskRunner -Folder <span class="nv">$here</span>
 
 <h2 id="githubのトレンドを取得する">Githubのトレンドを取得する</h2>
 <p>このように使用する
-<code class="highlighter-rouge">Get-GitHubTrend</code>
-<code class="highlighter-rouge">Get-GitHubTrend -target javascript</code>
+<code class="highlighter-rouge">Get-GitHubTrend</code><br />
+<code class="highlighter-rouge">Get-GitHubTrend -target javascript</code><br />
 <code class="highlighter-rouge">Get-GitHubTrend -target ruby -length 10</code></p>
 
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Get-GitHubTrend <span class="o">{</span>
@@ -346,6 +354,7 @@ Register-TaskRunner -Folder <span class="nv">$here</span>
 </div>
 
 <h2 id="hashを配列のように扱う">Hashを配列のように扱う</h2>
+<p>Hashをループで回したい時に使えるかと。</p>
 
 <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="nv">$myHash</span> <span class="o">=</span> @<span class="o">{}</span>
 <span class="nv">$myHash</span><span class="o">[</span><span class="s2">"a"</span><span class="o">]</span> <span class="o">=</span> 1
