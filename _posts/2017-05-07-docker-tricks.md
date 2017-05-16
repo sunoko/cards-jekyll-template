@@ -13,7 +13,7 @@ introduction: ''
 
 ## docker commands
 
-```rb
+```yml
 # イメージ取得
 docker pull ruby:2.4.1-alpine
 
@@ -35,7 +35,7 @@ docker rmi image_id
 ## docker-compose commands
 ### Start
 
-```rb
+```bash
 # Runs a one-time command
 docker-compose run
 # Remove container after run
@@ -68,14 +68,14 @@ docker-compose rm
 
 ### Gemsを更新した場合
 
-```ruby
+```bash
 docker run --rm -v ${PWD}:/home -w /home ruby:2.4 bundle lock (Append --update to also update gems.)
 
 # コンテナを開始前にイメージを構築(--build)
 docker-compose up -d --build
 ```
 
-```ruby
+```bash
 # Get a shell in container
 docker-compose exec app bash
 
@@ -109,14 +109,7 @@ docker-compose run --rm app rails test
 
 `Dockerfile`
 
-```
-FROM nginx:1.11
-COPY . /home/config/
-```
-
-`Dockerfile`
-
-```
+```yml
 FROM ruby:2.4
 
 RUN apt-get update \

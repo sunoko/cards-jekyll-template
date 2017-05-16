@@ -127,76 +127,76 @@
             <article role="article" id="post" class="post-content" itemprop="articleBody">
                 <h2 id="docker-commands">docker commands</h2>
 
-<div class="language-rb highlighter-rouge"><pre class="highlight"><code><span class="c1"># イメージ取得</span>
-<span class="n">docker</span> <span class="n">pull</span> <span class="n">ruby</span><span class="p">:</span><span class="mi">2</span><span class="o">.</span><span class="mi">4</span><span class="o">.</span><span class="mi">1</span><span class="o">-</span><span class="n">alpine</span>
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="c1"># イメージ取得</span>
+<span class="s">docker pull ruby:2.4.1-alpine</span>
 
 <span class="c1"># イメージ確認</span>
-<span class="o">~</span><span class="sr">/ $ docker images
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-ruby                2.4.1-alpine        5eadd5d1419a        12 days ago         56.3 MB
+<span class="s">~/ $ docker images</span>
+<span class="s">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span>
+<span class="s">ruby                2.4.1-alpine        5eadd5d1419a        12 days ago         56.3 MB</span>
 
-# コンテナ確認
-docker ps
+<span class="c1"># コンテナ確認</span>
+<span class="s">docker ps</span>
 
-# コンテナ削除
-docker rm container_id
+<span class="c1"># コンテナ削除</span>
+<span class="s">docker rm container_id</span>
 
-# イメージ削除
-docker rmi image_id
-</span></code></pre>
+<span class="c1"># イメージ削除</span>
+<span class="s">docker rmi image_id</span>
+</code></pre>
 </div>
 
 <h2 id="docker-compose-commands">docker-compose commands</h2>
 <h3 id="start">Start</h3>
 
-<div class="language-rb highlighter-rouge"><pre class="highlight"><code><span class="c1"># Runs a one-time command</span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">run</span>
-<span class="c1"># Remove container after run</span>
-<span class="o">--</span><span class="n">rm</span>
-<span class="c1"># DB周りの初期設定</span>
-<span class="c1">#rails:db:create, rails db:schema:load, rails db:seed</span>
-<span class="n">rails</span> <span class="n">db</span><span class="ss">:setup</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Runs a one-time command</span>
+docker-compose run
+<span class="c"># Remove container after run</span>
+--rm
+<span class="c"># DB周りの初期設定</span>
+<span class="c">#rails:db:create, rails db:schema:load, rails db:seed</span>
+rails db:setup
 
-<span class="c1"># app, rails db:setup実行、</span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="n">app</span> <span class="n">rails</span> <span class="n">db</span><span class="ss">:setup</span>
+<span class="c"># app, rails db:setup実行、</span>
+docker-compose run --rm app rails db:setup
 
-<span class="c1"># Builds, (re)creates, starts</span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">up</span>
+<span class="c"># Builds, (re)creates, starts</span>
+docker-compose up
 
-<span class="c1"># Stops and removes containers</span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">down</span>
+<span class="c"># Stops and removes containers</span>
+docker-compose down
 
-<span class="c1"># Starts existing containers </span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">start</span>
+<span class="c"># Starts existing containers </span>
+docker-compose start
 
-<span class="c1"># Stops running containers without removing them</span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">stop</span>
+<span class="c"># Stops running containers without removing them</span>
+docker-compose stop
 
-<span class="c1"># コンテナの確認</span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">ls</span>
+<span class="c"># コンテナの確認</span>
+docker-compose ls
 
-<span class="c1">#コンテナの削除</span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">rm</span>
+<span class="c">#コンテナの削除</span>
+docker-compose rm
 </code></pre>
 </div>
 
 <h3 id="gemsを更新した場合">Gemsを更新した場合</h3>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">v</span> <span class="err">$</span><span class="p">{</span><span class="no">PWD</span><span class="p">}</span><span class="ss">:/</span><span class="n">home</span> <span class="o">-</span><span class="n">w</span> <span class="sr">/home ruby:2.4 bundle lock (Append --update to also update gems.)
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>docker run --rm -v <span class="k">${</span><span class="nv">PWD</span><span class="k">}</span>:/home -w /home ruby:2.4 bundle lock <span class="o">(</span>Append --update to also update gems.<span class="o">)</span>
 
-# コンテナを開始前にイメージを構築(--build)
+<span class="c"># コンテナを開始前にイメージを構築(--build)</span>
 docker-compose up -d --build
-</span></code></pre>
+</code></pre>
 </div>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Get a shell in container</span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="nb">exec</span> <span class="n">app</span> <span class="n">bash</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># Get a shell in container</span>
+docker-compose <span class="nb">exec </span>app bash
 
-<span class="c1"># Logging can be configured→default outputs everything on stdout/stderr</span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">logs</span>
+<span class="c"># Logging can be configured→default outputs everything on stdout/stderr</span>
+docker-compose logs
     
-<span class="c1"># Run the rails minitest.</span>
-<span class="n">docker</span><span class="o">-</span><span class="n">compose</span> <span class="n">run</span> <span class="o">--</span><span class="n">rm</span> <span class="n">app</span> <span class="n">rails</span> <span class="nb">test</span>
+<span class="c"># Run the rails minitest.</span>
+docker-compose run --rm app rails <span class="nb">test</span>
 </code></pre>
 </div>
 
@@ -225,27 +225,20 @@ docker-compose up -d --build
 
 <p><code class="highlighter-rouge">Dockerfile</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>FROM nginx:1.11
-COPY . /home/config/
-</code></pre>
-</div>
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">FROM ruby:2.4</span>
 
-<p><code class="highlighter-rouge">Dockerfile</code></p>
+<span class="s">RUN apt-get update \</span>
+  <span class="s">&amp;&amp; apt-get install -y --no-install-recommends \</span>
+    <span class="s">nodejs \</span>
+  <span class="s">&amp;&amp; rm -rf /var/lib/apt/lists/*</span>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>FROM ruby:2.4
+<span class="s">WORKDIR /usr/src/</span>
+<span class="s">COPY Gemfile Gemfile.lock ./</span>
+<span class="s">RUN bundle install</span>
+<span class="s">COPY . .</span>
 
-RUN apt-get update \
-  &amp;&amp; apt-get install -y --no-install-recommends \
-    nodejs \
-  &amp;&amp; rm -rf /var/lib/apt/lists/*
-
-WORKDIR /usr/src/
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
-COPY . .
-
-EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+<span class="s">EXPOSE 3000</span>
+<span class="s">CMD ["rails", "server", "-b", "0.0.0.0"]</span>
 </code></pre>
 </div>
 
