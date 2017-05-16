@@ -8,13 +8,6 @@
     } ,
   
     {
-      "title"    : "docker-compose.ymlとDockerfileの設定まとめ",
-      "tags"     : "docker",
-      "url"      : "/whoami/docker-tricks/",
-      "date"     : "08 May 2017"
-    } ,
-  
-    {
       "title"    : "忘れがちで便利なPowershellまとめ",
       "tags"     : "powershell",
       "url"      : "/whoami/powershell-tricks/",

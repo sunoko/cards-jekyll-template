@@ -5,8 +5,8 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 May 2017 18:34:57 +0900</pubDate>
-    <lastBuildDate>Tue, 16 May 2017 18:34:57 +0900</lastBuildDate>
+    <pubDate>Tue, 16 May 2017 18:37:23 +0900</pubDate>
+    <lastBuildDate>Tue, 16 May 2017 18:37:23 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -50,18 +50,6 @@
         <guid isPermaLink="true">https://sunoko.github.io/whoami/free-rancer/</guid>
         
         <category>フリーランス</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>docker-compose.ymlとDockerfileの設定まとめ</title>
-        <description>&lt;h2 id=&quot;docker-commands&quot;&gt;docker commands&lt;/h2&gt; &lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# イメージ取得&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;docker pull ruby:2.4.1-alpine&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# イメージ確認&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;~/ $ docker images&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;REPOSITORY TAG IMAGE ID CREATED SIZE&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;ruby 2.4.1-alpine 5eadd5d1419a 12 days ago 56.3 MB&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# コンテナ確認&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;docker ps&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# コンテナ削除&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;docker rm container_id&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# イメージ削除&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;docker rmi image_id&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/div&gt; &lt;h2 id=&quot;docker-compose-commands&quot;&gt;docker-compose commands&lt;/h2&gt; &lt;h3 id=&quot;start&quot;&gt;Start&lt;/h3&gt; &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Runs a one-time command&lt;/span&gt; docker-compose run &lt;span class=&quot;c&quot;&gt;# Remove container after run&lt;/span&gt; --rm &lt;span class=&quot;c&quot;&gt;# DB周りの初期設定&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#rails:db:create, rails db:schema:load, rails db:seed&lt;/span&gt; rails db:setup &lt;span class=&quot;c&quot;&gt;# app, rails db:setup実行、&lt;/span&gt; docker-compose run...</description>
-        <pubDate>Mon, 08 May 2017 07:43:23 +0900</pubDate>
-        <link>https://sunoko.github.io/whoami/docker-tricks/</link>
-        <guid isPermaLink="true">https://sunoko.github.io/whoami/docker-tricks/</guid>
-        
-        <category>docker</category>
         
         
       </item>
