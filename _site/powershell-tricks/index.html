@@ -129,31 +129,31 @@
 <p>クロージャーってなんかカッコいい。コードレビューで、なんでクロージャー使ってんの？の質問に答えられないならオススメしません。
 理にかなったクロージャーはカッコいい。</p>
 
-<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">function</span> <span class="n">Closure</span> <span class="p">{</span>
-  <span class="err">$</span><span class="n">n</span> <span class="p">=</span> <span class="m">1</span>
+<div class="language-rb highlighter-rouge"><pre class="highlight"><code><span class="n">function</span> <span class="no">Closure</span> <span class="p">{</span>
+  <span class="vg">$n</span> <span class="o">=</span> <span class="mi">1</span>
   <span class="p">{</span>
-    <span class="err">$</span><span class="n">script</span><span class="p">:</span><span class="n">n</span> <span class="p">=</span> <span class="err">$</span><span class="n">n</span> <span class="p">+</span> <span class="m">1</span>
-    <span class="err">$</span><span class="n">n</span>
-  <span class="p">}.</span><span class="nf">GetNewClosure</span><span class="p">()</span> 
+    <span class="vg">$script</span><span class="ss">:n</span> <span class="o">=</span> <span class="vg">$n</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="vg">$n</span>
+  <span class="p">}</span><span class="o">.</span><span class="no">GetNewClosure</span><span class="p">()</span> 
 <span class="p">}</span>
 
-<span class="err">$</span><span class="n">obj1</span> <span class="p">=</span> <span class="n">Closure</span>
-<span class="err">$</span><span class="n">obj2</span> <span class="p">=</span> <span class="n">Closure</span>
-<span class="p">&amp;</span> <span class="err">$</span><span class="n">obj1</span>
-<span class="err">#</span> <span class="m">2</span>
-<span class="p">&amp;</span> <span class="err">$</span><span class="n">obj1</span>
-<span class="err">#</span> <span class="m">3</span>
-<span class="p">&amp;</span> <span class="err">$</span><span class="n">obj2</span>
-<span class="err">#</span> <span class="m">2</span>
-<span class="p">&amp;</span> <span class="err">$</span><span class="n">obj2</span>
-<span class="err">#</span> <span class="m">3</span>
+<span class="vg">$obj1</span> <span class="o">=</span> <span class="no">Closure</span>
+<span class="vg">$obj2</span> <span class="o">=</span> <span class="no">Closure</span>
+<span class="o">&amp;</span> <span class="vg">$obj1</span>
+<span class="c1"># 2</span>
+<span class="o">&amp;</span> <span class="vg">$obj1</span>
+<span class="c1"># 3</span>
+<span class="o">&amp;</span> <span class="vg">$obj2</span>
+<span class="c1"># 2</span>
+<span class="o">&amp;</span> <span class="vg">$obj2</span>
+<span class="c1"># 3</span>
 </code></pre>
 </div>
 
 <h2 id="filter">filter</h2>
 
-<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="err">#</span> <span class="err">偶数のみ取り出す</span>
-<span class="m">1.</span><span class="p">.</span><span class="m">10</span> <span class="p">|</span> <span class="p">?</span> <span class="p">{</span> <span class="err">$</span><span class="n">_</span> <span class="p">%</span> <span class="m">2</span> <span class="p">-</span><span class="n">eq</span> <span class="m">0</span> <span class="p">}</span>
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="c1"># 偶数のみ取り出す</span>
+1..10 | ? <span class="o">{</span> <span class="nv">$_</span> % 2 -eq 0 <span class="o">}</span>
 </code></pre>
 </div>
 
