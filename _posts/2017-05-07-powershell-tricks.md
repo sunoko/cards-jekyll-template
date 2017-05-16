@@ -43,21 +43,21 @@ $obj2 = Closure
 
 ## map
 
-```c#
+```powershell
 # 全てに2をかける
 1..10 | % { $_ * 2 }
 ```
 
 ## portを使ってるプロセス
 
-```c#
+```powershell
 netstat -aon | Select-String ".0.0:4000"
 netstat -aon | Select-String -Pattern ".0.0:4000$"
 ```
 
 ## &{}と.{}の違い
 
-```c#
+```powershell
 $hoge = $null
 & {$hoge = 4}
 # [String]::IsNullOrEmpty($hoge)
@@ -75,7 +75,7 @@ $hoge
 
 ## Firewall設定確認
 
-```c#
+```powershell
 Get-NetFirewallRule | where {$_.DisplayName -eq "Something"}
 ```
 
@@ -84,7 +84,7 @@ Get-NetFirewallRule | where {$_.DisplayName -eq "Something"}
 概要
 `Test-ComputerSecureChannel` コマンドレットは、信頼関係の状態をチェックして、ローカルコンピューターとドメインの間のセキュリティで保護されたチャネルが正しく機能しているかどうかを検証します。
 
-```c#
+```powershell
 # ローカルコンピューター上のAdministratorsグループのメンバーで実行する
 # 確認
 Test-ComputerSecureChannel
@@ -97,7 +97,7 @@ Test-ComputerSecureChannel -credential administrator -repair
 下記の場合、`Register-TaskRunner.ps1`と同じフォルダーに置いた拡張子が`ps1`のファイルを監視する。
 また、変更したファイルのユニットテストが同じフォルダにある場合は変更の度に実行される。
 
-```c#
+```powershell
 function Register-TaskRunner {
 <#
 .SYNOPSIS
@@ -166,7 +166,7 @@ $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 Register-TaskRunner -Folder $here
 ```
 
-```c#
+```powershell
 function Unregister-TaskRunner {
     Get-EventSubscriber | Unregister-Event
 }
@@ -178,7 +178,7 @@ function Unregister-TaskRunner {
 `Get-GitHubTrend -target javascript`
 `Get-GitHubTrend -target ruby -length 10`
 
-```c#
+```powershell
 function Get-GitHubTrend {
     Param
     (
@@ -231,7 +231,7 @@ function Get-GitHubTrend {
 
 ## Hashを配列のように扱う
 
-```c#
+```powershell
 $myHash = @{}
 $myHash["a"] = 1
 $myHash["b"] = 2
