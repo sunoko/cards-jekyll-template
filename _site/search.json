@@ -8,7 +8,7 @@
     } ,
   
     {
-      "title"    : "Docker Tricks",
+      "title"    : "docker-compose.ymlとDockerfileの設定まとめ",
       "tags"     : "docker",
       "url"      : "/whoami/docker-tricks/",
       "date"     : "08 May 2017"
@@ -22,14 +22,14 @@
     } ,
   
     {
-      "title"    : "Javascript Tricks - Part2",
+      "title"    : "忘れがちで便利なJavascriptまとめ - Part2",
       "tags"     : "javascript",
       "url"      : "/whoami/javascript-tricks-2/",
       "date"     : "08 May 2017"
     } ,
   
     {
-      "title"    : "Javascript Tricks - Part1",
+      "title"    : "忘れがちで便利なJavascriptまとめ - Part1",
       "tags"     : "javascript",
       "url"      : "/whoami/javascript-tricks-1/",
       "date"     : "08 May 2017"
@@ -43,7 +43,7 @@
     } ,
   
     {
-      "title"    : "Ruby Tricks",
+      "title"    : "忘れがちで便利なRubyまとめ",
       "tags"     : "ruby",
       "url"      : "/whoami/ruby-tricks/",
       "date"     : "07 May 2017"

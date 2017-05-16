@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Javascript Tricks - Part2"
+title: "忘れがちで便利なJavascriptまとめ - Part2"
 date: 2017-05-07 21:31:05
 description: "忘れがちで便利なJavascriptまとめ"
 tags:
 - javascript
 twitter_text: "Favicons, touch icons e tile icons..."
-introduction: "忘れがちで便利なJavascriptまとめ"
+introduction: ""
 ---
 
 # Javascript Tricks - Part2

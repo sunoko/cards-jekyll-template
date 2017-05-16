@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Docker Tricks"
+title: "docker-compose.ymlとDockerfileの設定まとめ"
 date: 2017-05-07 22:43:23
 image: '/assets/img/linter/errors-list.png'
 description: 'docker-compose.ymlとDockerfileの設定まとめ'
@@ -8,11 +8,8 @@ tags:
 - docker
 categories:
 twitter_text: 'Valide seu código em JS/ES6 em busca de erros e melhore a sua qualidade.'
-introduction: 'docker-compose.ymlとDockerfileの設定まとめ'
+introduction: ''
 ---
-
-# Docker
-![](http://applech2.com/wp-content/uploads/2016/07/Docker-logo-icon.jpg)
 
 ## docker commands
 

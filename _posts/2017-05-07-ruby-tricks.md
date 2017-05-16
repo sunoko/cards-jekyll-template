@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ruby Tricks"
+title: "忘れがちで便利なRubyまとめ"
 date: 2017-05-07 08:39:47
 description: "忘れがちで便利なRubyまとめ"
 tags:
@@ -9,7 +9,7 @@ image: "/assets/img/por-que-usar-svg/coloridos.jpg"
 categories:
 - "Some series !"
 twitter_text: "Por que você deveria estar usando SVG?"
-introduction: "忘れがちで便利なRubyまとめ"
+introduction: ""
 ---
 
 # Ruby Tricks
