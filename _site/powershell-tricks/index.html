@@ -129,23 +129,23 @@
 <p>クロージャーってなんかカッコいい。コードレビューで、なんでクロージャー使ってんの？の質問に答えられないならオススメしません。
 理にかなったクロージャーはカッコいい。</p>
 
-<div class="language-rb highlighter-rouge"><pre class="highlight"><code><span class="n">function</span> <span class="no">Closure</span> <span class="p">{</span>
-  <span class="vg">$n</span> <span class="o">=</span> <span class="mi">1</span>
-  <span class="p">{</span>
-    <span class="vg">$script</span><span class="ss">:n</span> <span class="o">=</span> <span class="vg">$n</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="vg">$n</span>
-  <span class="p">}</span><span class="o">.</span><span class="no">GetNewClosure</span><span class="p">()</span> 
-<span class="p">}</span>
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Closure <span class="o">{</span>
+  <span class="nv">$n</span> <span class="o">=</span> 1
+  <span class="o">{</span>
+    <span class="nv">$script</span>:n <span class="o">=</span> <span class="nv">$n</span> + 1
+    <span class="nv">$n</span>
+  <span class="o">}</span>.GetNewClosure<span class="o">()</span> 
+<span class="o">}</span>
 
-<span class="vg">$obj1</span> <span class="o">=</span> <span class="no">Closure</span>
-<span class="vg">$obj2</span> <span class="o">=</span> <span class="no">Closure</span>
-<span class="o">&amp;</span> <span class="vg">$obj1</span>
+<span class="nv">$obj1</span> <span class="o">=</span> Closure
+<span class="nv">$obj2</span> <span class="o">=</span> Closure
+&amp; <span class="nv">$obj1</span>
 <span class="c1"># 2</span>
-<span class="o">&amp;</span> <span class="vg">$obj1</span>
+&amp; <span class="nv">$obj1</span>
 <span class="c1"># 3</span>
-<span class="o">&amp;</span> <span class="vg">$obj2</span>
+&amp; <span class="nv">$obj2</span>
 <span class="c1"># 2</span>
-<span class="o">&amp;</span> <span class="vg">$obj2</span>
+&amp; <span class="nv">$obj2</span>
 <span class="c1"># 3</span>
 </code></pre>
 </div>
