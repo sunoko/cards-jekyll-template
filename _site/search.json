@@ -1,6 +1,20 @@
 [
   
     {
+      "title"    : "Docker上でRails開発環境を構築する",
+      "tags"     : "docker and rails",
+      "url"      : "/whoami/docker-rails/",
+      "date"     : "17 May 2017"
+    } ,
+  
+    {
+      "title"    : "VagrantでRails on Docker開発環境を構築する",
+      "tags"     : "vagrant, docker, and rails",
+      "url"      : "/whoami/vagrant/",
+      "date"     : "17 May 2017"
+    } ,
+  
+    {
       "title"    : "2017年8月からフリーランスエンジニアになります",
       "tags"     : "フリーランス",
       "url"      : "/whoami/free-rancer/",

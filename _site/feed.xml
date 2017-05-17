@@ -5,9 +5,39 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 May 2017 18:52:03 +0900</pubDate>
-    <lastBuildDate>Tue, 16 May 2017 18:52:03 +0900</lastBuildDate>
+    <pubDate>Wed, 17 May 2017 19:47:18 +0900</pubDate>
+    <lastBuildDate>Wed, 17 May 2017 19:47:18 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Docker上でRails開発環境を構築する</title>
+        <description>&lt;h2 id=&quot;dockerfile&quot;&gt;Dockerfile&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;ベースイメージはruby:2.4を使用します。&lt;/li&gt; &lt;li&gt;ベースイメージの更新を行います。&lt;/li&gt; &lt;li&gt;ENTRYKITを使用します。ENTRYKITとは、&lt;/li&gt; &lt;/ul&gt; &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FROM ruby:2.4 RUN apt-get update -qq &amp;amp;&amp;amp; \ apt-get install -y build-essential libpq-dev nodejs RUN mkdir /app WORKDIR /app ADD Gemfile /app/Gemfile ADD Gemfile.lock /app/Gemfile.lock ADD . /app RUN bundle config build.nokogiri --use-system-libraries EXPOSE 5000 ENV ENTRYKIT_VERSION 0.4.0 RUN wget https://github.com/progrium/entrykit/releases/download/v${ENTRYKIT_VERSION}/entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz \ &amp;amp;&amp;amp; tar -xvzf entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz \ &amp;amp;&amp;amp; rm entrykit_${ENTRYKIT_VERSION}_Linux_x86_64.tgz \ &amp;amp;&amp;amp; mv entrykit /bin/entrykit \ &amp;amp;&amp;amp; chmod +x /bin/entrykit \ &amp;amp;&amp;amp; entrykit --symlink ENTRYPOINT [ \ &quot;prehook&quot;, &quot;ruby -v&quot;, &quot;--&quot;, \ &quot;prehook&quot;, &quot;bundle install -j3 --quiet&quot;, &quot;--&quot;] &lt;/code&gt;&lt;/pre&gt; &lt;/div&gt; &lt;h2 id=&quot;docker-composeyml&quot;&gt;docker-compose.yml&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;app, spring, db, dataコンテナー4つを作成します。&lt;/li&gt; &lt;li&gt;appはrailsが実行されるコンテナーです。&lt;/li&gt; &lt;li&gt;springはなくてもいいです。rails開発を高速化したい場合は使用しましょう。&lt;/li&gt; &lt;li&gt;dbはpostgresが実行されるコンテナーです。appコンテナーから参照されます。&lt;/li&gt; &lt;li&gt;dataはデータを格納するコンテナーです。app,...</description>
+        <pubDate>Wed, 17 May 2017 03:48:33 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/docker-rails/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/docker-rails/</guid>
+        
+        <category>docker</category>
+        
+        <category>rails</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>VagrantでRails on Docker開発環境を構築する</title>
+        <description>&lt;h2 id=&quot;vagrantfile&quot;&gt;Vagrantfile&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;ベースイメージにはubuntu-16.04を使用します。&lt;/li&gt; &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;config.vm.provision &quot;docker&quot;&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;config.vm.provision :docker_compose&lt;/code&gt;これでDockerとdocker-composeをインストールしてもらいます。&lt;/li&gt; &lt;li&gt;docker上でrailsアプリを起動した際(rails s)には、&lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:5000&lt;/code&gt;にアクセスするとブラウザからアクセスできます。&lt;/li&gt; &lt;li&gt;ポートは&lt;code class=&quot;highlighter-rouge&quot;&gt;config.vm.network &quot;forwarded_port&quot;, guest: 3000, host: 5000&lt;/code&gt;で自由に変更できます。&lt;/li&gt; &lt;li&gt;localのエディタでコードを編集した場合、変更が反映されません。ので、&lt;code class=&quot;highlighter-rouge&quot;&gt;config.vm.synced_folder&lt;/code&gt;こちらでrsync使いましょう。&lt;/li&gt; &lt;li&gt;メモリーなどのVMのハード面は&lt;code class=&quot;highlighter-rouge&quot;&gt;vb.memory = &quot;4096&quot;&lt;/code&gt;このように調整しましょう。&lt;/li&gt; &lt;li&gt;起動時(vagrant up)にシェルスクリプトを走らせて、必要なものをインストール自動化しましょう。このように&lt;code class=&quot;highlighter-rouge&quot;&gt;config.vm.provision :shell, :path =&amp;gt; &quot;setup.sh&quot;, privileged: true&lt;/code&gt;&lt;/li&gt; &lt;/ul&gt; &lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# -*- mode: ruby -*-&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# vi: set ft=ruby :&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Vagrant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;vm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;box&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bento/ubuntu-16.04&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;vm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;provision&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;docker&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;vm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;provision&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:docker_compose&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;vm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;network&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;forwarded_port&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;guest:...</description>
+        <pubDate>Wed, 17 May 2017 03:44:12 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/vagrant/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/vagrant/</guid>
+        
+        <category>vagrant</category>
+        
+        <category>docker</category>
+        
+        <category>rails</category>
+        
+        
+      </item>
     
       <item>
         <title>2017年8月からフリーランスエンジニアになります</title>

@@ -55,6 +55,14 @@
     
     
         <url>
+            <loc>https://sunoko.github.io/whoami/docker-rails/</loc>
+        </url>
+  
+        <url>
+            <loc>https://sunoko.github.io/whoami/vagrant/</loc>
+        </url>
+  
+        <url>
             <loc>https://sunoko.github.io/whoami/free-rancer/</loc>
         </url>
   
