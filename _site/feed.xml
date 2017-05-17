@@ -5,8 +5,8 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 May 2017 20:26:24 +0900</pubDate>
-    <lastBuildDate>Wed, 17 May 2017 20:26:24 +0900</lastBuildDate>
+    <pubDate>Wed, 17 May 2017 21:13:31 +0900</pubDate>
+    <lastBuildDate>Wed, 17 May 2017 21:13:31 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -88,9 +88,7 @@
 
 &lt;p&gt;いろいろ調べてみた結果、全部自分次第のようです。&lt;/p&gt;
 
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# フリーの印象&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# 調べた結果&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# エージェントの存在意義&lt;/span&gt;
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# エージェントの存在意義&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# エージェントの流れ&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# おすすめエージェント&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;# 調べた結果と感想&lt;/span&gt;
@@ -103,6 +101,8 @@
         <guid isPermaLink="true">https://sunoko.github.io/whoami/free-rancer/</guid>
         
         <category>フリーランス</category>
+        
+        <category>派遣</category>
         
         
       </item>
