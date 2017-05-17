@@ -128,7 +128,9 @@
                 <h2 id="vagrantfile">Vagrantfile</h2>
 <ul>
   <li>ベースイメージにはubuntu-16.04を使用します。</li>
-  <li><code class="highlighter-rouge">config.vm.provision "docker"</code>、<code class="highlighter-rouge">config.vm.provision :docker_compose</code>これでDockerとdocker-composeをインストールしてもらいます。</li>
+  <li><code class="highlighter-rouge">config.vm.provision "docker"</code>、<br />
+<code class="highlighter-rouge">config.vm.provision :docker_compose</code><br />
+これでDockerとdocker-composeをインストールしてもらいます。</li>
   <li>docker上でrailsアプリを起動した際(rails s)には、<code class="highlighter-rouge">http://localhost:5000</code>にアクセスするとブラウザからアクセスできます。</li>
   <li>ポートは<code class="highlighter-rouge">config.vm.network "forwarded_port", guest: 3000, host: 5000</code>で自由に変更できます。</li>
   <li>localのエディタでコードを編集した場合、変更が反映されません。ので、<code class="highlighter-rouge">config.vm.synced_folder</code>こちらでrsync使いましょう。</li>
