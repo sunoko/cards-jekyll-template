@@ -231,6 +231,7 @@ ENTRYPOINT [ \
 <p>中身は何も書かなくていいです。</p>
 
 <h2 id="使い方">使い方</h2>
+<p>Dockerfile, docker-compose.yml, Gemfile, Gemfile.lockを同じ階層に準備して、その階層に移動したら下記実行しましょう。</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># 1. Railsプロジェクト作成, イメージ作成</span>
 docker-compose run --rm app rails new . --force --database<span class="o">=</span>postgresql --skip-bundle

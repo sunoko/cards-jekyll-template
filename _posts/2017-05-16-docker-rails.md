@@ -112,6 +112,7 @@ gem 'rails', '~> 5.0.1'
 中身は何も書かなくていいです。
 
 ## 使い方
+Dockerfile, docker-compose.yml, Gemfile, Gemfile.lockを同じ階層に準備して、その階層に移動したら下記実行しましょう。
 
 ```bash
 # 1. Railsプロジェクト作成, イメージ作成
