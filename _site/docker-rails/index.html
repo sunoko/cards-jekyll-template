@@ -168,7 +168,7 @@ ENTRYPOINT [ \
   <li><code class="highlighter-rouge">bundle:/usr/local/bundle</code>は<code class="highlighter-rouge">bundle install</code>でインストールされるデータを格納します。</li>
 </ul>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2'</span>
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2'</span>
 <span class="s">services</span><span class="pi">:</span>
   <span class="s">app</span><span class="pi">:</span> <span class="nl">&amp;app_base</span>
     <span class="s">build</span><span class="pi">:</span>
@@ -255,7 +255,7 @@ docker-compose up
 <h2 id="configdatabaseyml">config/database.yml</h2>
 <p>DB設定の時にこちらをコピーします。</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">default</span><span class="pi">:</span> <span class="nl">&amp;default</span>
+<div class="language-yml highlighter-rouge"><pre class="highlight"><code><span class="s">default</span><span class="pi">:</span> <span class="nl">&amp;default</span>
   <span class="s">adapter</span><span class="pi">:</span> <span class="s">postgresql</span>
   <span class="s">encoding</span><span class="pi">:</span> <span class="s">unicode</span>
   <span class="s">pool</span><span class="pi">:</span> <span class="s">&lt;%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %&gt;</span>

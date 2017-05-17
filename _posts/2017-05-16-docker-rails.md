@@ -49,7 +49,7 @@ ENTRYPOINT [ \
 * `db:/var/lib/postgresql/data`はpostgresのデータを格納します。
 * `bundle:/usr/local/bundle`は`bundle install`でインストールされるデータを格納します。
 
-```yaml
+```yml
 version: '2'
 services:
   app: &app_base
@@ -136,7 +136,7 @@ docker-compose up
 ## config/database.yml
 DB設定の時にこちらをコピーします。
 
-```yaml
+```yml
 default: &default
   adapter: postgresql
   encoding: unicode
