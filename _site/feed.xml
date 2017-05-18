@@ -5,9 +5,136 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 May 2017 21:28:41 +0900</pubDate>
-    <lastBuildDate>Wed, 17 May 2017 21:28:41 +0900</lastBuildDate>
+    <pubDate>Thu, 18 May 2017 20:14:23 +0900</pubDate>
+    <lastBuildDate>Thu, 18 May 2017 20:14:23 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>PowershellでHyperVのVM作成自動化</title>
+        <description>&lt;h2 id=&quot;hyper-vのvm作成自動化とテスト&quot;&gt;Hyper-VのVM作成自動化とテスト&lt;/h2&gt; &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;New-HyperVVirtualMachine &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;&amp;lt;# .SYNOPSIS Create virtual machine on Hyper-V using template vhdx file. .EXAMPLE New-HyperVVirtualMachine -VMNames $VMNames -VHDXSourcePath $VHDXSourcePath .NOTES Should be prepared template vhdx file. Should run local administrator user. #&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CmdletBinding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Param&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Parameter&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ValueFromPipeline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$true&lt;/span&gt;,Mandatory&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$VMNames&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Parameter&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Mandatory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$VHDXDir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Get-VMHost&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.VirtualHardDiskPath, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Parameter&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Mandatory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$VHDXSourcePath&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Parameter&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Mandatory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)]&lt;/span&gt; &lt;span...</description>
+        <pubDate>Thu, 18 May 2017 06:27:26 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/powershell-hyperv/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/powershell-hyperv/</guid>
+        
+        <category>powershell</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Powershellでユニットテスト</title>
+        <description>&lt;h2 id=&quot;mockの使い方と使用例&quot;&gt;Mockの使い方と使用例&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;Out-Hostをテストしようとすると、return valueは空のためテストが難しい&lt;/li&gt; &lt;li&gt;同じくGet-Dateのように変動的な結果のもののテストも難しい&lt;/li&gt; &lt;li&gt;そんな時にMockを使用する&lt;/li&gt; &lt;/ul&gt; &lt;h3 id=&quot;sample-code&quot;&gt;Sample Code&lt;/h3&gt; &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Write&lt;/span&gt;-TimeAndWord &lt;span class=&quot;o&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$word&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$date_01&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Get-Date &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$word&lt;/span&gt; -eq &lt;span class=&quot;s2&quot;&gt;&quot;TEST_01&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$date_02&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Get-Date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;TEST_&quot;&lt;/span&gt; + &lt;span class=&quot;nv&quot;&gt;$word&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;Out-Host&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt; &lt;/div&gt; &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Describe &lt;span class=&quot;s1&quot;&gt;'Write-TimeAndWord'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; Context &lt;span class=&quot;s2&quot;&gt;&quot;First Test&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$word&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;TEST_01&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Get-DateをMockで上書きする&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Get-Dateを実行すると結果が&quot;2017/03/31 06:00:00&quot;に固定できる&lt;/span&gt; Mock &lt;span class=&quot;nb&quot;&gt;Get-Date&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span...</description>
+        <pubDate>Thu, 18 May 2017 06:26:57 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/powershell-pester/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/powershell-pester/</guid>
+        
+        <category>powershell</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>PowershellでClosureを使ってみた</title>
+        <description>&lt;h2 id=&quot;powershellでクロージャー使用例&quot;&gt;Powershellでクロージャー使用例&lt;/h2&gt; &lt;p&gt;非常に長いパラメータセットになりがちなので、データとコードをオブジェクトにラップする　 メッセージ作成スクリプトの再利用単純化&lt;/p&gt; &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;Get-MessageObject &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;param&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$MsgType&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$Message&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CurrentDay&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CurrentTime&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$DayOfWeek&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$Properties&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; @&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'MessageType'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$MsgType&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Message'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$Message&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'CurrentDay'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$CurrentDay&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'CurrentTime'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$CurrentTime&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'DayOfWeek'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$DayOfWeek&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;New-Object&lt;/span&gt; -TypeName psobject -Property &lt;span class=&quot;nv&quot;&gt;$Properties&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;New-MessageGenerator &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;param&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span...</description>
+        <pubDate>Thu, 18 May 2017 06:26:38 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/powershell-closure/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/powershell-closure/</guid>
+        
+        <category>powershell</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>powershell return</title>
+        <description>&lt;h2 id=&quot;関数のreturn&quot;&gt;関数の&lt;code class=&quot;highlighter-rouge&quot;&gt;return&lt;/code&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;現在のスコープを抜ける&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;return&lt;/code&gt;はあってもなくてもいい&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;return&lt;/code&gt;以外の他のオブジェクトも返す&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;function Test-Return
+{
+	'Hello'
+	return 12
+	'Good'
+}
+
+Test-Return
+# Hello
+# 12
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;クラスのreturn&quot;&gt;クラスの&lt;code class=&quot;highlighter-rouge&quot;&gt;return&lt;/code&gt;&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;現在のスコープを抜ける&lt;/li&gt;
+  &lt;li&gt;returnは必須(ない場合errorになる)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;return&lt;/code&gt;で指定されたものだけ返す&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ps1&quot;&gt;class ReturnTester
+{
+    [int32]TestReturn()
+    {
+        'Hello'
+        return 12
+        'Good'
+    }
+}
+
+$return = New-Object -TypeName ReturnTester
+$return.TestReturn()
+# 12
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Thu, 18 May 2017 06:18:24 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/powershell-return/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/powershell-return/</guid>
+        
+        <category>powershell</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>geeksjob</title>
+        <description>
+</description>
+        <pubDate>Thu, 18 May 2017 06:12:07 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/geeksjob/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/geeksjob/</guid>
+        
+        <category>フリーランス</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>levatech</title>
+        <description>
+</description>
+        <pubDate>Thu, 18 May 2017 06:11:53 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/levatech/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/levatech/</guid>
+        
+        <category>フリーランス</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>ritsuan</title>
+        <description>
+</description>
+        <pubDate>Thu, 18 May 2017 06:11:33 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/ritsuan/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/ritsuan/</guid>
+        
+        <category>フリーランス</category>
+        
+        
+      </item>
     
       <item>
         <title>Docker上でRails開発環境を構築する</title>

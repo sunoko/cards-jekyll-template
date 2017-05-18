@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "powershell pester"
+title: "Powershellでユニットテスト"
 date: 2017-05-17 21:26:57
 description:
 tags:
+- powershell
 twitter_text:
 introduction:
 ---
@@ -15,7 +16,7 @@ introduction:
 
 ### Sample Code
 
-```ps1:Write-TimeAndWord.ps1
+```powershell
 function Write-TimeAndWord ([string] $word) {
 	$date_01 = Get-Date
 	if($word -eq "TEST_01"){ $date_02 = Get-Date }
@@ -23,7 +24,7 @@ function Write-TimeAndWord ([string] $word) {
 }
 ```
 
-```ps1:Write-TimeAndWord.Tests.ps1
+```powershell
 Describe 'Write-TimeAndWord' {
     Context "First Test" {
         $word = "TEST_01"
@@ -65,7 +66,7 @@ Describe 'Write-TimeAndWord' {
 
 実行方法
 
-```ps1
+```powershell
 Invoke-Pester .\Write-TimeAndWord.Tests.ps1 
 ```
 ### Sample Codeのまとめ
@@ -83,7 +84,7 @@ Invoke-Pester .\Write-TimeAndWord.Tests.ps1
 
 ## CodeCoverageの使い方と使用例
 
-```
+```powershell
 Invoke-Pester .\Write-TimeAndWord.Tests.ps1 -CodeCoverage .\Write-TimeAndWord.ps1
 
 Describing Write-TimeAndWord
@@ -116,7 +117,6 @@ Write-TimeAndWord.ps1 Write-TimeAndWord    4 Out-Host
 例：SharePointモジュールUnitテスト
 Powershell Module Folder/
 
-```
 ┣ Scripts/
 ┃    ┗script_01.ps1
 ┃    ┗script_02.ps1
@@ -127,9 +127,8 @@ Powershell Module Folder/
 ┃        ┗test_03.Tests.ps1
 ┃        ┗TestInitialize.ps1
 ┃        ┗TestInitialize.json
-```
 
-```ps1:TestInitialize.ps1
+```powershell
 $parent = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $scripts = (Get-ChildItem $parent -Filter "*.ps1").FullName
 foreach($script in $scripts){
@@ -138,7 +137,7 @@ foreach($script in $scripts){
 $Script:TestConfig = Get-Content "${PSScriptRoot}\TestConfiguration.json" | ConvertFrom-Json
 ```
 
-```json:TestInitialize.json
+```json
 [
     {
         "SiteUrl":  "SharePoint Site URL",
@@ -177,14 +176,13 @@ $Script:TestConfig = Get-Content "${PSScriptRoot}\TestConfiguration.json" | Conv
 ]
 ```
 
-test_01.Tests.ps1
 
-```ps1
+```powershell
 . "${PSScriptRoot}\TestInitialize.ps1"
 # モジュールのテストコード
 ```
 
-```ps1:Run-FullTest.ps1
+```powershell
 $VerbosePreference = 'SilentlyContinue'
 $Tests  = @(Get-ChildItem -Path $PSScriptRoot\*.ps1 -Exclude "*FullTest*" -ErrorAction SilentlyContinue)
 

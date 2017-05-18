@@ -1,16 +1,17 @@
 ---
 layout: post
-title: "powershell HyperV"
+title: "PowershellでHyperVのVM作成自動化"
 date: 2017-05-17 21:27:26
 description:
 tags:
+- powershell
 twitter_text:
 introduction:
 ---
 
 ## Hyper-VのVM作成自動化とテスト
 
-```ps1:New-HyperVVirtualMachine.ps1
+```powershell
 function New-HyperVVirtualMachine {
 <#
 .SYNOPSIS
@@ -105,7 +106,7 @@ Should run local administrator user.
 }
 ```
 
-```ps1:Remove-HyperVVirtualMachine.ps1
+```powershell
 function Remove-HyperVVirtualMachine {
 <#
 .SYNOPSIS
@@ -135,7 +136,7 @@ Should run local administrator user.
 }
 ```
 
-```ps1:New-HyperVVirtualMachine.Tests.ps1
+```powershell
 $parent = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
 $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
 . "$parent\$sut"
@@ -176,7 +177,7 @@ Describe "New-HyperVVirtualMachine" {
 }
 ```
 
-```json:testData.json
+```json
 [
     {
         "VHDXSourcePath": "C:\\somewhere.vhdx",
@@ -197,20 +198,20 @@ Describe "New-HyperVVirtualMachine" {
 #### 3. WinRM起動
 接続されるPCで実行
 
-```ps1
+```powershell
 Enable-PSRemoting -Force
 Enter-PSSession -ComputerName localhost
 ```
 #### 4. Firewall無効化
 接続されるPCで実行
 
-```ps1
+```powershell
 Get-NetFirewallProfile | Set-NetFirewallProfile -Enabled false
 ```
 #### 5. TrustedHosts設定
 接続するPCで実行
 
-```ps1
+```powershell
 Set-Item WSMan:\localhost\Client\TrustedHosts -Value * -Force
 Get-Item WSMan:\localhost\Client\TrustedHosts
 # Type            Name                           SourceOfValue   Value
@@ -220,7 +221,7 @@ Get-Item WSMan:\localhost\Client\TrustedHosts
 
 #### 6. PowershellからVMに接続
 
-```ps1
+```powershell
 $cred = Get-Credential
 Enter-PSSession -ComputerName "IP or HostName" -Credential $cred
 ```

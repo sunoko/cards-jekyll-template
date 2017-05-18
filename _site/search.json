@@ -1,6 +1,55 @@
 [
   
     {
+      "title"    : "PowershellでHyperVのVM作成自動化",
+      "tags"     : "powershell",
+      "url"      : "/whoami/powershell-hyperv/",
+      "date"     : "18 May 2017"
+    } ,
+  
+    {
+      "title"    : "Powershellでユニットテスト",
+      "tags"     : "powershell",
+      "url"      : "/whoami/powershell-pester/",
+      "date"     : "18 May 2017"
+    } ,
+  
+    {
+      "title"    : "PowershellでClosureを使ってみた",
+      "tags"     : "powershell",
+      "url"      : "/whoami/powershell-closure/",
+      "date"     : "18 May 2017"
+    } ,
+  
+    {
+      "title"    : "powershell return",
+      "tags"     : "powershell",
+      "url"      : "/whoami/powershell-return/",
+      "date"     : "18 May 2017"
+    } ,
+  
+    {
+      "title"    : "geeksjob",
+      "tags"     : "フリーランス",
+      "url"      : "/whoami/geeksjob/",
+      "date"     : "18 May 2017"
+    } ,
+  
+    {
+      "title"    : "levatech",
+      "tags"     : "フリーランス",
+      "url"      : "/whoami/levatech/",
+      "date"     : "18 May 2017"
+    } ,
+  
+    {
+      "title"    : "ritsuan",
+      "tags"     : "フリーランス",
+      "url"      : "/whoami/ritsuan/",
+      "date"     : "18 May 2017"
+    } ,
+  
+    {
       "title"    : "Docker上でRails開発環境を構築する",
       "tags"     : "docker and rails",
       "url"      : "/whoami/docker-rails/",

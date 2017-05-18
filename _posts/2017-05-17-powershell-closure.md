@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "powershell closure"
+title: "PowershellでClosureを使ってみた"
 date: 2017-05-17 21:26:38
 description:
 tags:
+- powershell
 twitter_text:
 introduction:
 ---
@@ -13,7 +14,7 @@ introduction:
 非常に長いパラメータセットになりがちなので、データとコードをオブジェクトにラップする　
 メッセージ作成スクリプトの再利用単純化
 
-```ps1:Get-MessageObject.ps1
+```powershell
 function Get-MessageObject
 {
    param
