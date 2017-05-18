@@ -4,8 +4,7 @@ title: "エンジニアの働き方は正社員、派遣、フリーランスっ
 date: 2017-05-08 21:43:47
 description:
 tags: 
-- フリーランス
-- 派遣
+- 働き方
 twitter_text:
 introduction:
 ---

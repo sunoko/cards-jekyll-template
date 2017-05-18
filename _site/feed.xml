@@ -5,8 +5,8 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 May 2017 20:15:09 +0900</pubDate>
-    <lastBuildDate>Thu, 18 May 2017 20:15:09 +0900</lastBuildDate>
+    <pubDate>Thu, 18 May 2017 20:17:02 +0900</pubDate>
+    <lastBuildDate>Thu, 18 May 2017 20:17:02 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -107,7 +107,7 @@ Test-Return
         <link>https://sunoko.github.io/whoami/geeksjob/</link>
         <guid isPermaLink="true">https://sunoko.github.io/whoami/geeksjob/</guid>
         
-        <category>フリーランス</category>
+        <category>働き方</category>
         
         
       </item>
@@ -120,7 +120,7 @@ Test-Return
         <link>https://sunoko.github.io/whoami/levatech/</link>
         <guid isPermaLink="true">https://sunoko.github.io/whoami/levatech/</guid>
         
-        <category>フリーランス</category>
+        <category>働き方</category>
         
         
       </item>
@@ -133,7 +133,7 @@ Test-Return
         <link>https://sunoko.github.io/whoami/ritsuan/</link>
         <guid isPermaLink="true">https://sunoko.github.io/whoami/ritsuan/</guid>
         
-        <category>フリーランス</category>
+        <category>働き方</category>
         
         
       </item>
@@ -229,9 +229,7 @@ Test-Return
         <link>https://sunoko.github.io/whoami/free-rancer/</link>
         <guid isPermaLink="true">https://sunoko.github.io/whoami/free-rancer/</guid>
         
-        <category>フリーランス</category>
-        
-        <category>派遣</category>
+        <category>働き方</category>
         
         
       </item>
