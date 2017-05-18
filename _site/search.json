@@ -22,7 +22,7 @@
     } ,
   
     {
-      "title"    : "powershell return",
+      "title"    : "Powershellで関数とクラスのreturnの違い",
       "tags"     : "powershell",
       "url"      : "/whoami/powershell-return/",
       "date"     : "18 May 2017"

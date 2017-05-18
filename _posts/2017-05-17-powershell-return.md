@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "powershell return"
+title: "Powershellで関数とクラスのreturnの違い"
 date: 2017-05-17 21:18:24
 description:
 tags:
@@ -14,7 +14,7 @@ introduction:
 * `return`はあってもなくてもいい
 * `return`以外の他のオブジェクトも返す
 
-```ps1
+```powershell
 function Test-Return
 {
 	'Hello'
@@ -32,7 +32,7 @@ Test-Return
 * returnは必須(ない場合errorになる)
 * `return`で指定されたものだけ返す
 
-```ps1
+```powershell
 class ReturnTester
 {
     [int32]TestReturn()

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>powershell return</title>
+    <title>Powershellで関数とクラスのreturnの違い</title>
     <meta name="description" content="A blog about development">
 
     <!-- Google Authorship Markup -->
@@ -14,7 +14,7 @@
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@lorem_ipsum">
-    <meta name="twitter:title" content="powershell return">
+    <meta name="twitter:title" content="Powershellで関数とクラスのreturnの違い">
     <meta name="twitter:description" content="A blog about development">
     
     <meta property="twitter:image:src" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
@@ -22,7 +22,7 @@
 
     <!-- Social: Facebook / Open Graph -->
     <meta property="og:url" content="https://sunoko.github.io/whoami/powershell-return/">
-    <meta property="og:title" content="powershell return">
+    <meta property="og:title" content="Powershellで関数とクラスのreturnの違い">
     
     <meta property="og:image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
@@ -30,7 +30,7 @@
     <meta property="og:site_name" content="Who am I ?">
 
     <!-- Social: Google+ / Schema.org  -->
-    <meta itemprop="name" content="powershell return"/>
+    <meta itemprop="name" content="Powershellで関数とクラスのreturnの違い"/>
     <meta itemprop="description" content="A blog about development">
     <meta itemprop="image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png"/>
 
@@ -118,7 +118,7 @@
         
             <time itemprop="datePublished" datetime="2017-05-18T06:18:24+09:00" class="date">18 May 2017</time>
         
-        <h1 class="post-title" itemprop="name">powershell return</h1>
+        <h1 class="post-title" itemprop="name">Powershellで関数とクラスのreturnの違い</h1>
         <p itemprop="description" class="subtitle"></p>
     </div>
 </header>
@@ -132,17 +132,18 @@
   <li><code class="highlighter-rouge">return</code>以外の他のオブジェクトも返す</li>
 </ul>
 
-<pre><code class="language-ps1">function Test-Return
-{
-	'Hello'
-	return 12
-	'Good'
-}
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Test-Return
+<span class="o">{</span>
+	<span class="s1">'Hello'</span>
+	<span class="k">return </span>12
+	<span class="s1">'Good'</span>
+<span class="o">}</span>
 
 Test-Return
-# Hello
-# 12
+<span class="c1"># Hello</span>
+<span class="c1"># 12</span>
 </code></pre>
+</div>
 
 <h2 id="クラスのreturn">クラスの<code class="highlighter-rouge">return</code></h2>
 <ul>
@@ -151,20 +152,21 @@ Test-Return
   <li><code class="highlighter-rouge">return</code>で指定されたものだけ返す</li>
 </ul>
 
-<pre><code class="language-ps1">class ReturnTester
-{
-    [int32]TestReturn()
-    {
-        'Hello'
-        return 12
-        'Good'
-    }
-}
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">class </span>ReturnTester
+<span class="o">{</span>
+    <span class="o">[</span>int32]TestReturn<span class="o">()</span>
+    <span class="o">{</span>
+        <span class="s1">'Hello'</span>
+        <span class="k">return </span>12
+        <span class="s1">'Good'</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-$return = New-Object -TypeName ReturnTester
-$return.TestReturn()
-# 12
+<span class="nv">$return</span> <span class="o">=</span> <span class="nb">New-Object</span> -TypeName ReturnTester
+<span class="nv">$return</span>.TestReturn<span class="o">()</span>
+<span class="c1"># 12</span>
 </code></pre>
+</div>
 
             </article>
 
