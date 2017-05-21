@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Powershellでラストログインユーザーを調べる"
+title: "PowershellでLast Login Userを調べる"
 date: 2017-05-17 21:18:24
 description:
 tags:

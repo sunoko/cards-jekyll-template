@@ -29,7 +29,7 @@
     } ,
   
     {
-      "title"    : "Powershellでラストログインユーザーを調べる",
+      "title"    : "PowershellでLast Login Userを調べる",
       "tags"     : "powershell",
       "url"      : "/whoami/powershell-lastlogin/",
       "date"     : "18 May 2017"

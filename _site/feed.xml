@@ -5,8 +5,8 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 May 2017 08:06:16 +0900</pubDate>
-    <lastBuildDate>Mon, 22 May 2017 08:06:16 +0900</lastBuildDate>
+    <pubDate>Mon, 22 May 2017 08:11:01 +0900</pubDate>
+    <lastBuildDate>Mon, 22 May 2017 08:11:01 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -100,7 +100,7 @@ Test-Return
       </item>
     
       <item>
-        <title>Powershellでラストログインユーザーを調べる</title>
+        <title>PowershellでLast Login Userを調べる</title>
         <description>&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;Get-LastLogon &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CmdletBinding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$Computer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$env&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:COMPUTERNAME&quot;&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$WQLFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;NOT SID = 'S-1-5-18' AND NOT SID = 'S-1-5-19' AND NOT SID = 'S-1-5-20'&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$Win32User&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Get-WmiObject&lt;/span&gt; -Class Win32_UserProfile -Filter &lt;span class=&quot;nv&quot;&gt;$WQLFilter&lt;/span&gt; -ComputerName &lt;span class=&quot;nv&quot;&gt;$Computer&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$LastUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$Win32User&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;Sort-Object&lt;/span&gt; -Property LastUseTime -Descending | &lt;span class=&quot;nb&quot;&gt;Select-Object&lt;/span&gt; -First 1 &lt;span class=&quot;nv&quot;&gt;$Loaded&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$LastUser&lt;/span&gt;.Loaded &lt;span class=&quot;nv&quot;&gt;$Script&lt;/span&gt;:Time &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;([&lt;/span&gt;WMI]&lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.ConvertToDateTime&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$LastUser&lt;/span&gt;.LastUseTime&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#Convert SID to Account for...</description>
         <pubDate>Thu, 18 May 2017 06:18:24 +0900</pubDate>
         <link>https://sunoko.github.io/whoami/powershell-lastlogin/</link>
