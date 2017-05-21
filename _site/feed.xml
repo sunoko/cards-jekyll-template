@@ -5,8 +5,8 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 May 2017 20:17:02 +0900</pubDate>
-    <lastBuildDate>Thu, 18 May 2017 20:17:02 +0900</lastBuildDate>
+    <pubDate>Mon, 22 May 2017 08:05:51 +0900</pubDate>
+    <lastBuildDate>Mon, 22 May 2017 08:05:51 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -101,7 +101,11 @@ Test-Return
     
       <item>
         <title>geeksjob</title>
-        <description>
+        <description>&lt;p&gt;リツアンの紹介
+特定派遣エンジニアが思う不満
+特定派遣エンジニアがこうなれたらいいと思うこと
+リツアンの特徴
+満たしてねw？&lt;/p&gt;
 </description>
         <pubDate>Thu, 18 May 2017 06:12:07 +0900</pubDate>
         <link>https://sunoko.github.io/whoami/geeksjob/</link>
@@ -114,7 +118,11 @@ Test-Return
     
       <item>
         <title>levatech</title>
-        <description>
+        <description>&lt;p&gt;リツアンの紹介
+特定派遣エンジニアが思う不満
+特定派遣エンジニアがこうなれたらいいと思うこと
+リツアンの特徴
+満たしてねw？&lt;/p&gt;
 </description>
         <pubDate>Thu, 18 May 2017 06:11:53 +0900</pubDate>
         <link>https://sunoko.github.io/whoami/levatech/</link>
@@ -127,7 +135,11 @@ Test-Return
     
       <item>
         <title>ritsuan</title>
-        <description>
+        <description>&lt;p&gt;リツアンの紹介
+特定派遣エンジニアが思う不満
+特定派遣エンジニアがこうなれたらいいと思うこと
+リツアンの特徴
+満たしてねw？&lt;/p&gt;
 </description>
         <pubDate>Thu, 18 May 2017 06:11:33 +0900</pubDate>
         <link>https://sunoko.github.io/whoami/ritsuan/</link>
