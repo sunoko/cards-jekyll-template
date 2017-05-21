@@ -29,13 +29,6 @@
     } ,
   
     {
-      "title"    : "PowershellでLast Login Userを調べる",
-      "tags"     : "powershell",
-      "url"      : "/whoami/powershell-lastlogin/",
-      "date"     : "18 May 2017"
-    } ,
-  
-    {
       "title"    : "geeksjob",
       "tags"     : "働き方",
       "url"      : "/whoami/geeksjob/",
