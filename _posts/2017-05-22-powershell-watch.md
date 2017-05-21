@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "powershell watch"
+title: "Powershellでプロセスを監視する"
 date: 2017-05-22 08:03:59
 description:
 tags:
