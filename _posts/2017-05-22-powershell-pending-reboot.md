@@ -19,26 +19,26 @@ function Get-PendingReboot {
     [bool]$Pending = $false,
     [bool]$CBSRebootPend = $false
   )        
-  ## Making registry connection to the local/remote computer 
+  # Making registry connection to the local/remote computer 
   $HKLM = [UInt32] "0x80000002" 
   $WMI_Reg = [WMIClass] "\\$Computer\root\default:StdRegProv" 
           
-  ## CBS
+  # CBS
   $RegCBS = $WMI_Reg.EnumKey($HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\") 
   $CBSRebootPend = $RegCBS.sNames -contains "RebootPending"     
             
-  ## Windows Update
+  # Windows Update
   $RegWUAU = $WMI_Reg.EnumKey($HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\") 
   $WUAURebootReq = $RegWUAU.sNames -contains "RebootRequired" 
           
-  ## FileRenameOperations
+  # FileRenameOperations
   $RegSessionManager = $WMI_Reg.GetMultiStringValue($HKLM,"SYSTEM\CurrentControlSet\Control\Session Manager\","PendingFileRenameOperations") 
   $RegValuePFRO = $RegSessionManager.sValue 
   If ($RegValuePFRO) { 
     $RenameFile = $true 
   }   
 
-  ## ComputerName and ActiveComputerName
+  # ComputerName and ActiveComputerName
   $ActCompNm = $WMI_Reg.GetStringValue($HKLM,"SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName\","ComputerName")       
   $CompNm = $WMI_Reg.GetStringValue($HKLM,"SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName\","ComputerName") 
   If ($ActCompNm -ne $CompNm) { 
