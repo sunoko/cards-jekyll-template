@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ritsuan</title>
+    <title>Powershellで保留されているRebootがあるか確認する</title>
     <meta name="description" content="A blog about development">
 
     <!-- Google Authorship Markup -->
@@ -14,15 +14,15 @@
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@lorem_ipsum">
-    <meta name="twitter:title" content="ritsuan">
+    <meta name="twitter:title" content="Powershellで保留されているRebootがあるか確認する">
     <meta name="twitter:description" content="A blog about development">
     
     <meta property="twitter:image:src" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
 
     <!-- Social: Facebook / Open Graph -->
-    <meta property="og:url" content="https://sunoko.github.io/whoami/ritsuan/">
-    <meta property="og:title" content="ritsuan">
+    <meta property="og:url" content="https://sunoko.github.io/whoami/powershell-pending-reboot/">
+    <meta property="og:title" content="Powershellで保留されているRebootがあるか確認する">
     
     <meta property="og:image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
@@ -30,7 +30,7 @@
     <meta property="og:site_name" content="Who am I ?">
 
     <!-- Social: Google+ / Schema.org  -->
-    <meta itemprop="name" content="ritsuan"/>
+    <meta itemprop="name" content="Powershellで保留されているRebootがあるか確認する"/>
     <meta itemprop="description" content="A blog about development">
     <meta itemprop="image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png"/>
 
@@ -58,7 +58,7 @@
 
     <link rel="stylesheet" href="/whoami/assets/css/main.css">
     <link rel="stylesheet" href="/whoami/assets/css/custom.css">
-    <link rel="canonical" href="https://sunoko.github.io/whoami/ritsuan/">
+    <link rel="canonical" href="https://sunoko.github.io/whoami/powershell-pending-reboot/">
     <link rel="alternate" type="application/rss+xml" title="Who am I ?" href="https://sunoko.github.io/whoami/feed.xml" />
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -116,45 +116,83 @@
 <header class="header-post" role="banner">
      <div class="content">
         
-            <time itemprop="datePublished" datetime="2017-05-18T06:11:33+09:00" class="date">18 May 2017</time>
+            <time itemprop="datePublished" datetime="2017-05-22T17:03:44+09:00" class="date">22 May 2017</time>
         
-        <h1 class="post-title" itemprop="name">ritsuan</h1>
+        <h1 class="post-title" itemprop="name">Powershellで保留されているRebootがあるか確認する</h1>
         <p itemprop="description" class="subtitle"></p>
     </div>
 </header>
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <h2 id="リツアンの紹介">リツアンの紹介</h2>
+                <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Get-PendingReboot <span class="o">{</span> 
+  <span class="o">[</span><span class="na">CmdletBinding</span><span class="o">()]</span> 
+  <span class="k">param</span><span class="o">(</span> 
+    <span class="o">[</span><span class="kt">string</span><span class="o">]</span><span class="nv">$Computer</span> <span class="o">=</span> <span class="s2">"</span><span class="nv">$env</span><span class="s2">:COMPUTERNAME"</span>,
+    <span class="o">[</span><span class="kt">bool</span><span class="o">]</span><span class="nv">$RenameComputer</span> <span class="o">=</span> <span class="nv">$false</span>,
+    <span class="o">[</span><span class="kt">bool</span><span class="o">]</span><span class="nv">$RenameFile</span> <span class="o">=</span> <span class="nv">$false</span>,
+    <span class="o">[</span><span class="kt">bool</span><span class="o">]</span><span class="nv">$Pending</span> <span class="o">=</span> <span class="nv">$false</span>,
+    <span class="o">[</span><span class="kt">bool</span><span class="o">]</span><span class="nv">$CBSRebootPend</span> <span class="o">=</span> <span class="nv">$false</span>
+  <span class="o">)</span>        
+  <span class="c1"># Making registry connection to the local/remote computer </span>
+  <span class="nv">$HKLM</span> <span class="o">=</span> <span class="o">[</span>UInt32] <span class="s2">"0x80000002"</span> 
+  <span class="nv">$WMI_Reg</span> <span class="o">=</span> <span class="o">[</span>WMIClass] <span class="s2">"</span><span class="se">\\</span><span class="nv">$Computer</span><span class="se">\r</span><span class="s2">oot</span><span class="se">\d</span><span class="s2">efault:StdRegProv"</span> 
+          
+  <span class="c1"># CBS</span>
+  <span class="nv">$RegCBS</span> <span class="o">=</span> <span class="nv">$WMI_Reg</span>.EnumKey<span class="o">(</span><span class="nv">$HKLM</span>,<span class="s2">"SOFTWARE</span><span class="se">\M</span><span class="s2">icrosoft</span><span class="se">\W</span><span class="s2">indows</span><span class="se">\C</span><span class="s2">urrentVersion</span><span class="se">\C</span><span class="s2">omponent Based Servicing</span><span class="se">\"</span><span class="s2">) 
+  </span><span class="nv">$CBSRebootPend</span><span class="s2"> = </span><span class="nv">$RegCBS</span><span class="s2">.sNames -contains "</span>RebootPending<span class="s2">"     
+            
+  # Windows Update
+  </span><span class="nv">$RegWUAU</span><span class="s2"> = </span><span class="nv">$WMI_Reg</span><span class="s2">.EnumKey(</span><span class="nv">$HKLM</span><span class="s2">,"</span>SOFTWARE<span class="se">\M</span>icrosoft<span class="se">\W</span>indows<span class="se">\C</span>urrentVersion<span class="se">\W</span>indowsUpdate<span class="se">\A</span>uto Update<span class="se">\"</span><span class="o">)</span> 
+  <span class="nv">$WUAURebootReq</span> <span class="o">=</span> <span class="nv">$RegWUAU</span>.sNames -contains <span class="s2">"RebootRequired"</span> 
+          
+  <span class="c1"># FileRenameOperations</span>
+  <span class="nv">$RegSessionManager</span> <span class="o">=</span> <span class="nv">$WMI_Reg</span>.GetMultiStringValue<span class="o">(</span><span class="nv">$HKLM</span>,<span class="s2">"SYSTEM</span><span class="se">\C</span><span class="s2">urrentControlSet</span><span class="se">\C</span><span class="s2">ontrol</span><span class="se">\S</span><span class="s2">ession Manager</span><span class="se">\"</span><span class="s2">,"</span>PendingFileRenameOperations<span class="s2">") 
+  </span><span class="nv">$RegValuePFRO</span><span class="s2"> = </span><span class="nv">$RegSessionManager</span><span class="s2">.sValue 
+  If (</span><span class="nv">$RegValuePFRO</span><span class="s2">) { 
+    </span><span class="nv">$RenameFile</span><span class="s2"> = </span><span class="nv">$true</span><span class="s2"> 
+  }   
 
-<p>リツアンはエンジニアの給料にこだわります。
-『経費削減』『本部の小規模運営』『効率化』などに取り組んでいます。
-2007年9月28日
-406名
-32.2歳</p>
+  # ComputerName and ActiveComputerName
+  </span><span class="nv">$ActCompNm</span><span class="s2"> = </span><span class="nv">$WMI_Reg</span><span class="s2">.GetStringValue(</span><span class="nv">$HKLM</span><span class="s2">,"</span>SYSTEM<span class="se">\C</span>urrentControlSet<span class="se">\C</span>ontrol<span class="se">\C</span>omputerName<span class="se">\A</span>ctiveComputerName<span class="se">\"</span>,<span class="s2">"ComputerName"</span><span class="o">)</span>       
+  <span class="nv">$CompNm</span> <span class="o">=</span> <span class="nv">$WMI_Reg</span>.GetStringValue<span class="o">(</span><span class="nv">$HKLM</span>,<span class="s2">"SYSTEM</span><span class="se">\C</span><span class="s2">urrentControlSet</span><span class="se">\C</span><span class="s2">ontrol</span><span class="se">\C</span><span class="s2">omputerName</span><span class="se">\C</span><span class="s2">omputerName</span><span class="se">\"</span><span class="s2">,"</span>ComputerName<span class="s2">") 
+  If (</span><span class="nv">$ActCompNm</span><span class="s2"> -ne </span><span class="nv">$CompNm</span><span class="s2">) { 
+    </span><span class="nv">$RenameComputer</span><span class="s2"> = </span><span class="nv">$true</span><span class="s2"> 
+  } 
 
-<h2 id="特定派遣エンジニアが思う不満">特定派遣エンジニアが思う不満</h2>
-<h2 id="特定派遣エンジニアがこうなれたらいいと思うこと">特定派遣エンジニアがこうなれたらいいと思うこと</h2>
-<p>魅力あるビジョン
-それを実現している
-社員の自由度</p>
-
-<h2 id="リツアンの特徴">リツアンの特徴</h2>
-<h2 id="満たしてねw">満たしてねw？</h2>
+  New-Object -TypeName PSObject -Property @{ 
+    Computer = </span><span class="nv">$Computer</span><span class="s2">
+    CBServicing = </span><span class="nv">$CBSRebootPend</span><span class="s2"> 
+    WindowsUpdate = </span><span class="nv">$WUAURebootReq</span><span class="s2"> 
+    PendComputerRename = </span><span class="nv">$RenameComputer</span><span class="s2"> 
+    RenameFile = </span><span class="nv">$RenameFile</span><span class="s2"> 
+    # PendFileRenVal=</span><span class="nv">$RegValuePFRO</span><span class="s2"> 
+    RebootPending = (</span><span class="nv">$RenameComputer</span><span class="s2"> -or </span><span class="nv">$CBSRebootPend</span><span class="s2"> -or </span><span class="nv">$WUAURebootReq</span><span class="s2"> -or </span><span class="nv">$RenameFile</span><span class="s2">) 
+  } | Select-Object Computer, CBServicing, WindowsUpdate, PendComputerRename, RenameFile, RebootPending
+}
+Get-PendingReboot
+# Computer           : P26564
+# CBServicing        : False
+# WindowsUpdate      : False
+# PendComputerRename : False
+# RenameFile         : True
+# RebootPending      : True
+</span></code></pre>
+</div>
 
             </article>
 
             <section class="share">
     <h3>Share</h3>
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20https://sunoko.github.io/ritsuan/%20via%20&#64;lorem_ipsum&hashtags=働き方,"
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20https://sunoko.github.io/powershell-pending-reboot/%20via%20&#64;lorem_ipsum&hashtags=powershell,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://sunoko.github.io/ritsuan/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://sunoko.github.io/powershell-pending-reboot/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://sunoko.github.io/ritsuan/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://sunoko.github.io/powershell-pending-reboot/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>

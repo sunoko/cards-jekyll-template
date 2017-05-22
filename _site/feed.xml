@@ -5,9 +5,45 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 May 2017 08:16:22 +0900</pubDate>
-    <lastBuildDate>Mon, 22 May 2017 08:16:22 +0900</lastBuildDate>
+    <pubDate>Mon, 22 May 2017 20:52:45 +0900</pubDate>
+    <lastBuildDate>Mon, 22 May 2017 20:52:45 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
+    
+      <item>
+        <title>Powershellでプロセスを監視する</title>
+        <description>&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;Watch-Process &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;param&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ProcessName&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$Span&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$process&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Get-Process&lt;/span&gt; -Name &lt;span class=&quot;nv&quot;&gt;$ProcessName&lt;/span&gt; -ErrorAction SilentlyContinue &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;!&lt;span class=&quot;nv&quot;&gt;$process&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Write-Host&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;not exist &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ProcessName&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$process&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Start-Sleep&lt;/span&gt; -Second &lt;span class=&quot;nv&quot;&gt;$Span&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; Watch-Process -ProcessName wuauclt -Span 60 &lt;span class=&quot;c1&quot;&gt;# Handles NPM(K) PM(K) WS(K) CPU(s) Id SI ProcessName&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# ------- ------ ----- ----- ------ -- -- -----------&lt;/span&gt; &lt;span...</description>
+        <pubDate>Mon, 22 May 2017 17:03:59 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/powershell-watch/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/powershell-watch/</guid>
+        
+        <category>powershell</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Powershellで保留されているRebootがあるか確認する</title>
+        <description>&lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function &lt;/span&gt;Get-PendingReboot &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CmdletBinding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$Computer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$env&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;:COMPUTERNAME&quot;&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$RenameComputer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$false&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$RenameFile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$false&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$Pending&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$false&lt;/span&gt;, &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;bool&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$CBSRebootPend&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$false&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# Making registry connection to the local/remote computer &lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$HKLM&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;UInt32] &lt;span class=&quot;s2&quot;&gt;&quot;0x80000002&quot;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$WMI_Reg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;WMIClass] &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$Computer&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\r&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;oot&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\d&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;efault:StdRegProv&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# CBS&lt;/span&gt; &lt;span...</description>
+        <pubDate>Mon, 22 May 2017 17:03:44 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/powershell-pending-reboot/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/powershell-pending-reboot/</guid>
+        
+        <category>powershell</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Railsのapiモードを使ってみる</title>
+        <description>&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rails new rails-api --api rails g scaffold users name:string email:string rails db:create rails db:migrate rails c User.create&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;name:&lt;span class=&quot;s2&quot;&gt;&quot;chinone&quot;&lt;/span&gt;,email:&lt;span class=&quot;s2&quot;&gt;&quot;chinone@chinone.com&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; curl http://localhost:3000/users &lt;span class=&quot;c&quot;&gt;# [&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# {&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# &quot;id&quot;: 1,&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# &quot;name&quot;: &quot;chinone&quot;,&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# &quot;email&quot;: &quot;chinone@chinone.com&quot;,&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# &quot;created_at&quot;: &quot;2017-05-19T07:00:17.309Z&quot;,&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# &quot;updated_at&quot;: &quot;2017-05-19T07:00:17.309Z&quot;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# }&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# ]&lt;/span&gt; rails g scaffold book title author_name published_on:date rails db:migrate rails c Book.create&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;title:&lt;span class=&quot;s2&quot;&gt;&quot;rails books&quot;&lt;/span&gt;,author_name:&lt;span class=&quot;s2&quot;&gt;&quot;kazuki&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; curl http://localhost:3000/books &lt;span class=&quot;c&quot;&gt;# [&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# {&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# &quot;id&quot;: 1,&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# &quot;title&quot;: &quot;rails books&quot;,&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# &quot;author_name&quot;: &quot;kazuki&quot;,&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# &quot;published_on&quot;: null,&lt;/span&gt;...</description>
+        <pubDate>Mon, 22 May 2017 17:03:20 +0900</pubDate>
+        <link>https://sunoko.github.io/whoami/rails-api/</link>
+        <guid isPermaLink="true">https://sunoko.github.io/whoami/rails-api/</guid>
+        
+        <category>rails</category>
+        
+        
+      </item>
     
       <item>
         <title>PowershellでHyperVのVM作成自動化</title>
@@ -135,11 +171,22 @@ Test-Return
     
       <item>
         <title>ritsuan</title>
-        <description>&lt;p&gt;リツアンの紹介
-特定派遣エンジニアが思う不満
-特定派遣エンジニアがこうなれたらいいと思うこと
-リツアンの特徴
-満たしてねw？&lt;/p&gt;
+        <description>&lt;h2 id=&quot;リツアンの紹介&quot;&gt;リツアンの紹介&lt;/h2&gt;
+
+&lt;p&gt;リツアンはエンジニアの給料にこだわります。
+『経費削減』『本部の小規模運営』『効率化』などに取り組んでいます。
+2007年9月28日
+406名
+32.2歳&lt;/p&gt;
+
+&lt;h2 id=&quot;特定派遣エンジニアが思う不満&quot;&gt;特定派遣エンジニアが思う不満&lt;/h2&gt;
+&lt;h2 id=&quot;特定派遣エンジニアがこうなれたらいいと思うこと&quot;&gt;特定派遣エンジニアがこうなれたらいいと思うこと&lt;/h2&gt;
+&lt;p&gt;魅力あるビジョン
+それを実現している
+社員の自由度&lt;/p&gt;
+
+&lt;h2 id=&quot;リツアンの特徴&quot;&gt;リツアンの特徴&lt;/h2&gt;
+&lt;h2 id=&quot;満たしてねw&quot;&gt;満たしてねw？&lt;/h2&gt;
 </description>
         <pubDate>Thu, 18 May 2017 06:11:33 +0900</pubDate>
         <link>https://sunoko.github.io/whoami/ritsuan/</link>

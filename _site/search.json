@@ -1,6 +1,27 @@
 [
   
     {
+      "title"    : "Powershellでプロセスを監視する",
+      "tags"     : "powershell",
+      "url"      : "/whoami/powershell-watch/",
+      "date"     : "22 May 2017"
+    } ,
+  
+    {
+      "title"    : "Powershellで保留されているRebootがあるか確認する",
+      "tags"     : "powershell",
+      "url"      : "/whoami/powershell-pending-reboot/",
+      "date"     : "22 May 2017"
+    } ,
+  
+    {
+      "title"    : "Railsのapiモードを使ってみる",
+      "tags"     : "rails",
+      "url"      : "/whoami/rails-api/",
+      "date"     : "22 May 2017"
+    } ,
+  
+    {
       "title"    : "PowershellでHyperVのVM作成自動化",
       "tags"     : "powershell",
       "url"      : "/whoami/powershell-hyperv/",

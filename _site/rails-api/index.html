@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ritsuan</title>
+    <title>Railsのapiモードを使ってみる</title>
     <meta name="description" content="A blog about development">
 
     <!-- Google Authorship Markup -->
@@ -14,15 +14,15 @@
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@lorem_ipsum">
-    <meta name="twitter:title" content="ritsuan">
+    <meta name="twitter:title" content="Railsのapiモードを使ってみる">
     <meta name="twitter:description" content="A blog about development">
     
     <meta property="twitter:image:src" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
 
     <!-- Social: Facebook / Open Graph -->
-    <meta property="og:url" content="https://sunoko.github.io/whoami/ritsuan/">
-    <meta property="og:title" content="ritsuan">
+    <meta property="og:url" content="https://sunoko.github.io/whoami/rails-api/">
+    <meta property="og:title" content="Railsのapiモードを使ってみる">
     
     <meta property="og:image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
@@ -30,7 +30,7 @@
     <meta property="og:site_name" content="Who am I ?">
 
     <!-- Social: Google+ / Schema.org  -->
-    <meta itemprop="name" content="ritsuan"/>
+    <meta itemprop="name" content="Railsのapiモードを使ってみる"/>
     <meta itemprop="description" content="A blog about development">
     <meta itemprop="image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png"/>
 
@@ -58,7 +58,7 @@
 
     <link rel="stylesheet" href="/whoami/assets/css/main.css">
     <link rel="stylesheet" href="/whoami/assets/css/custom.css">
-    <link rel="canonical" href="https://sunoko.github.io/whoami/ritsuan/">
+    <link rel="canonical" href="https://sunoko.github.io/whoami/rails-api/">
     <link rel="alternate" type="application/rss+xml" title="Who am I ?" href="https://sunoko.github.io/whoami/feed.xml" />
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -116,45 +116,93 @@
 <header class="header-post" role="banner">
      <div class="content">
         
-            <time itemprop="datePublished" datetime="2017-05-18T06:11:33+09:00" class="date">18 May 2017</time>
+            <time itemprop="datePublished" datetime="2017-05-22T17:03:20+09:00" class="date">22 May 2017</time>
         
-        <h1 class="post-title" itemprop="name">ritsuan</h1>
+        <h1 class="post-title" itemprop="name">Railsのapiモードを使ってみる</h1>
         <p itemprop="description" class="subtitle"></p>
     </div>
 </header>
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <h2 id="リツアンの紹介">リツアンの紹介</h2>
+                <div class="language-bash highlighter-rouge"><pre class="highlight"><code>rails new rails-api --api
+rails g scaffold users name:string email:string
+rails db:create
+rails db:migrate
+rails c
+User.create<span class="o">(</span>name:<span class="s2">"chinone"</span>,email:<span class="s2">"chinone@chinone.com"</span><span class="o">)</span>
+curl http://localhost:3000/users
+<span class="c"># [</span>
+<span class="c">#   {</span>
+<span class="c">#     "id": 1,</span>
+<span class="c">#     "name": "chinone",</span>
+<span class="c">#     "email": "chinone@chinone.com",</span>
+<span class="c">#     "created_at": "2017-05-19T07:00:17.309Z",</span>
+<span class="c">#     "updated_at": "2017-05-19T07:00:17.309Z"</span>
+<span class="c">#   }</span>
+<span class="c"># ]</span>
 
-<p>リツアンはエンジニアの給料にこだわります。
-『経費削減』『本部の小規模運営』『効率化』などに取り組んでいます。
-2007年9月28日
-406名
-32.2歳</p>
+rails g scaffold book title author_name published_on:date
+rails db:migrate
+rails c
+Book.create<span class="o">(</span>title:<span class="s2">"rails books"</span>,author_name:<span class="s2">"kazuki"</span><span class="o">)</span>
+curl http://localhost:3000/books
+<span class="c"># [</span>
+<span class="c">#   {</span>
+<span class="c">#     "id": 1,</span>
+<span class="c">#     "title": "rails books",</span>
+<span class="c">#     "author_name": "kazuki",</span>
+<span class="c">#     "published_on": null,</span>
+<span class="c">#     "created_at": "2017-05-19T07:05:10.818Z",</span>
+<span class="c">#     "updated_at": "2017-05-19T07:05:10.818Z"</span>
+<span class="c">#   }</span>
+<span class="c"># ]</span>
+</code></pre>
+</div>
 
-<h2 id="特定派遣エンジニアが思う不満">特定派遣エンジニアが思う不満</h2>
-<h2 id="特定派遣エンジニアがこうなれたらいいと思うこと">特定派遣エンジニアがこうなれたらいいと思うこと</h2>
-<p>魅力あるビジョン
-それを実現している
-社員の自由度</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>docker-compose run --rm app rails new . --api --force --database<span class="o">=</span>postgresql --skip-bundle
+docker-compose run --rm app bundle install
+docker-compose build
+<span class="c"># update config/docker-compose.yml</span>
+docker-compose run --rm app rails db:create
+<span class="c"># update Gemfile</span>
+<span class="c"># gem 'devise'</span>
+<span class="c"># gem 'active_model_serializers'</span>
+docker-compose up --build
+rails generate devise:install
+rails generate devise User
+rails generate migration add_access_token_to_user
+<span class="c"># add_column :users, :access_token, :string</span>
+rails db:migrate
 
-<h2 id="リツアンの特徴">リツアンの特徴</h2>
-<h2 id="満たしてねw">満たしてねw？</h2>
+<span class="c"># create user</span>
+curl localhost:5000/v1/users --data <span class="s1">'{"user": {"email": "user@example.com", "password": "mypass"}}'</span> -v -H <span class="s2">"Accept: application/json"</span> -H <span class="s2">"Content-type: application/json"</span>
+<span class="c"># get token</span>
+curl localhost:5000/v1/login --data <span class="s1">'email=user@example.com&amp;password=mypass'</span>
+<span class="c"># {"email":"user@example.com","token_type":"Bearer","user_id":1,"access_token":"1:HfJjaiU7v6Zs8Lt-XWDC"}</span>
+<span class="c"># get user</span>
+curl localhost:5000/v1/users -v -H <span class="s2">"Authorization: 1:HfJjaiU7v6Zs8Lt-XWDC"</span>
+<span class="c"># [{"id":1,"email":"user@example.com","created_at":"2017-05-19T07:36:53.061Z","updated_at":"2017-05-19T07:41:33.183Z"}]</span>
+
+<span class="c"># クロスドメイン通信</span>
+gem <span class="s1">'rack-cors'</span>
+http://uraway.hatenablog.com/entry/2016/07/11/090206
+</code></pre>
+</div>
 
             </article>
 
             <section class="share">
     <h3>Share</h3>
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20https://sunoko.github.io/ritsuan/%20via%20&#64;lorem_ipsum&hashtags=働き方,"
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20https://sunoko.github.io/rails-api/%20via%20&#64;lorem_ipsum&hashtags=rails,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://sunoko.github.io/ritsuan/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://sunoko.github.io/rails-api/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://sunoko.github.io/ritsuan/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://sunoko.github.io/rails-api/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ritsuan</title>
+    <title>Powershellでプロセスを監視する</title>
     <meta name="description" content="A blog about development">
 
     <!-- Google Authorship Markup -->
@@ -14,15 +14,15 @@
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@lorem_ipsum">
-    <meta name="twitter:title" content="ritsuan">
+    <meta name="twitter:title" content="Powershellでプロセスを監視する">
     <meta name="twitter:description" content="A blog about development">
     
     <meta property="twitter:image:src" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
 
     <!-- Social: Facebook / Open Graph -->
-    <meta property="og:url" content="https://sunoko.github.io/whoami/ritsuan/">
-    <meta property="og:title" content="ritsuan">
+    <meta property="og:url" content="https://sunoko.github.io/whoami/powershell-watch/">
+    <meta property="og:title" content="Powershellでプロセスを監視する">
     
     <meta property="og:image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png">
     
@@ -30,7 +30,7 @@
     <meta property="og:site_name" content="Who am I ?">
 
     <!-- Social: Google+ / Schema.org  -->
-    <meta itemprop="name" content="ritsuan"/>
+    <meta itemprop="name" content="Powershellでプロセスを監視する"/>
     <meta itemprop="description" content="A blog about development">
     <meta itemprop="image" content="https://sunoko.github.io/whoami/assets/img/blog-image.png"/>
 
@@ -58,7 +58,7 @@
 
     <link rel="stylesheet" href="/whoami/assets/css/main.css">
     <link rel="stylesheet" href="/whoami/assets/css/custom.css">
-    <link rel="canonical" href="https://sunoko.github.io/whoami/ritsuan/">
+    <link rel="canonical" href="https://sunoko.github.io/whoami/powershell-watch/">
     <link rel="alternate" type="application/rss+xml" title="Who am I ?" href="https://sunoko.github.io/whoami/feed.xml" />
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -116,45 +116,55 @@
 <header class="header-post" role="banner">
      <div class="content">
         
-            <time itemprop="datePublished" datetime="2017-05-18T06:11:33+09:00" class="date">18 May 2017</time>
+            <time itemprop="datePublished" datetime="2017-05-22T17:03:59+09:00" class="date">22 May 2017</time>
         
-        <h1 class="post-title" itemprop="name">ritsuan</h1>
+        <h1 class="post-title" itemprop="name">Powershellでプロセスを監視する</h1>
         <p itemprop="description" class="subtitle"></p>
     </div>
 </header>
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <h2 id="リツアンの紹介">リツアンの紹介</h2>
+                <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Watch-Process <span class="o">{</span>
+  <span class="k">param</span>
+  <span class="o">(</span>
+    <span class="o">[</span><span class="kt">string</span><span class="o">]</span><span class="nv">$ProcessName</span>,
+    <span class="o">[</span><span class="kt">int</span><span class="o">]</span><span class="nv">$Span</span>
+  <span class="o">)</span>
+  <span class="k">while</span> <span class="o">(</span><span class="nv">$true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nv">$process</span> <span class="o">=</span> <span class="nb">Get-Process</span> -Name <span class="nv">$ProcessName</span> -ErrorAction SilentlyContinue
+    <span class="k">if</span> <span class="o">(</span>!<span class="nv">$process</span><span class="o">)</span> <span class="o">{</span> <span class="nb">Write-Host</span> <span class="s2">"not exist </span><span class="nv">$ProcessName</span><span class="s2">"</span>; <span class="k">break</span> <span class="o">}</span>
+    <span class="nv">$process</span>
+    <span class="nb">Start-Sleep</span> -Second <span class="nv">$Span</span>
+  <span class="o">}</span>
+<span class="o">}</span>
 
-<p>リツアンはエンジニアの給料にこだわります。
-『経費削減』『本部の小規模運営』『効率化』などに取り組んでいます。
-2007年9月28日
-406名
-32.2歳</p>
+Watch-Process -ProcessName wuauclt -Span 60
 
-<h2 id="特定派遣エンジニアが思う不満">特定派遣エンジニアが思う不満</h2>
-<h2 id="特定派遣エンジニアがこうなれたらいいと思うこと">特定派遣エンジニアがこうなれたらいいと思うこと</h2>
-<p>魅力あるビジョン
-それを実現している
-社員の自由度</p>
-
-<h2 id="リツアンの特徴">リツアンの特徴</h2>
-<h2 id="満たしてねw">満たしてねw？</h2>
+<span class="c1"># Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName</span>
+<span class="c1"># -------  ------    -----      -----     ------     --  -- -----------</span>
+<span class="c1">#      78       6      860       3924       0.02   7760   7 PING</span>
+<span class="c1">#      78       6      860       3924       0.02   7760   7 PING</span>
+<span class="c1">#      78       6      860       3924       0.02   7760   7 PING</span>
+<span class="c1">#      78       6      860       3924       0.02   7760   7 PING</span>
+<span class="c1">#      78       6      872       3936       0.02   7760   7 PING</span>
+<span class="c1"># not exist ping</span>
+</code></pre>
+</div>
 
             </article>
 
             <section class="share">
     <h3>Share</h3>
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20https://sunoko.github.io/ritsuan/%20via%20&#64;lorem_ipsum&hashtags=働き方,"
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20https://sunoko.github.io/powershell-watch/%20via%20&#64;lorem_ipsum&hashtags=powershell,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://sunoko.github.io/ritsuan/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=https://sunoko.github.io/powershell-watch/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://sunoko.github.io/ritsuan/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=https://sunoko.github.io/powershell-watch/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>

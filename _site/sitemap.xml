@@ -55,6 +55,18 @@
     
     
         <url>
+            <loc>https://sunoko.github.io/whoami/powershell-watch/</loc>
+        </url>
+  
+        <url>
+            <loc>https://sunoko.github.io/whoami/powershell-pending-reboot/</loc>
+        </url>
+  
+        <url>
+            <loc>https://sunoko.github.io/whoami/rails-api/</loc>
+        </url>
+  
+        <url>
             <loc>https://sunoko.github.io/whoami/powershell-hyperv/</loc>
         </url>
   
