@@ -5,8 +5,8 @@
     <description>A blog about development</description>
     <link>https://sunoko.github.io/whoami/</link>
     <atom:link href="https://sunoko.github.io/whoami/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 23 May 2017 20:36:11 +0900</pubDate>
-    <lastBuildDate>Tue, 23 May 2017 20:36:11 +0900</lastBuildDate>
+    <pubDate>Tue, 23 May 2017 20:38:07 +0900</pubDate>
+    <lastBuildDate>Tue, 23 May 2017 20:38:07 +0900</lastBuildDate>
     <generator>Jekyll v3.3.0</generator>
     
       <item>
@@ -182,7 +182,7 @@ Test-Return
       </item>
     
       <item>
-        <title>ritsuan</title>
+        <title>「リツアンSTC」でエンジニア派遣の不満を解消する</title>
         <description>&lt;h2 id=&quot;リツアンの紹介&quot;&gt;リツアンの紹介&lt;/h2&gt;
 
 &lt;p&gt;エンジニアの給料にこだわっている。数字で表すと、他の派遣会社よりマージン率が10%～20％低い。
