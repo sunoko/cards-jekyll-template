@@ -125,7 +125,10 @@
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Get-PendingReboot <span class="o">{</span> 
+                <p>WindowsUpdateやらソフトウェアのインストール後に再起動が求められる場合がありますが、その再起動待ちがあるのか確認できます。
+サーバーだと頻繁に再起動できないので保留にしがちですが、そういえば再起動待ちってあったっけ？という場合に使えるのではないでしょうか。</p>
+
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Get-PendingReboot <span class="o">{</span> 
   <span class="o">[</span><span class="na">CmdletBinding</span><span class="o">()]</span> 
   <span class="k">param</span><span class="o">(</span> 
     <span class="o">[</span><span class="kt">string</span><span class="o">]</span><span class="nv">$Computer</span> <span class="o">=</span> <span class="s2">"</span><span class="nv">$env</span><span class="s2">:COMPUTERNAME"</span>,
@@ -170,6 +173,7 @@
     RebootPending = (</span><span class="nv">$RenameComputer</span><span class="s2"> -or </span><span class="nv">$CBSRebootPend</span><span class="s2"> -or </span><span class="nv">$WUAURebootReq</span><span class="s2"> -or </span><span class="nv">$RenameFile</span><span class="s2">) 
   } | Select-Object Computer, CBServicing, WindowsUpdate, PendComputerRename, RenameFile, RebootPending
 }
+
 Get-PendingReboot
 # Computer           : P26564
 # CBServicing        : False

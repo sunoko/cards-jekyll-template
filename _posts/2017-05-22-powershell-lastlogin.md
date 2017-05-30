@@ -9,6 +9,9 @@ twitter_text:
 introduction:
 ---
 
+最後にログインしたユーザーを取得できます。
+何か問題が起きた時に犯人を突き止めちゃいましょう。
+
 ```powershell
 function Get-LastLogon { 
   [CmdletBinding()] 

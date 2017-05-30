@@ -125,7 +125,10 @@
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Watch-Process <span class="o">{</span>
+                <p>プロセスの生存確認できます。監視したいプロセス名と何秒間隔で確認したいかを指定するだけですね。
+ソフトウェアのインストールや動作確認、サーバープロセスの生存確認などで使用できるのではないでしょうか。</p>
+
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Watch-Process <span class="o">{</span>
   <span class="k">param</span>
   <span class="o">(</span>
     <span class="o">[</span><span class="kt">string</span><span class="o">]</span><span class="nv">$ProcessName</span>,

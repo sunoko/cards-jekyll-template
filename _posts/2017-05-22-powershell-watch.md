@@ -9,6 +9,9 @@ twitter_text:
 introduction:
 ---
 
+プロセスの生存確認できます。監視したいプロセス名と何秒間隔で確認したいかを指定するだけですね。
+ソフトウェアのインストールや動作確認、サーバープロセスの生存確認などで使用できるのではないでしょうか。
+
 ```powershell
 function Watch-Process {
   param

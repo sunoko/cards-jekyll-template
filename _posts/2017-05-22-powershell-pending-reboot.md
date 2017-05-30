@@ -9,6 +9,9 @@ twitter_text:
 introduction:
 ---
 
+WindowsUpdateやらソフトウェアのインストール後に再起動が求められる場合がありますが、その再起動待ちがあるのか確認できます。
+サーバーだと頻繁に再起動できないので保留にしがちですが、そういえば再起動待ちってあったっけ？という場合に使えるのではないでしょうか。
+
 ```powershell
 function Get-PendingReboot { 
   [CmdletBinding()] 
@@ -55,6 +58,7 @@ function Get-PendingReboot {
     RebootPending = ($RenameComputer -or $CBSRebootPend -or $WUAURebootReq -or $RenameFile) 
   } | Select-Object Computer, CBServicing, WindowsUpdate, PendComputerRename, RenameFile, RebootPending
 }
+
 Get-PendingReboot
 # Computer           : P26564
 # CBServicing        : False

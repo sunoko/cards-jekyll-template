@@ -125,7 +125,10 @@
         <section class="post">
 
             <article role="article" id="post" class="post-content" itemprop="articleBody">
-                <div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Get-LastLogon <span class="o">{</span> 
+                <p>最後にログインしたユーザーを取得できます。
+何か問題が起きた時に犯人を突き止めちゃいましょう。</p>
+
+<div class="language-powershell highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>Get-LastLogon <span class="o">{</span> 
   <span class="o">[</span><span class="na">CmdletBinding</span><span class="o">()]</span> 
   <span class="k">param</span><span class="o">(</span> 
     <span class="o">[</span><span class="kt">String</span><span class="o">]</span><span class="nv">$Computer</span><span class="o">=</span><span class="s2">"</span><span class="nv">$env</span><span class="s2">:COMPUTERNAME"</span>, 
